@@ -1,0 +1,128 @@
+[merge]
+  # opendiff is part of XCode for osx
+  tool = opendiff
+
+[core]
+  # default ignored files for OSX; see below
+  excludesfile = ~/.gitignore
+  editor = vim
+  preloadindex = true
+
+[alias]
+  fa = fetch --all
+  # git status shortcut
+  st = !"git --no-pager status; git --no-pager diff --stat"
+  # git diff
+  d = diff
+  # git checkout shortcut
+  co = checkout
+  # git rebase shortcut
+  rb = rebase
+  # git cherry-pick shortcut
+  cp = cherry-pick
+  # git commit shortcut
+  cm = commit
+  # git branch shortcut
+  br = branch
+  # sexier looking shortlog; git lg FROM..TO
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  # show an ASCII version of the commit tree
+  tree = !"git log --graph --decorate --oneline --all; git --no-pager diff --stat"
+  t = !"git tree"
+  tiny-tree = !"git log --graph --decorate --oneline; git --no-pager diff --stat"
+  tt = !"git tiny-tree"
+  # The wip allows for a quick way to add all new and modified files to the index, while cleaning the index from the files removed from the working tree.
+  wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m \"wip\""
+  # The unwip will restore the deleted files to the working tree!
+  unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
+  # returns the current branch name
+  me = rev-parse --abbrev-ref HEAD
+  # pushes current branch to the specified remote, defaults to origin
+  pm = !"git pushme"
+  pmf = !"git pushme --force"
+  # pushes current branch to upstream/master
+  mm = !"git masterme"
+  # delete current branch from upstream, origin, and locally
+  km = !"git killme"
+  kmf = !"git killme --force"
+  # shorthand for fixup
+  fu = !"git fixup"
+  # shorthand for commit-all
+  cma = !"git commit-all"
+  # browse the current head on github
+  bro = !"hub browse -- commit/`git rev-parse HEAD`"
+  # better blame
+  changes = !"git log --follow -p "
+  # rebase on upstream/master
+  rbm = rebase-master
+  # rebase on most recent ancestor
+  rbr = rebase-relevant
+  # hard reset to master
+  rhm = reset-hard-master
+  # hard reset to ancestor
+  rhr = reset-relevant
+  # git branches
+  brs = branches
+  # show staged diff
+  staged = diff --staged
+  # print root git directory
+  root = !"pwd"
+  # show the diff stats of the latest commit
+  stat = !"git --no-pager diff --stat HEAD^..HEAD"
+  # git show aliases
+  last = show
+  la = show
+  # fallback alias
+  fb = fallback
+  # reset --hard
+  rh = reset --hard
+  # git amend aliases
+  amend = commit --amend
+  a = commit --amend
+  aa = amend-all
+  aaa = amend-all-annotation
+  # git semver alias
+  ver = semver
+  # git clone --depth=1 alias
+  shallow = clone --depth=1
+  rbb = rebase-back
+  sb = show-back
+  rename = branch -m
+  rn = branch -m
+  sync = !"git push origin upstream/master:master -f"
+  s = !"git sync"
+  pt = push --tags
+  ptu = push --tags upstream
+  ta = tag-after
+  rpu = remote prune upstream
+
+[user]
+  name = Fletcher Fowler
+  email = fletch@fzf.me
+
+[github]
+  user = fzf
+
+[credential]
+  helper = osxkeychain
+
+[color]
+  ui = auto
+
+[init]
+  templatedir = ~/.dots/git/templates
+
+[remotes]
+  default = origin upstream
+
+[push]
+  default = origin
+
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+
+[commit]
+  verbose = true
