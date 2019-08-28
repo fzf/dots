@@ -3,16 +3,18 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'takkii/Bignyanco'
+Plug 'eugen0329/vim-esearch'
+Plug 'ddrscott/vim-side-search'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
@@ -27,6 +29,7 @@ Plug 'dyng/ctrlsf.vim'
 
 set hidden
 
+let mapleader = ","
 let g:LanguageClient_serverCommands = { 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'] }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -52,6 +55,10 @@ noremap <C-D> <C-W><C-H>
 nnoremap <C-H> <C-W><C-J>
 nnoremap <C-T> <C-W><C-K>
 nnoremap <C-N> <C-W><C-L>
+nnoremap <C-w>d <C-w>h
+nnoremap <C-w>h <C-w>j
+nnoremap <C-w>t <C-w>k
+nnoremap <C-w>n <C-w>l
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -71,6 +78,7 @@ set encoding=utf-8
 set number
 set nohlsearch
 
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -78,6 +86,8 @@ map <C-f> :Ag<CR>
 map <C-P> :FZF<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
+let g:esearch = {
+  \ 'out': 'qflist' }
 let g:fzf_action = {
   \ 'ctrl-c': 'tab split',
   \ 'ctrl-n': 'split',
