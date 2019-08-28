@@ -109,14 +109,11 @@
 [color]
   ui = auto
 
-[init]
-  templatedir = ~/.dots/git/templates
-
 [remotes]
   default = origin upstream
 
 [push]
-  default = origin
+  default = current
 
 [filter "lfs"]
   process = git-lfs filter-process
