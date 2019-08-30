@@ -43,3 +43,4 @@ do
     Size.moveLocation(direction)
   end)
 end
+hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon

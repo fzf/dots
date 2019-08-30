@@ -13,10 +13,10 @@ local locations = {
 }
 
 local directions = {
-  left  = { x=-0.1, y=0    },
-  right = { x=0.1,  y=0    },
-  up    = { x=0,    y=-0.1  },
-  down  = { x=0,    y=0.1 }
+  left  = { x=-0.5, y=0    },
+  right = { x=0.5,  y=0    },
+  up    = { x=0,    y=-0.5  },
+  down  = { x=0,    y=0.5 }
 }
 
 local function retrieveState()
