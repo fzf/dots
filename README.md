@@ -1,0 +1,1 @@
+`curl -s https://gitlab.com/fzf/dots/raw/master/install.sh | sh`
