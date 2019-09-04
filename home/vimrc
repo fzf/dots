@@ -1,3 +1,9 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
@@ -28,20 +34,14 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'dyng/ctrlsf.vim'
 
+call plug#end()
+
 set hidden
 
 let mapleader = ","
 let g:LanguageClient_serverCommands = { 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'] }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
 :au FocusLost * silent! wa
-
-call plug#end()
 
 no d h
 no h j
@@ -60,6 +60,9 @@ nnoremap <C-w>d <C-w>h
 nnoremap <C-w>h <C-w>j
 nnoremap <C-w>t <C-w>k
 nnoremap <C-w>n <C-w>l
+nnoremap <leader>y "+y
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>d :bprev<CR>
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -79,7 +82,6 @@ set encoding=utf-8
 set number
 set nohlsearch
 
-
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -87,6 +89,7 @@ map <C-f> :Ag<CR>
 map <C-P> :FZF<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
+
 let g:esearch = {
   \ 'out': 'qflist' }
 let g:fzf_action = {
