@@ -16,23 +16,25 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'wsdjeg/vim-fetch'
-Plug 'dyng/ctrlsf.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'takkii/Bignyanco'
-Plug 'eugen0329/vim-esearch'
-Plug 'ddrscott/vim-side-search'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'ap/vim-buftabline'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'ddrscott/vim-side-search'
+Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'eugen0329/vim-esearch'
+Plug 'ivalkeen/nerdtree-execute'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'vim-ruby/vim-ruby'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'takkii/Bignyanco'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'thoughtbot/vim-rspec'
-Plug 'dyng/ctrlsf.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'wsdjeg/vim-fetch'
 
 call plug#end()
 
@@ -41,7 +43,7 @@ set hidden
 let mapleader = ","
 let g:LanguageClient_serverCommands = { 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'] }
 
-:au FocusLost * silent! wa
+autocmd BufLeave,FocusLost,VimResized * silent! wall
 
 no d h
 no h j
@@ -81,6 +83,7 @@ set showcmd
 set encoding=utf-8
 set number
 set nohlsearch
+set autoread
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
