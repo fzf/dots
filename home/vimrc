@@ -23,6 +23,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ddrscott/vim-side-search'
 Plug 'dyng/ctrlsf.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'ervandew/supertab'
 Plug 'eugen0329/vim-esearch'
 Plug 'ivalkeen/nerdtree-execute'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
