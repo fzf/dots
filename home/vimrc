@@ -63,7 +63,6 @@ nnoremap <C-w>d <C-w>h
 nnoremap <C-w>h <C-w>j
 nnoremap <C-w>t <C-w>k
 nnoremap <C-w>n <C-w>l
-nnoremap <leader>y "+y
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>d :bprev<CR>
 
@@ -73,18 +72,20 @@ let NERDTreeMapOpenInTab='\t'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-set expandtab
-set tabstop=2 shiftwidth=2
-set nocompatible
-set mouse=a
 syntax enable
 syntax on
 filetype plugin indent on
-set showcmd
-set encoding=utf-8
-set number
-set nohlsearch
+
 set autoread
+set clipboard=unnamed
+set encoding=utf-8
+set expandtab
+set mouse=a
+set nocompatible
+set nohlsearch
+set number
+set showcmd
+set tabstop=2 shiftwidth=2
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
