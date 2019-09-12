@@ -33,7 +33,7 @@
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-# c.backend = 'webengine'
+c.backend = 'webengine'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
@@ -467,7 +467,7 @@
 ## Shrink the completion to be smaller than the configured size if there
 ## are no scrollbars.
 ## Type: Bool
-# c.completion.shrink = False
+c.completion.shrink = True
 
 ## Format of timestamps (e.g. for the history completion). See
 ## https://sqlite.org/lang_datefunc.html for allowed substitutions.
@@ -476,7 +476,7 @@
 
 ## Execute the best-matching command on a partial match.
 ## Type: Bool
-# c.completion.use_best_match = False
+c.completion.use_best_match = True
 
 ## A list of patterns which should not be shown in the history. This only
 ## affects the completion. Matching URLs are still saved in the history
@@ -562,7 +562,7 @@
 
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
-# c.content.dns_prefetch = False
+c.content.dns_prefetch = True
 
 ## Expand each subframe to its contents. This will flatten all the frames
 ## to become one scrollable page.
@@ -630,7 +630,7 @@
 ## setting with a URL pattern instead. Local domains are always exempt
 ## from hostblocking.
 ## Type: List of UrlPattern
-# c.content.host_blocking.whitelist = ['piwik.org']
+c.content.host_blocking.whitelist = ['rollbar.com']
 
 ## Enable hyperlink auditing (`<a ping>`).
 ## Type: Bool
@@ -728,7 +728,7 @@
 ## still be downloaded by clicking the download button in the pdf.js
 ## viewer.
 ## Type: Bool
-# c.content.pdfjs = False
+c.content.pdfjs = True
 
 ## Allow websites to request persistent storage quota via
 ## `navigator.webkitPersistentStorage.requestQuota`.
@@ -843,7 +843,7 @@
 ## Valid values:
 ##   - top
 ##   - bottom
-# c.downloads.position = 'top'
+c.downloads.position = 'bottom'
 
 ## Duration (in milliseconds) to wait before removing finished downloads.
 ## If set to -1, downloads are never removed.
@@ -857,7 +857,7 @@
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -865,56 +865,56 @@
 
 ## Font used in the completion categories.
 ## Type: Font
-c.fonts.completion.category = 'bold 14pt monospace'
+c.fonts.completion.category = 'bold 16pt monospace'
 
 ## Font used in the completion widget.
 ## Type: Font
-c.fonts.completion.entry = '14pt monospace'
+c.fonts.completion.entry = '16pt monospace'
 
 ## Font used for the debugging console.
 ## Type: QtFont
-c.fonts.debug_console = '14pt monospace'
+c.fonts.debug_console = '16pt monospace'
 
 ## Font used for the downloadbar.
 ## Type: Font
-c.fonts.downloads = '14pt monospace'
+c.fonts.downloads = '16pt monospace'
 
 ## Font used for the hints.
 ## Type: Font
-c.fonts.hints = 'bold 14pt monospace'
+c.fonts.hints = 'bold 16pt monospace'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-c.fonts.keyhint = '14pt monospace'
+c.fonts.keyhint = '16pt monospace'
 
 ## Font used for error messages.
 ## Type: Font
-c.fonts.messages.error = '14pt monospace'
+c.fonts.messages.error = '16pt monospace'
 
 ## Font used for info messages.
 ## Type: Font
-c.fonts.messages.info = '14pt monospace'
+c.fonts.messages.info = '16pt monospace'
 
 ## Font used for warning messages.
 ## Type: Font
-c.fonts.messages.warning = '14pt monospace'
+c.fonts.messages.warning = '16pt monospace'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
-# c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
 
 ## Font used for prompts.
 ## Type: Font
-c.fonts.prompts = '14pt sans-serif'
+c.fonts.prompts = '16pt sans-serif'
 
 ## Font used in the statusbar.
 ## Type: Font
-c.fonts.statusbar = '14pt monospace'
+c.fonts.statusbar = '16pt monospace'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-c.fonts.tabs = '14pt monospace'
+c.fonts.tabs = '16pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -1062,7 +1062,7 @@ c.fonts.tabs = '14pt monospace'
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
 ## Type: Bool
-# c.input.insert_mode.auto_load = False
+c.input.insert_mode.auto_load = True
 
 ## Leave insert mode when starting a new page load. Patterns may be
 ## unreliable on this setting, and they may match the url you are
@@ -1212,7 +1212,7 @@ c.fonts.tabs = '14pt monospace'
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
 ## Type: Bool
-# c.scrolling.smooth = False
+c.scrolling.smooth = True
 
 ## When to find text on a page case-insensitively.
 ## Type: IgnoreCase
@@ -1437,7 +1437,7 @@ c.fonts.tabs = '14pt monospace'
 ##   - bottom
 ##   - left
 ##   - right
-# c.tabs.position = 'top'
+c.tabs.position = 'top'
 
 ## Which tab to select when the focused tab is removed.
 ## Type: SelectOnRemove
@@ -1653,7 +1653,7 @@ config.bind('H', 'tab-next')
 config.bind('T', 'tab-prev')
 config.bind('N', 'forward')
 # config.bind('M', 'bookmark-add')
-# config.bind('N', 'search-prev')
+config.bind('L', 'search-prev')
 # config.bind('O', 'set-cmd-text -s :open -t')
 # config.bind('PP', 'open -t -- {primary}')
 # config.bind('Pp', 'open -t -- {clipboard}')
@@ -1700,7 +1700,7 @@ config.bind('h', 'scroll down')
 config.bind('t', 'scroll up')
 config.bind('n', 'scroll right')
 # config.bind('m', 'quickmark-save')
-# config.bind('n', 'search-next')
+config.bind('l', 'search-next')
 # config.bind('o', 'set-cmd-text -s :open')
 # config.bind('pP', 'open -- {primary}')
 # config.bind('pp', 'open -- {clipboard}')
