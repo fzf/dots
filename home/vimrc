@@ -53,13 +53,20 @@ let g:LanguageClient_serverCommands = { 'ruby': ['~/.rbenv/shims/solargraph', 's
 autocmd BufLeave,FocusLost,VimResized * silent! wall
 
 no d h
+no D H
 no h j
+no H J
 no t k
+no T K
 no n l
+no N L
 
 no j d
+no J D
 no k t
+no K T
 no l n
+no L N
 
 noremap <C-D> <C-W><C-H>
 nnoremap <C-H> <C-W><C-J>
