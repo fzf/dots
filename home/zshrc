@@ -1,7 +1,7 @@
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # If you come from bash you might have to change your $PATH.
-export PATH=.bin/:$HOME/bin:/usr/local/bin:$PATH
+export PATH=.bin/:$HOME/bin:/usr/local/bin:$HOME/.dots/scripts:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/fzf/.oh-my-zsh

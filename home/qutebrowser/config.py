@@ -472,7 +472,7 @@ c.completion.shrink = True
 ## Format of timestamps (e.g. for the history completion). See
 ## https://sqlite.org/lang_datefunc.html for allowed substitutions.
 ## Type: String
-# c.completion.timestamp_format = '%Y-%m-%d'
+# c.completion.timestamp_format = '%Y-%m-%d %H:%M:%S'
 
 ## Execute the best-matching command on a partial match.
 ## Type: Bool
@@ -857,7 +857,7 @@ c.downloads.position = 'bottom'
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1107,7 +1107,7 @@ c.input.insert_mode.auto_load = True
 ## Time (in milliseconds) from pressing a key to seeing the keyhint
 ## dialog.
 ## Type: Int
-# c.keyhint.delay = 500
+c.keyhint.delay = 1000
 
 ## Rounding radius (in pixels) for the edges of the keyhint dialog.
 ## Type: Int
@@ -1600,15 +1600,15 @@ c.tabs.position = 'top'
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-# config.bind('<Alt-1>', 'tab-focus 1')
-# config.bind('<Alt-2>', 'tab-focus 2')
-# config.bind('<Alt-3>', 'tab-focus 3')
-# config.bind('<Alt-4>', 'tab-focus 4')
-# config.bind('<Alt-5>', 'tab-focus 5')
-# config.bind('<Alt-6>', 'tab-focus 6')
-# config.bind('<Alt-7>', 'tab-focus 7')
-# config.bind('<Alt-8>', 'tab-focus 8')
-# config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Ctrl-1>', 'tab-focus 1')
+config.bind('<Ctrl-2>', 'tab-focus 2')
+config.bind('<Ctrl-3>', 'tab-focus 3')
+config.bind('<Ctrl-4>', 'tab-focus 4')
+config.bind('<Ctrl-5>', 'tab-focus 5')
+config.bind('<Ctrl-6>', 'tab-focus 6')
+config.bind('<Ctrl-7>', 'tab-focus 7')
+config.bind('<Ctrl-8>', 'tab-focus 8')
+config.bind('<Ctrl-9>', 'tab-focus -1')
 # config.bind('<Alt-m>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
@@ -1625,7 +1625,7 @@ c.tabs.position = 'top'
 # config.bind('<Ctrl-Shift-T>', 'undo')
 # config.bind('<Ctrl-Shift-Tab>', 'nop')
 # config.bind('<Ctrl-Shift-W>', 'close')
-# config.bind('<Ctrl-T>', 'open -t')
+config.bind('<Ctrl-T>', 'set-cmd-text -s :open -t')
 # config.bind('<Ctrl-Tab>', 'tab-focus last')
 # config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
 # config.bind('<Ctrl-V>', 'enter-mode passthrough')
@@ -1649,8 +1649,8 @@ config.bind('X', 'tab-close -o')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
 config.bind('D', 'back')
-config.bind('H', 'tab-next')
-config.bind('T', 'tab-prev')
+config.bind('T', 'tab-next')
+config.bind('H', 'tab-prev')
 config.bind('N', 'forward')
 # config.bind('M', 'bookmark-add')
 config.bind('L', 'search-prev')
@@ -1762,6 +1762,7 @@ config.bind('l', 'search-next')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
 # config.bind('<Ctrl-Space>', 'drop-selection', mode='caret')
 # config.bind('<Escape>', 'leave-mode', mode='caret')
+config.bind('<Ctrl-c>', 'leave-mode', mode='caret')
 # config.bind('<Return>', 'yank selection', mode='caret')
 # config.bind('<Space>', 'toggle-selection', mode='caret')
 # config.bind('G', 'move-to-end-of-document', mode='caret')
@@ -1812,6 +1813,7 @@ config.bind('n', 'move-to-next-char', mode='caret')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 # config.bind('<Down>', 'completion-item-focus --history next', mode='command')
 # config.bind('<Escape>', 'leave-mode', mode='command')
+config.bind('<Ctrl-c>', 'leave-mode', mode='command')
 # config.bind('<Return>', 'command-accept', mode='command')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
@@ -1823,11 +1825,13 @@ config.bind('n', 'move-to-next-char', mode='caret')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
 # config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'leave-mode', mode='hint')
+config.bind('<Ctrl-c>', 'leave-mode', mode='hint')
 # config.bind('<Return>', 'follow-hint', mode='hint')
 
 ## Bindings for insert mode
 # config.bind('<Ctrl-E>', 'open-editor', mode='insert')
 # config.bind('<Escape>', 'leave-mode', mode='insert')
+config.bind('<Ctrl-c>', 'leave-mode', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 
 ## Bindings for passthrough mode
