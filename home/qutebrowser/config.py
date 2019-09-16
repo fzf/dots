@@ -19,7 +19,7 @@
 
 ## Always restore open sites when qutebrowser is reopened.
 ## Type: Bool
-# c.auto_save.session = False
+c.auto_save.session = True
 
 ## Backend to use to display websites. qutebrowser supports two different
 ## web rendering engines / backends, QtWebKit and QtWebEngine. QtWebKit
@@ -33,7 +33,7 @@
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-c.backend = 'webengine'
+c.backend = 'webkit'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
@@ -857,7 +857,7 @@ c.downloads.position = 'bottom'
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['/usr/local/bin/gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1762,7 +1762,7 @@ config.bind('l', 'search-next')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
 # config.bind('<Ctrl-Space>', 'drop-selection', mode='caret')
 # config.bind('<Escape>', 'leave-mode', mode='caret')
-config.bind('<Ctrl-c>', 'leave-mode', mode='caret')
+config.bind('<Ctrl-C>', 'leave-mode', mode='caret')
 # config.bind('<Return>', 'yank selection', mode='caret')
 # config.bind('<Space>', 'toggle-selection', mode='caret')
 # config.bind('G', 'move-to-end-of-document', mode='caret')
@@ -1812,26 +1812,28 @@ config.bind('n', 'move-to-next-char', mode='caret')
 # config.bind('<Ctrl-W>', 'rl-unix-word-rubout', mode='command')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 # config.bind('<Down>', 'completion-item-focus --history next', mode='command')
+config.bind('<Ctrl-H>', 'completion-item-focus --history next', mode='command')
 # config.bind('<Escape>', 'leave-mode', mode='command')
-config.bind('<Ctrl-c>', 'leave-mode', mode='command')
+config.bind('<Ctrl-C>', 'leave-mode', mode='command')
 # config.bind('<Return>', 'command-accept', mode='command')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
 # config.bind('<Tab>', 'completion-item-focus next', mode='command')
 # config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
+config.bind('<Ctrl-T>', 'completion-item-focus --history prev', mode='command')
 
 ## Bindings for hint mode
 # config.bind('<Ctrl-B>', 'hint all tab-bg', mode='hint')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
 # config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'leave-mode', mode='hint')
-config.bind('<Ctrl-c>', 'leave-mode', mode='hint')
+config.bind('<Ctrl-C>', 'leave-mode', mode='hint')
 # config.bind('<Return>', 'follow-hint', mode='hint')
 
 ## Bindings for insert mode
 # config.bind('<Ctrl-E>', 'open-editor', mode='insert')
 # config.bind('<Escape>', 'leave-mode', mode='insert')
-config.bind('<Ctrl-c>', 'leave-mode', mode='insert')
+config.bind('<Ctrl-C>', 'leave-mode', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 
 ## Bindings for passthrough mode
