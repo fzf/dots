@@ -33,7 +33,7 @@ c.auto_save.session = True
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-c.backend = 'webkit'
+c.backend = 'webengine'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
@@ -472,7 +472,7 @@ c.completion.shrink = True
 ## Format of timestamps (e.g. for the history completion). See
 ## https://sqlite.org/lang_datefunc.html for allowed substitutions.
 ## Type: String
-# c.completion.timestamp_format = '%Y-%m-%d %H:%M:%S'
+c.completion.timestamp_format = '%Y-%m-%d %H:%M:%S'
 
 ## Execute the best-matching command on a partial match.
 ## Type: Bool
@@ -881,7 +881,7 @@ c.fonts.downloads = '16pt monospace'
 
 ## Font used for the hints.
 ## Type: Font
-c.fonts.hints = 'bold 16pt monospace'
+c.fonts.hints = 'bold 12pt monospace'
 
 ## Font used in the keyhint widget.
 ## Type: Font
@@ -1107,7 +1107,7 @@ c.input.insert_mode.auto_load = True
 ## Time (in milliseconds) from pressing a key to seeing the keyhint
 ## dialog.
 ## Type: Int
-c.keyhint.delay = 1000
+c.keyhint.delay = 0
 
 ## Rounding radius (in pixels) for the edges of the keyhint dialog.
 ## Type: Int
@@ -1544,7 +1544,7 @@ c.tabs.position = 'top'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'dd': 'https://duckduckgo.com/?q={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1600,15 +1600,15 @@ c.tabs.position = 'top'
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-config.bind('<Ctrl-1>', 'tab-focus 1')
-config.bind('<Ctrl-2>', 'tab-focus 2')
-config.bind('<Ctrl-3>', 'tab-focus 3')
-config.bind('<Ctrl-4>', 'tab-focus 4')
-config.bind('<Ctrl-5>', 'tab-focus 5')
-config.bind('<Ctrl-6>', 'tab-focus 6')
-config.bind('<Ctrl-7>', 'tab-focus 7')
-config.bind('<Ctrl-8>', 'tab-focus 8')
-config.bind('<Ctrl-9>', 'tab-focus -1')
+config.bind(',1', 'tab-focus 1')
+config.bind(',2', 'tab-focus 2')
+config.bind(',3', 'tab-focus 3')
+config.bind(',4', 'tab-focus 4')
+config.bind(',5', 'tab-focus 5')
+config.bind(',6', 'tab-focus 6')
+config.bind(',7', 'tab-focus 7')
+config.bind(',8', 'tab-focus 8')
+config.bind(',9', 'tab-focus -1')
 # config.bind('<Alt-m>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
