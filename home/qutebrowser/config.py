@@ -1363,7 +1363,7 @@ c.scrolling.smooth = True
 ##   - startpage: Load the start page.
 ##   - default-page: Load the default page.
 ##   - close: Close the window.
-# c.tabs.last_close = 'ignore'
+c.tabs.last_close = 'close'
 
 ## Maximum width (in pixels) of tabs (-1 for no maximum). This setting
 ## only applies when tabs are horizontal. This setting does not apply to
@@ -1517,7 +1517,7 @@ c.tabs.position = 'top'
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-# c.url.default_page = 'https://start.duckduckgo.com/'
+c.url.default_page = 'about:blank'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1632,8 +1632,8 @@ config.bind('<Ctrl-T>', 'set-cmd-text -s :open -t')
 # config.bind('<Ctrl-W>', 'tab-close')
 # config.bind('<Ctrl-X>', 'navigate decrement')
 # config.bind('<Ctrl-^>', 'tab-focus last')
-# config.bind('<Ctrl-h>', 'home')
-# config.bind('<Ctrl-p>', 'tab-pin')
+config.bind('<Ctrl-h>', 'tab-prev')
+config.bind('<Ctrl-p>', 'set-cmd-text -s :open -t')
 # config.bind('<Ctrl-s>', 'stop')
 # config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 # config.bind('<F11>', 'fullscreen')
