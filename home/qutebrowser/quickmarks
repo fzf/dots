@@ -1,1 +1,4 @@
 Kibana Logs https://search-chimelogs-xiwu5ozvfovmmkyuzbqu2xa5j4.us-east-1.es.amazonaws.com/_plugin/kibana/app/kibana#/discover?_g=()&_a=(columns:!(_source),index:e7422750-39e0-11e8-ab19-f7446fa52736,interval:auto,query:(language:lucene,query:''),sort:!('@timestamp',desc))
+Pull Requests https://github.com/pulls
+Flipper https://admin.1debit.com/admin/flipper/features
+Sidekiq https://admin.1debit.com/admin/sidekiq/queues

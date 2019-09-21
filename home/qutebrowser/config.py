@@ -1284,7 +1284,7 @@ c.scrolling.smooth = True
 ##   - tr-TR: Turkish (Turkey)
 ##   - uk-UA: Ukrainian (Ukraine)
 ##   - vi-VN: Vietnamese (Viet Nam)
-# c.spellcheck.languages = []
+c.spellcheck.languages = ['en-US']
 
 ## Hide the statusbar unless a message is shown.
 ## Type: Bool
@@ -1648,10 +1648,10 @@ config.bind('<Ctrl-p>', 'set-cmd-text -s :open -t')
 config.bind('X', 'tab-close -o')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
-config.bind('D', 'back')
-config.bind('T', 'tab-next')
-config.bind('H', 'tab-prev')
-config.bind('N', 'forward')
+config.bind('N', 'tab-next')
+config.bind('H', 'back')
+config.bind('T', 'forward')
+config.bind('D', 'tab-prev')
 # config.bind('M', 'bookmark-add')
 config.bind('L', 'search-prev')
 # config.bind('O', 'set-cmd-text -s :open -t')
