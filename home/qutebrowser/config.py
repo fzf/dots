@@ -1053,7 +1053,7 @@ c.fonts.tabs = '16pt monospace'
 
 ## Enter insert mode if an editable element is clicked.
 ## Type: Bool
-# c.input.insert_mode.auto_enter = True
+c.input.insert_mode.auto_enter = False
 
 ## Leave insert mode if a non-editable element is clicked.
 ## Type: Bool
@@ -1062,7 +1062,7 @@ c.fonts.tabs = '16pt monospace'
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
 ## Type: Bool
-c.input.insert_mode.auto_load = True
+# c.input.insert_mode.auto_load = True
 
 ## Leave insert mode when starting a new page load. Patterns may be
 ## unreliable on this setting, and they may match the url you are
@@ -1600,15 +1600,15 @@ c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'dd': 'https
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-config.bind(',1', 'tab-focus 1')
-config.bind(',2', 'tab-focus 2')
-config.bind(',3', 'tab-focus 3')
-config.bind(',4', 'tab-focus 4')
-config.bind(',5', 'tab-focus 5')
-config.bind(',6', 'tab-focus 6')
-config.bind(',7', 'tab-focus 7')
-config.bind(',8', 'tab-focus 8')
-config.bind(',9', 'tab-focus -1')
+config.bind('1', 'tab-focus 1')
+config.bind('2', 'tab-focus 2')
+config.bind('3', 'tab-focus 3')
+config.bind('4', 'tab-focus 4')
+config.bind('5', 'tab-focus 5')
+config.bind('6', 'tab-focus 6')
+config.bind('7', 'tab-focus 7')
+config.bind('8', 'tab-focus 8')
+config.bind('9', 'tab-focus -1')
 # config.bind('<Alt-m>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
@@ -1632,8 +1632,6 @@ config.bind('<Ctrl-T>', 'set-cmd-text -s :open -t')
 # config.bind('<Ctrl-W>', 'tab-close')
 # config.bind('<Ctrl-X>', 'navigate decrement')
 # config.bind('<Ctrl-^>', 'tab-focus last')
-config.bind('<Ctrl-h>', 'tab-prev')
-config.bind('<Ctrl-p>', 'set-cmd-text -s :open -t')
 # config.bind('<Ctrl-s>', 'stop')
 # config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 # config.bind('<F11>', 'fullscreen')
@@ -1648,13 +1646,16 @@ config.bind('<Ctrl-p>', 'set-cmd-text -s :open -t')
 config.bind('X', 'tab-close -o')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
-config.bind('N', 'tab-next')
+config.bind('<Ctrl-N>', 'tab-next')
 config.bind('H', 'back')
 config.bind('T', 'forward')
-config.bind('D', 'tab-prev')
+config.bind('<Ctrl-D>', 'tab-prev')
 # config.bind('M', 'bookmark-add')
 config.bind('L', 'search-prev')
-# config.bind('O', 'set-cmd-text -s :open -t')
+config.bind('<Ctrl-P>', 'set-cmd-text -s :open -t')
+config.bind('<Ctrl-Shift-P>', 'set-cmd-text -s :open')
+config.bind('O', 'hint')
+config.bind('o', 'hint')
 # config.bind('PP', 'open -t -- {primary}')
 # config.bind('Pp', 'open -t -- {clipboard}')
 # config.bind('R', 'reload -f')
@@ -1701,7 +1702,6 @@ config.bind('t', 'scroll up')
 config.bind('n', 'scroll right')
 # config.bind('m', 'quickmark-save')
 config.bind('l', 'search-next')
-# config.bind('o', 'set-cmd-text -s :open')
 # config.bind('pP', 'open -- {primary}')
 # config.bind('pp', 'open -- {clipboard}')
 # config.bind('q', 'record-macro')
