@@ -33,7 +33,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'takkii/Bignyanco'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -68,16 +67,16 @@ no K T
 no l n
 no L N
 
-noremap <C-D> <C-W><C-H>
-nnoremap <C-H> <C-W><C-J>
-nnoremap <C-T> <C-W><C-K>
-nnoremap <C-N> <C-W><C-L>
-nnoremap <C-w>d <C-w>h
-nnoremap <C-w>h <C-w>j
-nnoremap <C-w>t <C-w>k
-nnoremap <C-w>n <C-w>l
-nnoremap <leader>n :bnext<CR>
-nnoremap <leader>d :bprev<CR>
+" nnoremap <C-D> <C-W><C-H>
+" nnoremap <C-H> <C-W><C-J>
+" nnoremap <C-T> <C-W><C-K>
+" nnoremap <C-N> <C-W><C-L>
+" nnoremap <C-w>d <C-w>h
+" nnoremap <C-w>h <C-w>j
+" nnoremap <C-w>t <C-w>k
+" nnoremap <C-w>n <C-w>l
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-d> :bprev<CR>
 
 colorscheme Tomorrow-Night-Eighties
 
