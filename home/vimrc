@@ -107,6 +107,7 @@ map <C-_> :Ag<CR>
 map <C-P> :FZF<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
+map <leader>x :bd<CR>
 
 let g:esearch = {
   \ 'out': 'qflist' }
