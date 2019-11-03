@@ -78,6 +78,8 @@ no L N
 " nnoremap <C-w>n <C-w>l
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-d> :bprev<CR>
+nnoremap <C-w>v <C-w>s
+nnoremap <C-w>s <C-w>v
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -93,6 +95,7 @@ set autoread
 set clipboard=unnamed
 set encoding=utf-8
 set expandtab
+set foldmethod=indent
 set mouse=a
 set nocompatible
 set nohlsearch
@@ -100,6 +103,14 @@ set noswapfile
 set number
 set showcmd
 set tabstop=2 shiftwidth=2
+set listchars+=space:␣
+set list
+
+" Keep all folds open when a file is opened
+augroup OpenAllFoldsOnFileOpen
+    autocmd!
+    autocmd BufRead * normal zR
+augroup END
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
