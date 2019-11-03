@@ -20,6 +20,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
 Plug 'dyng/ctrlsf.vim'
 Plug 'dyng/ctrlsf.vim'
@@ -68,6 +69,21 @@ no K T
 no l n
 no L N
 
+" Minimalist-AutoCompletePop-Plugin
+set completeopt=menu,menuone,noinsert
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+autocmd InsertCharPre * call AutoComplete()
+fun! AutoComplete()
+  if v:char =~ '\K'
+    \ && getline('.')[col('.') - 4] !~ '\K'
+    \ && getline('.')[col('.') - 3] =~ '\K'
+    \ && getline('.')[col('.') - 2] =~ '\K' " last char
+    \ && getline('.')[col('.') - 1] !~ '\K'
+
+    call feedkeys("\<C-N>", 'n')
+  end
+endfun
+
 " nnoremap <C-D> <C-W><C-H>
 " nnoremap <C-H> <C-W><C-J>
 " nnoremap <C-T> <C-W><C-K>
@@ -76,10 +92,20 @@ no L N
 " nnoremap <C-w>h <C-w>j
 " nnoremap <C-w>t <C-w>k
 " nnoremap <C-w>n <C-w>l
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-d> :bprev<CR>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>d :bprev<CR>
 nnoremap <C-w>v <C-w>s
 nnoremap <C-w>s <C-w>v
+
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 1
+let g:tmux_navigator_disable_when_zoomed = 1
+
+nnoremap <silent> <C-d> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-h> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-t> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-n> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 colorscheme Tomorrow-Night-Eighties
 
