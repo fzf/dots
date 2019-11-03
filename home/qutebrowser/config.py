@@ -977,7 +977,7 @@ c.fonts.tabs = '16pt monospace'
 
 ## Characters used for hint strings.
 ## Type: UniqueCharString
-c.hints.chars = 'aoeuidhtns'
+c.hints.chars = 'oeuidhtns'
 
 ## Dictionary file to be used by the word hints.
 ## Type: File
@@ -1030,14 +1030,14 @@ c.hints.chars = 'aoeuidhtns'
 
 ## Make characters in hint strings uppercase.
 ## Type: Bool
-# c.hints.uppercase = False
+c.hints.uppercase = False
 
 ## Maximum time (in minutes) between two history items for them to be
 ## considered being from the same browsing session. Items with less time
 ## between them are grouped when being displayed in `:history`. Use -1 to
 ## disable separation.
 ## Type: Int
-# c.history_gap_interval = 30
+c.history_gap_interval = -1
 
 ## Allow Escape to quit the crash reporter.
 ## Type: Bool
@@ -1053,16 +1053,16 @@ c.hints.chars = 'aoeuidhtns'
 
 ## Enter insert mode if an editable element is clicked.
 ## Type: Bool
-c.input.insert_mode.auto_enter = False
+c.input.insert_mode.auto_enter = True
 
 ## Leave insert mode if a non-editable element is clicked.
 ## Type: Bool
-# c.input.insert_mode.auto_leave = True
+c.input.insert_mode.auto_leave = True
 
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
 ## Type: Bool
-# c.input.insert_mode.auto_load = True
+c.input.insert_mode.auto_load = False
 
 ## Leave insert mode when starting a new page load. Patterns may be
 ## unreliable on this setting, and they may match the url you are
@@ -1485,7 +1485,7 @@ c.tabs.position = 'top'
 ## `{protocol}`: Protocol (http/https/...) of the current web page. *
 ## `{audio}`: Indicator for audio/mute status.
 ## Type: FormatString
-# c.tabs.title.format = '{audio}{index}: {current_title}'
+c.tabs.title.format = '{index}: {current_title}'
 
 ## Format to use for the tab title for pinned tabs. The same placeholders
 ## like for `tabs.title.format` are defined.
