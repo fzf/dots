@@ -8,6 +8,22 @@ local function bindHotkeys(mod, bindings, fn)
   end
 end
 
+-- Applications
+-- To disable the MacOSX's dictionary hotkey (cmd-ctrl-d),
+-- make sure to run in terminal:
+-- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
+do
+  local mod      = { "cmd", "ctrl" }
+  local bindings = {
+    [ "g" ] = "iTerm",
+    [ "r" ] = "Browser",
+  }
+
+  bindHotkeys(mod, bindings, function(app)
+    hs.application.launchOrFocus(app)
+  end)
+end
+
 -- Window Animation Duration
 hs.window.animationDuration = 0.000
 
