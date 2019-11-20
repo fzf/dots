@@ -1544,7 +1544,7 @@ c.url.default_page = 'about:blank'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'dd': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1646,9 +1646,13 @@ config.bind('<Ctrl-T>', 'set-cmd-text -s :open -t')
 config.bind('X', 'tab-close -o')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
+config.bind('N', 'tab-next')
 config.bind('<Ctrl-N>', 'tab-next')
 config.bind('H', 'back')
+config.bind('<Ctrl-H>', 'back')
 config.bind('T', 'forward')
+config.bind('<Ctrl-T>', 'forward')
+config.bind('D', 'tab-prev')
 config.bind('<Ctrl-D>', 'tab-prev')
 # config.bind('M', 'bookmark-add')
 config.bind('L', 'search-prev')
