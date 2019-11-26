@@ -23,13 +23,13 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ddrscott/vim-side-search'
 Plug 'dyng/ctrlsf.vim'
-Plug 'dyng/ctrlsf.vim'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'eugen0329/vim-esearch'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'ivalkeen/nerdtree-execute'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'qpkorr/vim-bufkill'
 Plug 'rbgrouleff/bclose.vim'
@@ -167,3 +167,39 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" Coc.nvim
+set nobackup
+set nowritebackup
+
+" Better display for menuonessages
+set cmdheight=2
+"
+" " You will have bad experience for diagnostic menuonessagesessages when it's
+" default 4000.
+set updatetime=300
+"
+" " don't give |ins-comompletion-menu| messages.
+set shortmess+=c
+"
+" " always show signcolumns
+set signcolumn=yes
+
+"
+" " Use tab for trigger completion with characters ahead and navigate.
+" " Use command ':verbose imap <tab>' to make sure tab iberianpigs not mapped
+" by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+                  \ coc#refresh()
+                  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+                  function! s:check_back_space() abort
+                    let col = col('.') - 1
+                      return !col || getline('.')[col - 1]  =~# '\s'
+                      endfunction
+
+                      " Use <c-spaceace> to trigger completion.
+                      inoremap <silent><expr> <c-space> coc#refresh()
+
