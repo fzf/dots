@@ -1,5 +1,4 @@
 #!/bin/bash
-git clone https://gitlab.com/fzf/dots.git $HOME/.dots --quiet
 
 for location in $HOME/.dots/home/*; do
   file="${location##*/}"

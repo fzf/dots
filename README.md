@@ -1,4 +1,4 @@
-`curl -s https://gitlab.com/fzf/dots/raw/master/install.sh | sh`
+`curl -s https://gitlab.com/fzf/dots/raw/master/install/osx.sh | sh`
 
 ## Keystrokes
 
@@ -66,4 +66,4 @@ Starred commands (preceded with `*`) can be issued repeatedly, without hitting t
  - `0` - Move to beginning of line
  - `$` - Move to end of line
  - `SPACE` - Begin selection
- - `ENTER` - Copy selection
+ - `y` or `ENTER` - Copy selection
