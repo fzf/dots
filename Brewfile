@@ -3,7 +3,6 @@ brew 'nvim'
 brew 'tmux'
 brew 'zsh'
 
-tap 'caskroom/versions'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'qbserve'
