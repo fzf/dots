@@ -13,3 +13,6 @@ brew bundle
 
 sudo rm -rf $HOME/.dots
 git clone https://gitlab.com/fzf/dots.git $HOME/.dots --quiet
+
+bash $HOME/.dots/install/home.sh
+bash $HOME/.dots/install/qutebrowser.sh

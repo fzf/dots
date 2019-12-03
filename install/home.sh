@@ -5,5 +5,3 @@ for location in $HOME/.dots/home/*; do
   echo "Linking '$file' to '$location'"
   ln -sf "$location" "$HOME/.$file"
 done
-
-ln -sf $HOME/.dots/qutebrowser $HOME/.qutebrowser
