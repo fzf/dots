@@ -68,7 +68,7 @@ no l n
 no L N
 
 " Minimalist-AutoCompletePop-Plugin
-set completeopt=menu,menuone,noinsert
+set completeopt=menu
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 autocmd InsertCharPre * call AutoComplete()
 fun! AutoComplete()
@@ -180,3 +180,12 @@ inoremap <silent><expr> <TAB>
                       " Use <c-spaceace> to trigger completion.
                       inoremap <silent><expr> <c-space> coc#refresh()
 
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
