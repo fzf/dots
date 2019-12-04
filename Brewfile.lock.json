@@ -72,6 +72,27 @@
             }
           }
         }
+      },
+      "gnupg": {
+        "version": "2.2.18",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.18.catalina.bottle.tar.gz",
+              "sha256": "f917eab1b8680aaec7f565917b168ff5cf085476ccd1a32db5961b27ca98d376"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.18.mojave.bottle.tar.gz",
+              "sha256": "b65d87ac6cb5dc10de6f4afa7e33ca79c146b5a2a35ad8455ac01eeddc9e82f5"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.18.high_sierra.bottle.tar.gz",
+              "sha256": "b3ba15bfd670a472ec9b2ddbf65b3d05c2d9802089afeee8a129a5eb470dcaea"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -98,6 +119,9 @@
       },
       "tower": {
         "version": "3.6.0,205:1262a183"
+      },
+      "hammerspoon": {
+        "version": "0.9.76"
       }
     },
     "mas": {
@@ -113,6 +137,10 @@
       "Xcode": {
         "id": "497799835",
         "version": "11.2.1"
+      },
+      "1Password": {
+        "id": "443987910",
+        "version": "6.8.9"
       }
     }
   },

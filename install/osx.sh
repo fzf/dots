@@ -15,6 +15,7 @@ git clone https://gitlab.com/fzf/dots.git $HOME/.dots --quiet
 brew bundle --file=$HOME/.dots/Brewfile
 
 bash $HOME/.dots/install/home.sh
+bash $HOME/.dots/install/hammerspoon.sh
 bash $HOME/.dots/install/ohmyzsh.sh
 bash $HOME/.dots/install/qutebrowser.sh
 bash $HOME/.dots/install/vim.sh
