@@ -26,8 +26,6 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'eugen0329/vim-esearch'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'ivalkeen/nerdtree-execute'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'qpkorr/vim-bufkill'
@@ -141,39 +139,18 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 map <C-_> :Ag<CR>
-map <C-P> :FZF<CR>
+map <C-P> :CocList files<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
 map <leader>x :BD<CR>
 
 let g:esearch = {
   \ 'out': 'qflist' }
-let g:fzf_action = {
-  \ 'ctrl-c': 'tab split',
-  \ 'ctrl-n': 'split',
-  \ 'ctrl-v': 'vsplit' }
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
 
 " Coc.nvim
 set nobackup
 set nowritebackup
 
-" Better display for menuonessages
-set cmdheight=2
-"
 " " You will have bad experience for diagnostic menuonessagesessages when it's
 " default 4000.
 set updatetime=300
