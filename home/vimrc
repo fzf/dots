@@ -47,6 +47,7 @@ set hidden
 
 let mapleader = ","
 let g:LanguageClient_serverCommands = { 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'] }
+let g:coc_global_extensions = ['coc-lists', 'coc-solargraph', 'coc-highlight', 'coc-explorer', 'coc-git']
 
 autocmd BufLeave,FocusLost,VimResized * silent! wall
 
