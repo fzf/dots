@@ -1,7 +1,9 @@
+
 brew 'asdf'
 brew 'fd'
 brew 'gnupg'
 brew 'nvim'
+brew 'ripgrep'
 brew 'tmux'
 brew 'zsh'
 
@@ -13,7 +15,7 @@ cask 'qutebrowser'
 cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
-cask 'tower'
+cask 'tower2'
 
 mas '1Password', id: 443987910
 mas 'Todoist', id: 585829637
