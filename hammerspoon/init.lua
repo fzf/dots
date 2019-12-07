@@ -15,8 +15,8 @@ end
 do
   local mod      = { "cmd", "ctrl" }
   local bindings = {
-    [ "g" ] = "iTerm",
-    [ "r" ] = "Browser",
+    [ "i" ] = "iTerm",
+    [ "b" ] = "qutebrowser",
   }
 
   bindHotkeys(mod, bindings, function(app)
