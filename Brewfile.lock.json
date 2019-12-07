@@ -153,6 +153,12 @@
       },
       "istat-menus": {
         "version": "6.40"
+      },
+      "alfred": {
+        "version": "4.0.6_1124"
+      },
+      "dropbox": {
+        "version": "latest"
       }
     },
     "mas": {
