@@ -12,6 +12,7 @@ Plug 'ap/vim-buftabline'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dkprice/vim-easygrep'
 Plug 'dyng/ctrlsf.vim'
 Plug 'eugen0329/vim-esearch'
 Plug 'iberianpig/tig-explorer.vim'
