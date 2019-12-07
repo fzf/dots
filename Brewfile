@@ -5,6 +5,7 @@ brew 'gnupg'
 brew 'nvim'
 brew 'ripgrep'
 brew 'tmux'
+brew 'z'
 brew 'zsh'
 
 cask 'google-chrome'
@@ -15,7 +16,8 @@ cask 'qutebrowser'
 cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
-cask 'tower2'
+tap 'homebrew/cask-fonts'
+cask 'font-hack-nerd-font'
 
 mas '1Password', id: 443987910
 mas 'Todoist', id: 585829637

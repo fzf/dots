@@ -17,7 +17,6 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'eugen0329/vim-esearch'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'ivalkeen/nerdtree-execute'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,6 +70,7 @@ nnoremap <leader>d :bprev<CR>
 nnoremap <C-w>v <C-w>s
 nnoremap <C-w>s <C-w>v
 
+let loaded_netrwPlugin = 1
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -83,7 +83,6 @@ nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 colorscheme Tomorrow-Night-Eighties
 
-let NERDTreeMapOpenInTab='\t'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
@@ -120,6 +119,7 @@ map <C-P> :CocList files<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
 map <leader>x :BD<CR>
+nmap ge :CocCommand explorer --toggle<CR>
 
 let g:esearch = {
   \ 'out': 'qflist' }
@@ -150,3 +150,4 @@ inoremap <silent><expr> <Tab>
 \ pumvisible() ? "\<C-n>" :
 \ <SID>check_back_space() ? "\<Tab>" :
 \ coc#refresh()
+
