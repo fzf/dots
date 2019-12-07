@@ -13,9 +13,11 @@ Modifier: `CMD-CTRL`
 
  - `d` - Left
  - `n` - Right
- - `h` - Bottom
- - `t` - Top
  - `c` - Full
+
+#### Applications
+ - `h` - qutebrowser
+ - `t` - iTerm
 
 #### Window Movement
 Modifier: `CMD-CTRL-SHIFT`
