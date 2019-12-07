@@ -14,6 +14,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dkprice/vim-easygrep'
 Plug 'dyng/ctrlsf.vim'
+Plug 'edkolev/tmuxline.vim'
 Plug 'eugen0329/vim-esearch'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'itchyny/lightline.vim'
@@ -23,6 +24,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'qpkorr/vim-bufkill'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'takkii/Bignyanco'
@@ -46,6 +48,12 @@ let g:coc_global_extensions = [
   \ 'coc-lists',
   \ 'coc-solargraph'
 \]
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '|',
+    \ 'right' : '',
+    \ 'right_alt' : '|',
+    \ 'space' : ' '}
 
 autocmd BufLeave,FocusLost,VimResized * silent! wall
 
@@ -145,9 +153,4 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
-
-inoremap <silent><expr> <Tab>
-\ pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<Tab>" :
-\ coc#refresh()
 

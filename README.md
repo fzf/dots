@@ -1,5 +1,9 @@
 `curl -s https://gitlab.com/fzf/dots/raw/master/install/osx.sh | sh`
 
+## Post Install
+
+iTerm > Profile > Text > Font > Hack Nerd Font
+
 ## Keystrokes
 
 ### Hammerspoon
