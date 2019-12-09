@@ -1,0 +1,8 @@
+{
+  "list.nextKeymap": "<C-h>",
+  "list.previousKeymap": "<C-t>",
+  "explorer.keyMappings": {
+    "t": "nodePrev",
+    "h": "nodeNext"
+  }
+}
