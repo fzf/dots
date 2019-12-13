@@ -4,5 +4,7 @@
   "explorer.keyMappings": {
     "t": "nodePrev",
     "h": "nodeNext"
-  }
+  },
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.noselect": false
 }
