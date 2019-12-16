@@ -118,17 +118,42 @@
       "z": {
         "version": "1.9",
         "bottle": false
+      },
+      "less": {
+        "version": "530_1",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/less-530_1.catalina.bottle.tar.gz",
+              "sha256": "e9c850a28846a39541fd76e5159071527e8db94258a809da968cf69e42277d48"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/less-530_1.mojave.bottle.tar.gz",
+              "sha256": "f005662a0d661c28540163078807f4b518a6e6a2e8c86a5a0a0993eb6c4c4ad5"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/less-530_1.high_sierra.bottle.tar.gz",
+              "sha256": "f9896f9b0e0fb82dcbafd312a93d05061a2aa6f451592b30ca833dbdfb2b38c0"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/less-530_1.sierra.bottle.tar.gz",
+              "sha256": "a123eef24eeb7839ed0b7a3b0d53d17402c72576554fecaad81743e550b49107"
+            }
+          }
+        }
       }
     },
     "cask": {
       "google-chrome": {
-        "version": "78.0.3904.108"
+        "version": "71.0.3578.98"
       },
       "iterm2": {
-        "version": "3.3.7"
+        "version": "3.2.6"
       },
       "qbserve": {
-        "version": "1.85"
+        "version": "1.81"
       },
       "qutebrowser": {
         "version": "1.8.3"
@@ -137,31 +162,31 @@
         "version": "latest"
       },
       "slack": {
-        "version": "4.1.2"
+        "version": "3.3.3"
       },
       "spotify": {
         "version": "latest"
       },
       "hammerspoon": {
-        "version": "0.9.76"
+        "version": "0.9.73"
       },
       "font-hack-nerd-font": {
         "version": "2.0.0"
       },
       "bartender": {
-        "version": "3.1.07"
+        "version": "3.0.47"
       },
       "istat-menus": {
-        "version": "6.40"
+        "version": "6.31"
       },
       "alfred": {
-        "version": "4.0.6_1124"
+        "version": "4.0.1_1078"
       },
       "dropbox": {
         "version": "latest"
       },
       "duet": {
-        "version": "2.3.0.5"
+        "version": "2.0.7.4"
       }
     },
     "mas": {
@@ -174,10 +199,7 @@
         "id": "1176895641",
         "version": "2.5.1"
       },
-      "Xcode": {
-        "id": "497799835",
-        "version": "11.2.1"
-      },
+      "Xcode": null,
       "1Password": {
         "id": "443987910",
         "version": "6.8.9"
@@ -185,7 +207,7 @@
     },
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "b506e52bfa56aa435a5d064f0e723095f139a614"
+        "revision": "e023b49867372305d664a8a36e3fd81ea55daba4"
       }
     }
   },
@@ -200,11 +222,11 @@
         "macOS": "10.15.1"
       },
       "mojave": {
-        "HOMEBREW_VERSION": "2.1.16",
+        "HOMEBREW_VERSION": "2.2.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7ec187ab8c20d28d24c109215ab1739d7e37765c",
+        "Homebrew/homebrew-core": "0ec3228bd07c5f35294d4c1b36d6160980823a21",
         "CLT": "10.3.0.0.1.1562985497",
-        "Xcode": "11.2.1",
+        "Xcode": "11.3",
         "macOS": "10.14.6"
       }
     }
