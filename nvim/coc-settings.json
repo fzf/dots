@@ -3,7 +3,9 @@
   "list.previousKeymap": "<C-t>",
   "explorer.keyMappings": {
     "t": "nodePrev",
-    "h": "nodeNext"
+    "h": "nodeNext",
+    "<cr>": "expandOrCollapse",
+    "o": "open"
   },
   "suggest.triggerAfterInsertEnter": true,
   "suggest.noselect": false
