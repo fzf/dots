@@ -24,6 +24,7 @@ cask 'qutebrowser'
 cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
+cask 'witch'
 
 mas '1Password', id: 443987910
 mas 'Todoist', id: 585829637
