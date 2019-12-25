@@ -1,10 +1,10 @@
 {
   "list.nextKeymap": "<C-h>",
   "list.previousKeymap": "<C-t>",
+  "explorer.openAction.changeDirectory": false,
   "explorer.keyMappings": {
     "t": "nodePrev",
     "h": "nodeNext",
-    "<cr>": "expandOrCollapse",
     "o": "open"
   },
   "suggest.triggerAfterInsertEnter": true,
