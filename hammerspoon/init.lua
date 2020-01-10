@@ -57,4 +57,11 @@ do
     Size.moveLocation(direction)
   end)
 end
+
+slackSearch = hs.hotkey.new({'ctrl'}, 'p', function() hs.eventtap.keyStroke({"cmd"}, "t") end)
+
+hs.window.filter.new('Slack')
+  :subscribe(hs.window.filter.windowFocused,function() slackSearch:enable() end)
+  :subscribe(hs.window.filter.windowUnfocused,function() slackSearch:disable() end)
+
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
