@@ -11,6 +11,7 @@
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
+c.aliases = {'pocket': 'open -t http://getpocket.com/edit?url={url}'}
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
