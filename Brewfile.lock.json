@@ -143,6 +143,27 @@
             }
           }
         }
+      },
+      "tig": {
+        "version": "2.5.0",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/tig-2.5.0.catalina.bottle.tar.gz",
+              "sha256": "03f5fc99e3763dc90dd4e2a3445fb9e4a65a2db790b8aa40c1d56cd08d1d5f6f"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/tig-2.5.0.mojave.bottle.tar.gz",
+              "sha256": "5fbd4ddf058724d51f88221bb54f949dd79941d7654f63881c62bf9768a7e12e"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/tig-2.5.0.high_sierra.bottle.tar.gz",
+              "sha256": "8c85a68d1ff0400649e18b47160152ea1220e72afa6217d916462ecc7053bf14"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -209,6 +230,10 @@
       "1Password": {
         "id": "443987910",
         "version": "6.8.9"
+      },
+      "Amphetamine": {
+        "id": "937984704",
+        "version": "4.2"
       }
     },
     "tap": {
@@ -222,7 +247,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "96337f5e721a29bd893009385ac23754993dd9d2",
+        "Homebrew/homebrew-core": "ff8c2f2b0240a03c492363cfe95b8ff307d05355",
         "CLT": "11.0.33.12",
         "Xcode": "11.3",
         "macOS": "10.15.2"
