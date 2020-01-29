@@ -2,6 +2,7 @@
 brew 'asdf'
 brew 'fd'
 brew 'gnupg'
+brew 'lazygit'
 brew 'less'
 brew 'nvim'
 brew 'ripgrep'

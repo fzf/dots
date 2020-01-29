@@ -144,6 +144,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "tig": {
         "version": "2.5.0",
         "bottle": {
@@ -161,6 +162,23 @@
             "high_sierra": {
               "url": "https://homebrew.bintray.com/bottles/tig-2.5.0.high_sierra.bottle.tar.gz",
               "sha256": "8c85a68d1ff0400649e18b47160152ea1220e72afa6217d916462ecc7053bf14"
+      "lazygit": {
+        "version": "0.11.3",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/lazygit-0.11.3.catalina.bottle.tar.gz",
+              "sha256": "95f5a69111a7bd3cc59302bdf298558be833a45f4586f94770c1e1505275fa33"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/lazygit-0.11.3.mojave.bottle.tar.gz",
+              "sha256": "742b61d507cc26dd2164fbd79a4fdb29fce9bfbcda93fa4e3b2486cb5592a9ab"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/lazygit-0.11.3.high_sierra.bottle.tar.gz",
+              "sha256": "2f64cf57b5fb8b40f798de7b4057c208aa20caec8a1a31b7ddf9ec4dfa59d1ab"
             }
           }
         }
@@ -168,13 +186,13 @@
     },
     "cask": {
       "google-chrome": {
-        "version": "78.0.3904.108"
+        "version": "71.0.3578.98"
       },
       "iterm2": {
-        "version": "3.3.7"
+        "version": "3.2.6"
       },
       "qbserve": {
-        "version": "1.85"
+        "version": "1.81"
       },
       "qutebrowser": {
         "version": "1.8.3"
@@ -183,34 +201,34 @@
         "version": "latest"
       },
       "slack": {
-        "version": "4.1.2"
+        "version": "3.3.3"
       },
       "spotify": {
         "version": "latest"
       },
       "hammerspoon": {
-        "version": "0.9.76"
+        "version": "0.9.73"
       },
       "font-hack-nerd-font": {
         "version": "2.0.0"
       },
       "bartender": {
-        "version": "3.1.07"
+        "version": "3.0.47"
       },
       "istat-menus": {
-        "version": "6.40"
+        "version": "6.31"
       },
       "alfred": {
-        "version": "4.0.6_1124"
+        "version": "4.0.1_1078"
       },
       "dropbox": {
         "version": "latest"
       },
       "duet": {
-        "version": "2.3.0.5"
+        "version": "2.0.7.4"
       },
       "witch": {
-        "version": "4.3.5"
+        "version": "4.3.1"
       }
     },
     "mas": {
@@ -221,12 +239,9 @@
       },
       "Spark": {
         "id": "1176895641",
-        "version": "2.5.1"
+        "version": "2.5.2"
       },
-      "Xcode": {
-        "id": "497799835",
-        "version": "11.3"
-      },
+      "Xcode": null,
       "1Password": {
         "id": "443987910",
         "version": "6.8.9"
@@ -247,9 +262,9 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "ff8c2f2b0240a03c492363cfe95b8ff307d05355",
-        "CLT": "11.0.33.12",
-        "Xcode": "11.3",
+        "Homebrew/homebrew-core": "4b0efc92ffe87f9fd0c68111db8009fc9ef45cf2",
+        "CLT": "",
+        "Xcode": "11.3.1",
         "macOS": "10.15.2"
       },
       "mojave": {
