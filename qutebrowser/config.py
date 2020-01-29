@@ -11,7 +11,10 @@
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
-c.aliases = {'pocket': 'open -t http://getpocket.com/edit?url={url}'}
+c.aliases = {
+  'pocket': 'open -t http://getpocket.com/edit?url={url}',
+  'core-diff': 'open -t https://github.com/1debit/server-core/compare/v{url}..v{url}'
+}
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
@@ -442,7 +445,7 @@ c.backend = 'webengine'
 ##   - quickmarks
 ##   - bookmarks
 ##   - history
-# c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history']
+c.completion.open_categories = ['quickmarks', 'searchengines', 'bookmarks', 'history']
 
 ## Move on to the next part when there's only one possible completion
 ## left.
@@ -1545,7 +1548,7 @@ c.url.default_page = 'about:blank'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
+c.url.searchengines = {'gh': 'https://github.com/search?q=org%3A1debit+{}', 'DEFAULT': 'https://google.com/search?q={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
