@@ -65,3 +65,6 @@ hs.window.filter.new('Slack')
   :subscribe(hs.window.filter.windowUnfocused,function() slackSearch:disable() end)
 
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
+
+local vimouse = require('vimouse')
+vimouse('cmd', 'm')
