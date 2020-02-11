@@ -104,6 +104,7 @@ filetype plugin indent on
 
 set autoread
 set clipboard=unnamed
+set colorcolumn=80,120
 set encoding=utf-8
 set expandtab
 set foldmethod=indent
