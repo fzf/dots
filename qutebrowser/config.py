@@ -906,7 +906,7 @@ c.fonts.messages.warning = '16pt monospace'
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
-c.fonts.monospace = 'Monaco'
+c.fonts.default_family = ['Monaco']
 
 ## Font used for prompts.
 ## Type: Font
