@@ -1,6 +1,7 @@
 {
   "list.nextKeymap": "<C-h>",
   "list.previousKeymap": "<C-t>",
+  "explorer.file.showHiddenFiles": true,
   "explorer.openAction.changeDirectory": false,
   "explorer.keyMappings": {
     "t": "nodePrev",
