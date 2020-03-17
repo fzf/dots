@@ -1,4 +1,3 @@
-
 brew 'asdf'
 brew 'fd'
 brew 'gnupg'
