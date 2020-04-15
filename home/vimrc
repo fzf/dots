@@ -107,7 +107,6 @@ set clipboard=unnamed
 set colorcolumn=80,120
 set encoding=utf-8
 set expandtab
-set foldmethod=indent
 set mouse=a
 set nocompatible
 set nohlsearch
@@ -128,10 +127,9 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-map <C-_> :Ag<CR>
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
+map <C-_> :Rg<CR>
 map <C-P> :CocList files<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
