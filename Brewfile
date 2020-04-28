@@ -24,10 +24,12 @@ cask 'istat-menus'
 cask 'hammerspoon'
 cask 'iterm2'
 cask 'qbserve'
+cask 'quip'
 cask 'qutebrowser'
 cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
+cask 'synergy'
 cask 'witch'
 
 mas '1Password', id: 443987910
