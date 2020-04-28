@@ -107,6 +107,8 @@ set clipboard=unnamed
 set colorcolumn=80,120
 set encoding=utf-8
 set expandtab
+set foldmethod=indent
+set foldlevelstart=20
 set mouse=a
 set nocompatible
 set nohlsearch
@@ -116,12 +118,6 @@ set showcmd
 set tabstop=2 shiftwidth=2
 set listchars+=space:␣
 set list
-
-" Keep all folds open when a file is opened
-augroup OpenAllFoldsOnFileOpen
-    autocmd!
-    autocmd BufRead * normal zR
-augroup END
 
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
