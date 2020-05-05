@@ -34,6 +34,7 @@ cask 'witch'
 
 mas '1Password', id: 443987910
 mas 'Amphetamine', id: 937984704
+mas 'Bear', id: 1091189122
 mas 'Todoist', id: 585829637
 mas 'Spark', id: 1176895641
 mas 'Xcode', id: 497799835
