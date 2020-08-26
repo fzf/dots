@@ -39,6 +39,8 @@ Plug 'wsdjeg/vim-fetch'
 
 call plug#end()
 
+let g:fzf_action = {'ctrl-t': 'up', 'ctrl-h': 'down'}
+
 set hidden
 
 let mapleader = ","
@@ -124,9 +126,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-
-map <C-_> :Rg<CR>
+map <C-_> :CocList grep<CR>
 map <C-P> :CocList files<CR>
 map <C-x> :!pbcopy<CR>
 map <C-c> :w !pbcopy<CR><CR>
