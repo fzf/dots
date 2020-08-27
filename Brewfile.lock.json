@@ -229,19 +229,19 @@
     },
     "cask": {
       "google-chrome": {
-        "version": "78.0.3904.108",
+        "version": "63.0.3239.108",
         "options": {
           "full_name": "google-chrome"
         }
       },
       "iterm2": {
-        "version": "3.3.7",
+        "version": "3.1.5",
         "options": {
           "full_name": "iterm2"
         }
       },
       "qbserve": {
-        "version": "1.85",
+        "version": "1.72",
         "options": {
           "full_name": "qbserve"
         }
@@ -259,7 +259,7 @@
         }
       },
       "slack": {
-        "version": "4.1.2",
+        "version": "4.3.3",
         "options": {
           "full_name": "slack"
         }
@@ -271,7 +271,7 @@
         }
       },
       "hammerspoon": {
-        "version": "0.9.76",
+        "version": "0.9.57",
         "options": {
           "full_name": "hammerspoon"
         }
@@ -295,7 +295,7 @@
         }
       },
       "alfred": {
-        "version": "4.0.6_1124",
+        "version": "4.0.8_1135",
         "options": {
           "full_name": "alfred"
         }
@@ -307,19 +307,19 @@
         }
       },
       "duet": {
-        "version": "2.3.0.5",
+        "version": "2.3.1.0",
         "options": {
           "full_name": "duet"
         }
       },
       "witch": {
-        "version": "4.3.5",
+        "version": "4.1",
         "options": {
           "full_name": "witch"
         }
       },
       "quip": {
-        "version": "7.9.0",
+        "version": "7.8.1",
         "options": {
           "full_name": "quip"
         }
@@ -335,23 +335,23 @@
       "1Password 7": null,
       "Todoist": {
         "id": "585829637",
-        "version": "7.3.1"
+        "version": "7.3.2"
       },
       "Spark": {
         "id": "1176895641",
-        "version": "2.7.0"
+        "version": "2.8.2"
       },
       "Xcode": {
         "id": "497799835",
-        "version": "11.5"
+        "version": "11.6"
       },
       "1Password": {
         "id": "443987910",
-        "version": "6.8.9"
+        "version": "6.8.5"
       },
       "Amphetamine": {
         "id": "937984704",
-        "version": "5.0.2"
+        "version": "5.0.3"
       },
       "Bear": {
         "id": "1091189122",
@@ -359,24 +359,28 @@
       },
       "Jira": {
         "id": "1475897096",
-        "version": "107.0.0"
+        "version": "111.1.0"
+      },
+      "Telegram": {
+        "id": "747648890",
+        "version": "7.0"
       }
     },
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "a904d41bb60af7810273aea7cf9140dc883fffb8"
+        "revision": "b67d3c735eceb8367b06d7a969a71595d6b10c51"
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.1-20-gc1a23fc",
+        "HOMEBREW_VERSION": "2.4.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "9f77ca3d4e7b99f35479844a2e6157822e95a489",
+        "Homebrew/homebrew-core": "3699f7bcf76e0a827a3671998ac4459e1fd70fbc",
         "CLT": "1103.0.32.29",
-        "Xcode": "11.5",
-        "macOS": "10.15.5"
+        "Xcode": "11.6",
+        "macOS": "10.15.6"
       },
       "mojave": {
         "HOMEBREW_VERSION": "2.2.1",

@@ -39,5 +39,6 @@ mas 'Amphetamine', id: 937984704
 mas 'Bear', id: 1091189122
 mas 'Jira', id: 1475897096
 mas 'Spark', id: 1176895641
+mas 'Telegram', id: 747648890
 mas 'Todoist', id: 585829637
 mas 'Xcode', id: 497799835
