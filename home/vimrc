@@ -39,8 +39,6 @@ Plug 'wsdjeg/vim-fetch'
 
 call plug#end()
 
-let g:fzf_action = {'ctrl-t': 'up', 'ctrl-h': 'down'}
-
 set hidden
 
 let mapleader = ","
