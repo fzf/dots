@@ -110,6 +110,7 @@ set encoding=utf-8
 set expandtab
 set foldmethod=indent
 set foldlevelstart=20
+set inccommand=nosplit
 set mouse=a
 set nocompatible
 set nohlsearch
