@@ -2,7 +2,7 @@
   "entries": {
     "brew": {
       "asdf": {
-        "version": "0.7.8",
+        "version": "0.8.0",
         "bottle": false
       },
       "fd": {
@@ -34,16 +34,16 @@
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/tmux-3.1b.catalina.bottle.tar.gz",
-              "sha256": "f26bd0c3f5696350dcaf229d0fadaf6ab677c0ebbb550fc499ca0a37da59ab55"
+              "url": "https://homebrew.bintray.com/bottles/tmux-3.1b.catalina.bottle.1.tar.gz",
+              "sha256": "785c1b2e2518478621eb5ac894b3f0ed06d8fdc4d223dd476451ab26974e3803"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/tmux-3.1b.mojave.bottle.tar.gz",
-              "sha256": "e9995ca765078be9cfdef4f1b6a628bcded0e96e36649e084a7f5480d165547a"
+              "url": "https://homebrew.bintray.com/bottles/tmux-3.1b.mojave.bottle.1.tar.gz",
+              "sha256": "a8fb2df02c2e094404b6c56e2b9d15a35abd012913771ad311e08cc3572f0e4b"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/tmux-3.1b.high_sierra.bottle.tar.gz",
-              "sha256": "7a04ece8143c0647be18bb14c160a984a5a9f855fa2ee888d21fc19374790ee5"
+              "url": "https://homebrew.bintray.com/bottles/tmux-3.1b.high_sierra.bottle.1.tar.gz",
+              "sha256": "5d43e03fc71740ec38c98b309adb2b6d198a20fcb14f76bc163232fda61fac23"
             }
           }
         }
@@ -70,22 +70,22 @@
         }
       },
       "gnupg": {
-        "version": "2.2.20",
+        "version": "2.2.23",
         "bottle": {
           "cellar": "/usr/local/Cellar",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.20.catalina.bottle.tar.gz",
-              "sha256": "527ac31afe998a9931a6648c6fcc7288462ae73d6e6e8b84ecf46561c82d50ec"
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.23.catalina.bottle.tar.gz",
+              "sha256": "f3d7b9b1b344cf3aa2108756d922d1b48214a46b569ae737c604b22f4001b640"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.20.mojave.bottle.tar.gz",
-              "sha256": "e826cf4b1764da749eba007097be8077f433e52d8f96405044e57a384b114942"
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.23.mojave.bottle.tar.gz",
+              "sha256": "1587039c4678d1c500fe8a3ba6d25f8070828bbe2159fc9fd12cad534b09dd9a"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.20.high_sierra.bottle.tar.gz",
-              "sha256": "179b68a29fe9f6731a294a674fbd439623acf22c1997c68b6358808adc83b763"
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.23.high_sierra.bottle.tar.gz",
+              "sha256": "87b3d4b162e860382a2f5ab4ed468f324a389fca4cfddc5363e544f3ca370125"
             }
           }
         }
@@ -137,22 +137,22 @@
         }
       },
       "lazygit": {
-        "version": "0.20.4",
+        "version": "0.22.1",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/lazygit-0.20.4.catalina.bottle.tar.gz",
-              "sha256": "e1208b282f14c75a93a01f791009ea644e7438ea812e411fef6a8a47f63acbe5"
+              "url": "https://homebrew.bintray.com/bottles/lazygit-0.22.1.catalina.bottle.tar.gz",
+              "sha256": "ac91209b340345cc958da7da0a5fe10fcf258c8cc6c0896280ef835874717fe2"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/lazygit-0.20.4.mojave.bottle.tar.gz",
-              "sha256": "2a8ca3c11245e60ea115b0e7c4a24c85724096e4146040ea88a4b679af8a4b07"
+              "url": "https://homebrew.bintray.com/bottles/lazygit-0.22.1.mojave.bottle.tar.gz",
+              "sha256": "081bbe566545d3898f4489629ca2dec991f5e64af267cf4888249bf0c6bf87aa"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/lazygit-0.20.4.high_sierra.bottle.tar.gz",
-              "sha256": "fb0346d006b244733af581f5e249e643d8653cc1b1d9c42bec7e71e8b3c39bae"
+              "url": "https://homebrew.bintray.com/bottles/lazygit-0.22.1.high_sierra.bottle.tar.gz",
+              "sha256": "8b9482d272dd229c82dc101c27792da4ac2537d645b9be7cd7d7f325bd7d86dc"
             }
           }
         }
@@ -229,37 +229,37 @@
     },
     "cask": {
       "google-chrome": {
-        "version": "63.0.3239.108",
+        "version": "78.0.3904.108",
         "options": {
           "full_name": "google-chrome"
         }
       },
       "iterm2": {
-        "version": "3.1.5",
+        "version": "3.3.7",
         "options": {
           "full_name": "iterm2"
         }
       },
       "qbserve": {
-        "version": "1.72",
+        "version": "1.85",
         "options": {
           "full_name": "qbserve"
         }
       },
       "qutebrowser": {
-        "version": "1.12.0",
+        "version": "1.13.1",
         "options": {
           "full_name": "qutebrowser"
         }
       },
       "rescuetime": {
-        "version": "2.15.0.1",
+        "version": "2.16.4.2",
         "options": {
           "full_name": "rescuetime"
         }
       },
       "slack": {
-        "version": "4.3.3",
+        "version": "4.1.2",
         "options": {
           "full_name": "slack"
         }
@@ -271,7 +271,7 @@
         }
       },
       "hammerspoon": {
-        "version": "0.9.57",
+        "version": "0.9.76",
         "options": {
           "full_name": "hammerspoon"
         }
@@ -295,7 +295,7 @@
         }
       },
       "alfred": {
-        "version": "4.0.8_1135",
+        "version": "4.0.6_1124",
         "options": {
           "full_name": "alfred"
         }
@@ -307,19 +307,19 @@
         }
       },
       "duet": {
-        "version": "2.3.1.0",
+        "version": "2.3.0.5",
         "options": {
           "full_name": "duet"
         }
       },
       "witch": {
-        "version": "4.1",
+        "version": "4.3.5",
         "options": {
           "full_name": "witch"
         }
       },
       "quip": {
-        "version": "7.8.1",
+        "version": "7.9.0",
         "options": {
           "full_name": "quip"
         }
@@ -335,19 +335,19 @@
       "1Password 7": null,
       "Todoist": {
         "id": "585829637",
-        "version": "7.3.2"
+        "version": "7.3.4"
       },
       "Spark": {
         "id": "1176895641",
-        "version": "2.8.2"
+        "version": "2.8.3"
       },
       "Xcode": {
         "id": "497799835",
-        "version": "11.6"
+        "version": "11.7"
       },
       "1Password": {
         "id": "443987910",
-        "version": "6.8.5"
+        "version": "6.8.9"
       },
       "Amphetamine": {
         "id": "937984704",
@@ -355,32 +355,29 @@
       },
       "Bear": {
         "id": "1091189122",
-        "version": "1.7.13"
+        "version": "1.7.15"
       },
       "Jira": {
         "id": "1475897096",
-        "version": "111.1.0"
+        "version": "113.0.0"
       },
-      "Telegram": {
-        "id": "747648890",
-        "version": "7.0"
-      }
+      "Telegram": null
     },
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "b67d3c735eceb8367b06d7a969a71595d6b10c51"
+        "revision": "4414bae677c4787198fa5ab49ab5d35b9f398cac"
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.2",
+        "HOMEBREW_VERSION": "2.5.0-86-g32a28f4",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "3699f7bcf76e0a827a3671998ac4459e1fd70fbc",
-        "CLT": "1103.0.32.29",
-        "Xcode": "11.6",
-        "macOS": "10.15.6"
+        "Homebrew/homebrew-core": "aa86711e11a5e0981ead04c0d3dd757f02e78956",
+        "CLT": "11.0.33.12",
+        "Xcode": "11.7",
+        "macOS": "10.15.5"
       },
       "mojave": {
         "HOMEBREW_VERSION": "2.2.1",

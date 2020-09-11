@@ -918,7 +918,11 @@ c.fonts.statusbar = '16pt monospace'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-c.fonts.tabs = '16pt monospace'
+c.fonts.tabs.selected = '16pt monospace'
+
+## Font used in the tab bar.
+## Type: QtFont
+c.fonts.tabs.unselected = '16pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
