@@ -32,6 +32,7 @@ cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
 cask 'synergy'
+cask 'vscodium'
 cask 'witch'
 
 mas '1Password', id: 443987910

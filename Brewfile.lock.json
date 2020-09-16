@@ -329,6 +329,12 @@
         "options": {
           "full_name": "synergy"
         }
+      },
+      "vscodium": {
+        "version": "1.48.2",
+        "options": {
+          "full_name": "vscodium"
+        }
       }
     },
     "mas": {
@@ -365,19 +371,19 @@
     },
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "4414bae677c4787198fa5ab49ab5d35b9f398cac"
+        "revision": "baad067bd10e6a06afbd4e84fe7e8079f4c9a2ec"
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.0-86-g32a28f4",
+        "HOMEBREW_VERSION": "2.5.1-28-g9d98b0e",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "aa86711e11a5e0981ead04c0d3dd757f02e78956",
+        "Homebrew/homebrew-core": "9358bb998495e017e14b46734a83defcfc87f41e",
         "CLT": "11.0.33.12",
         "Xcode": "11.7",
-        "macOS": "10.15.5"
+        "macOS": "10.15.6"
       },
       "mojave": {
         "HOMEBREW_VERSION": "2.2.1",
