@@ -225,23 +225,24 @@
             }
           }
         }
-      }
+      },
+      "hashicorp/tap/terraform": null
     },
     "cask": {
       "google-chrome": {
-        "version": "78.0.3904.108",
+        "version": "63.0.3239.108",
         "options": {
           "full_name": "google-chrome"
         }
       },
       "iterm2": {
-        "version": "3.3.7",
+        "version": "3.1.5",
         "options": {
           "full_name": "iterm2"
         }
       },
       "qbserve": {
-        "version": "1.85",
+        "version": "1.72",
         "options": {
           "full_name": "qbserve"
         }
@@ -259,7 +260,7 @@
         }
       },
       "slack": {
-        "version": "4.1.2",
+        "version": "4.3.3",
         "options": {
           "full_name": "slack"
         }
@@ -271,7 +272,7 @@
         }
       },
       "hammerspoon": {
-        "version": "0.9.76",
+        "version": "0.9.57",
         "options": {
           "full_name": "hammerspoon"
         }
@@ -295,7 +296,7 @@
         }
       },
       "alfred": {
-        "version": "4.0.6_1124",
+        "version": "4.0.8_1135",
         "options": {
           "full_name": "alfred"
         }
@@ -307,19 +308,19 @@
         }
       },
       "duet": {
-        "version": "2.3.0.5",
+        "version": "2.3.1.0",
         "options": {
           "full_name": "duet"
         }
       },
       "witch": {
-        "version": "4.3.5",
+        "version": "4.1",
         "options": {
           "full_name": "witch"
         }
       },
       "quip": {
-        "version": "7.9.0",
+        "version": "7.8.1",
         "options": {
           "full_name": "quip"
         }
@@ -349,11 +350,11 @@
       },
       "Xcode": {
         "id": "497799835",
-        "version": "11.7"
+        "version": "12.0"
       },
       "1Password": {
         "id": "443987910",
-        "version": "6.8.9"
+        "version": "6.8.5"
       },
       "Amphetamine": {
         "id": "937984704",
@@ -361,28 +362,31 @@
       },
       "Bear": {
         "id": "1091189122",
-        "version": "1.7.15"
+        "version": "1.7.16"
       },
       "Jira": {
         "id": "1475897096",
         "version": "113.0.0"
       },
-      "Telegram": null
+      "Telegram": {
+        "id": "747648890",
+        "version": "7.0.1"
+      }
     },
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "baad067bd10e6a06afbd4e84fe7e8079f4c9a2ec"
+        "revision": "5da0b6517f9bab6783bd2be23ebf379a13ac8da9"
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.1-28-g9d98b0e",
+        "HOMEBREW_VERSION": "2.5.1-6-g7589a35-dirty",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "9358bb998495e017e14b46734a83defcfc87f41e",
-        "CLT": "11.0.33.12",
-        "Xcode": "11.7",
+        "Homebrew/homebrew-core": "13c40c022ba3076ac85cf4639b998f4ad847c643",
+        "CLT": "1103.0.32.29",
+        "Xcode": "12.0",
         "macOS": "10.15.6"
       },
       "mojave": {

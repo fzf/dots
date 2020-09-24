@@ -16,6 +16,7 @@ Plug 'dkprice/vim-easygrep'
 Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'eugen0329/vim-esearch'
+Plug 'hashivim/vim-terraform'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
