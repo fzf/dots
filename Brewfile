@@ -1,7 +1,7 @@
 brew 'asdf'
 brew 'hub'
 brew 'fd'
-brew 'github/gh/gh'
+brew 'gh'
 brew 'gnupg'
 brew 'hashicorp/tap/terraform'
 brew 'lazygit'
