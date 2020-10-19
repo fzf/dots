@@ -1,6 +1,8 @@
-alias v='nvim'
-alias t='tmux'
+alias aoeu='asdf'
+alias dc='docker-compose'
 alias g='git'
 alias m='make'
-alias dc='docker-compose'
-alias aoeu='asdf'
+alias t='tmux'
+alias tf='terraform'
+alias v='nvim'
+

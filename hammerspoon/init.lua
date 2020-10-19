@@ -17,6 +17,7 @@ do
   local bindings = {
     [ "t" ] = "iTerm",
     [ "h" ] = "qutebrowser",
+    [ "v" ] = "VSCodium",
   }
 
   bindHotkeys(mod, bindings, function(app)

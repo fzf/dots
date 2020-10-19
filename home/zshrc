@@ -2,8 +2,11 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+export GOPATH="$HOME/go"
+export GOBIN=$GOPATH/bin
+
 # If you come from bash you might have to change your $PATH.
-export PATH=.bin/:$HOME/bin:/usr/local/bin:$HOME/.dots/scripts:$PATH
+export PATH=.bin/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$HOME/.dots/scripts:$GOPATH/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/fzf/.oh-my-zsh
