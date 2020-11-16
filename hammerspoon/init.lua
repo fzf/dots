@@ -16,7 +16,7 @@ do
   local mod      = { "cmd", "ctrl" }
   local bindings = {
     [ "t" ] = "iTerm",
-    [ "h" ] = "qutebrowser",
+    [ "h" ] = "Firefox",
     [ "v" ] = "Visual Studio Code",
   }
 
