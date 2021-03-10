@@ -18,6 +18,7 @@ do
     [ "t" ] = "iTerm",
     [ "h" ] = "Firefox",
     [ "v" ] = "Visual Studio Code",
+    [ "u" ] = "Obsidian",
   }
 
   bindHotkeys(mod, bindings, function(app)
