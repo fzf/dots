@@ -268,12 +268,6 @@
           "full_name": "qbserve"
         }
       },
-      "qutebrowser": {
-        "version": "1.13.1",
-        "options": {
-          "full_name": "qutebrowser"
-        }
-      },
       "rescuetime": {
         "version": "2.16.4.2",
         "options": {

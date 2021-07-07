@@ -16,7 +16,7 @@ Modifier: `CMD-CTRL`
  - `c` - Full
 
 #### Applications
- - `h` - qutebrowser
+ - `h` - Firefox
  - `t` - iTerm
 
 #### Window Movement

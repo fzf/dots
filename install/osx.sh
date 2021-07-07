@@ -20,5 +20,4 @@ bash $HOME/.dots/install/asdf.sh
 bash $HOME/.dots/install/home.sh
 bash $HOME/.dots/install/hammerspoon.sh
 bash $HOME/.dots/install/ohmyzsh.sh
-bash $HOME/.dots/install/qutebrowser.sh
 bash $HOME/.dots/install/vim.sh
