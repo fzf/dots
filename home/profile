@@ -1,6 +1,7 @@
 alias aoeu='asdf'
 alias dc='docker-compose'
 alias g='git'
+alias k='kubectl'
 alias m='make'
 alias t='tmux'
 alias tf='terraform'
