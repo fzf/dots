@@ -34,6 +34,7 @@
 [user]
   name = Fletcher Fowler
   email = fletch@fzf.me
+  signingkey = 40424DD8E83E2B25
 
 [github]
   user = fzf

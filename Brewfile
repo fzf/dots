@@ -13,6 +13,9 @@ brew 'z'
 brew 'zaquestion/tap/lab'
 brew 'zsh'
 
+brew 'gpg'
+brew 'pinentry-mac'
+
 tap 'homebrew/cask-fonts'
 
 cask 'alfred'
