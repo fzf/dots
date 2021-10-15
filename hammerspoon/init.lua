@@ -4,7 +4,7 @@ hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reloadConfig):start()
 
 local function bindHotkeys(mod, bindings, fn)
   for hotkey, arg in pairs(bindings) do
-    hs.hotkey.bind(mod, hotkey, function() fn(arg) end)
+    hs.hotkey.bind(mod, hotkey, function() fn(arg) end, nil, function() fn(arg) end)
   end
 end
 
@@ -60,11 +60,19 @@ do
   end)
 end
 
-slackSearch = hs.hotkey.new({'ctrl'}, 'p', function() hs.eventtap.keyStroke({"cmd"}, "t") end)
+do
+  local mod      = { "ctrl" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
 
-hs.window.filter.new('Slack')
-  :subscribe(hs.window.filter.windowFocused,function() slackSearch:enable() end)
-  :subscribe(hs.window.filter.windowUnfocused,function() slackSearch:disable() end)
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke(mods, key, 1000)
+  end)
+end
 
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
