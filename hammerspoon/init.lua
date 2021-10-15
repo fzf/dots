@@ -74,6 +74,11 @@ do
   end)
 end
 
+hs.loadSpoon("AppBindings")
+spoon.AppBindings:bind('Telegram', {
+  { { 'cmd' }, 't', { 'cmd' }, 'k' }
+})
+
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
 local vimouse = require('vimouse')
