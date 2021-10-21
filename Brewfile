@@ -34,6 +34,7 @@ cask 'slack'
 cask 'spotify'
 cask 'synergy'
 cask 'visual-studio-code'
+cask 'vivaldi'
 cask 'witch'
 
 mas '1Password 7', id: 1333542190
