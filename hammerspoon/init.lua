@@ -32,7 +32,7 @@ hs.window.animationDuration = 0.000
 -- Window Movement and Sizing (Fixed)
 do
   local Size     = require 'size'
-  local mod      = { "cmd", "ctrl" }
+  local mod      = { "option", "ctrl" }
   local bindings = {
     [ "d" ] = "left",
     [ "n" ] = "right",
@@ -47,7 +47,7 @@ end
 -- Window Movement (Relative)
 do
   local Size     = require 'size'
-  local mod      = { "cmd", "ctrl", "shift" }
+  local mod      = { "option", "ctrl", "shift" }
   local bindings = {
     [ "d" ] = "left",
     [ "n" ] = "right",
