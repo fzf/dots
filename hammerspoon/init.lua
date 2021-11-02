@@ -13,7 +13,7 @@ end
 -- make sure to run in terminal:
 -- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
 do
-  local mod      = { "cmd", "ctrl" }
+  local mod      = { "option", "ctrl" }
   local bindings = {
     [ "t" ] = "iTerm",
     [ "h" ] = "Vivaldi",
@@ -77,6 +77,18 @@ end
 hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
   { { 'cmd' }, 't', { 'cmd' }, 'k' }
+})
+spoon.AppBindings:bind('Vivaldi', {
+  { { 'ctrl' }, 'h', { }, 'down' },
+  { { 'ctrl' }, 't', { }, 'up' },
+  -- Quick Commands
+  { { 'cmd' }, 't', { 'cmd' }, 'e' },
+  -- History
+  { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, 'left' },
+  { { 'cmd', 'ctrl' }, 't', { 'cmd' }, 'right' },
+  -- Tabs
+  { { 'cmd', 'ctrl' }, 'd', { 'cmd', 'shift' }, '[' },
+  { { 'cmd', 'ctrl' }, 'n', { 'cmd', 'shift' }, ']' },
 })
 
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
