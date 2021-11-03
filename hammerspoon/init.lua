@@ -39,22 +39,6 @@ do
     [ "c" ] = "full"
   }
 
-  bindHotkeys(mod, bindings, function(location)
-    Size[location]()
-  end)
-end
-
--- Window Movement (Relative)
-do
-  local Size     = require 'size'
-  local mod      = { "option", "ctrl", "shift" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
-
   bindHotkeys(mod, bindings, function(direction)
     Size.moveLocation(direction)
   end)
