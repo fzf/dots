@@ -9,11 +9,17 @@ function Size.moveLocation(direction)
 
   if(direction == "right")
   then
-    hs.grid.resizeWindowThinner(win)
+    if (win.isMaximizable)
+    then
+      hs.grid.resizeWindowThinner(win)
+    end
     hs.grid.pushWindowRight(win)
   elseif(direction == "left")
   then
-    hs.grid.resizeWindowThinner(win)
+    if (win.isMaximizable)
+    then
+      hs.grid.resizeWindowThinner(win)
+    end
     hs.grid.pushWindowLeft(win)
   else
     hs.grid.maximizeWindow(win)
