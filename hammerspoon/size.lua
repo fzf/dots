@@ -3,25 +3,21 @@ local Size = {}
 function Size.moveLocation(direction)
   local win = hs.window.focusedWindow()
   if win == nil then return end
-  hs.grid.setGrid('2x1')
-  hs.grid.setMargins({0, 0})
-  hs.window.animationDuration = 0
 
-  if(direction == "right")
-  then
-    if (win.isMaximizable)
-    then
-      hs.grid.resizeWindowThinner(win)
-    end
+  local winFrame = win:frame()
+  local screen = win:screen()
+  local screenFrame = screen:frame()
+
+  if(direction == "right") then
+    hs.grid.resizeWindowThinner(win)
     hs.grid.pushWindowRight(win)
-  elseif(direction == "left")
-  then
-    if (win.isMaximizable)
-    then
-      hs.grid.resizeWindowThinner(win)
+  elseif(direction == "left") then
+    hs.grid.resizeWindowThinner(win)
+    -- Check if full screen, only move if not full screen
+    if(winFrame:equals(screenFrame) == false) then
+      hs.grid.pushWindowLeft(win)
     end
-    hs.grid.pushWindowLeft(win)
-  else
+  elseif(direction == "full") then
     hs.grid.maximizeWindow(win)
   end
 end

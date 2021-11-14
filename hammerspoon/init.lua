@@ -29,6 +29,10 @@ end
 -- Window Animation Duration
 hs.window.animationDuration = 0.000
 
+-- Set Grid
+hs.grid.setGrid('2x1')
+hs.grid.setMargins({0, 0})
+
 -- Window Movement and Sizing (Fixed)
 do
   local Size     = require 'size'
