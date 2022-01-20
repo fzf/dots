@@ -81,5 +81,5 @@ spoon.AppBindings:bind('Vivaldi', {
 
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
-local vimouse = require('vimouse')
-vimouse('cmd', 'm')
+-- local vimouse = require('vimouse')
+-- vimouse('cmd', 'm')
