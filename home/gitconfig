@@ -30,6 +30,7 @@
   t = !"git tree"
   tiny-tree = !"git log --graph --decorate --oneline; git --no-pager diff --stat"
   tt = !"git tiny-tree"
+  fp = push --force-with-lease
 
 [user]
   name = Fletcher Fowler
