@@ -1,20 +1,15 @@
 #!/bin/bash
 
+sudo spctl --master-disable
+
 cd ~
 
-which -s brew
-if [[ $? != 0 ]] ; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-  brew update
-fi
+bash $HOME/.dots/install/homebrew.sh
 
 rm -rf $HOME/.dots
 git clone https://gitlab.com/fzf/dots.git $HOME/.dots --quiet
 
-brew bundle --file=$HOME/.dots/Brewfile
-
-sudo spctl --master-disable
+bash $HOME/.dots/install/homebrew.sh
 
 bash $HOME/.dots/install/asdf.sh
 bash $HOME/.dots/install/fzf.sh
