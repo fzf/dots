@@ -16,7 +16,7 @@ do
   local mod      = { "option", "ctrl" }
   local bindings = {
     [ "t" ] = "iTerm",
-    [ "h" ] = "Vivaldi",
+    [ "h" ] = "Arc",
     [ "v" ] = "Visual Studio Code",
     [ "u" ] = "Obsidian",
   }
