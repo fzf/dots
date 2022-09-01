@@ -62,6 +62,9 @@ do
   end)
 end
 
+-- Bind Command + Escape to Command + `
+hs.hotkey.bind({'cmd'},'escape', function() hs.eventtap.keyStroke({'cmd'}, '`') end)
+
 hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
   { { 'cmd' }, 't', { 'cmd' }, 'k' }
