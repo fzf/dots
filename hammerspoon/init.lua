@@ -19,6 +19,7 @@ do
     [ "h" ] = "Arc",
     [ "v" ] = "Visual Studio Code",
     [ "u" ] = "Obsidian",
+    [ "s" ] = "Slack",
   }
 
   bindHotkeys(mod, bindings, function(app)
