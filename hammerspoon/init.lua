@@ -63,8 +63,52 @@ do
   end)
 end
 
+do
+  local mod      = { "ctrl", "shift" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({"shift"}, key, 1000)
+  end)
+end
+
+do
+  local mod      = { "ctrl", "cmd" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({ "cmd"}, key, 1000)
+  end)
+end
+
+do
+  local mod      = { "ctrl", "cmd", "shift" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({"shift", "cmd", "shift"}, key, 1000)
+  end)
+end
+
+
 -- Bind Command + Escape to Command + `
 hs.hotkey.bind({'cmd'},'escape', function() hs.eventtap.keyStroke({'cmd'}, '`') end)
+hs.hotkey.bind({'ctrl'},'delete', function() hs.eventtap.keyStroke({}, 'forwarddelete') end)
 
 hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
