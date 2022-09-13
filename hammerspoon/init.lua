@@ -78,20 +78,6 @@ do
 end
 
 do
-  local mod      = { "ctrl", "cmd" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
-
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({ "cmd"}, key, 1000)
-  end)
-end
-
-do
   local mod      = { "ctrl", "cmd", "shift" }
   local bindings = {
     [ "d" ] = "left",
