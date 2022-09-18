@@ -91,6 +91,11 @@ do
   end)
 end
 
+tap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+  local keyCode = event:getKeyCode()
+  print(event:rawFlags())
+end)
+tap:start()
 
 -- Bind Command + Escape to Command + `
 hs.hotkey.bind({'cmd'},'escape', function() hs.eventtap.keyStroke({'cmd'}, '`', 1000) end)
@@ -107,6 +112,7 @@ spoon.AppBindings:bind('Vivaldi', {
   { { 'cmd' }, 't', { 'cmd' }, 'e' },
   -- History
   { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, 'left' },
+
   { { 'cmd', 'ctrl' }, 't', { 'cmd' }, 'right' },
   -- Tabs
   { { 'cmd', 'ctrl' }, 'd', { 'cmd', 'shift' }, '[' },
@@ -116,4 +122,5 @@ spoon.AppBindings:bind('Vivaldi', {
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
 -- local vimouse = require('vimouse')
+
 -- vimouse('cmd', 'm')
