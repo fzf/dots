@@ -1,0 +1,18 @@
+# Insert your preferred key mappings here.
+# Insert your preferred key mappings here.
+
+mapKey d h
+mapKey D H
+mapKey h j
+mapKey H J
+mapKey t k
+mapKey T K
+mapKey n l
+mapKey N L
+
+mapKey j d
+mapKey J D
+mapKey k t
+mapKey K T
+mapKey l n
+mapKey L N
