@@ -91,11 +91,11 @@ do
   end)
 end
 
-tap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
-  local keyCode = event:getKeyCode()
-  print(event:rawFlags())
-end)
-tap:start()
+-- tap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+--   local keyCode = event:getKeyCode()
+--   print(event:rawFlags())
+-- end)
+-- tap:start()
 
 -- Bind Command + Escape to Command + `
 hs.hotkey.bind({'cmd'},'escape', function() hs.eventtap.keyStroke({'cmd'}, '`', 1000) end)
