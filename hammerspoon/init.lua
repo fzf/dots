@@ -124,3 +124,36 @@ hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://gith
 -- local vimouse = require('vimouse')
 
 -- vimouse('cmd', 'm')
+
+hs.loadSpoon("RecursiveBinder")
+
+spoon.RecursiveBinder.escapeKey = {{}, 'escape'}  -- Press escape to abort
+
+local singleKey = spoon.RecursiveBinder.singleKey
+
+local keyMap = {
+  [singleKey('w', 'window')] = {
+    [singleKey('s', 'split')] = function()
+      if hs.application.frontmostApplication():name() == "Arc" then
+        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '=', 200)
+      end
+    end,
+    [singleKey('x', 'close')] = function()
+      if hs.application.frontmostApplication():name() == "Arc" then
+        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '-', 200)
+      end
+    end,
+    [singleKey('d', 'last')] = function()
+      if hs.application.frontmostApplication():name() == "Arc" then
+        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '[', 200)
+      end
+    end,
+    [singleKey('n', 'next')] = function()
+      if hs.application.frontmostApplication():name() == "Arc" then
+        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, ']', 200)
+      end
+    end
+  }
+}
+
+hs.hotkey.bind({'option'}, 'space', spoon.RecursiveBinder.recursiveBind(keyMap))
