@@ -1,6 +1,8 @@
 -- Automatically Reload Config
-function reloadConfig(files) hs.reload() end
-hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reloadConfig):start()
+hs.loadSpoon("ReloadConfiguration")
+spoon.ReloadConfiguration:start()
+
+local logger = hs.logger.new("Global", "debug")
 
 local function bindHotkeys(mod, bindings, fn)
   for hotkey, arg in pairs(bindings) do
@@ -29,6 +31,7 @@ end
 
 -- Window Animation Duration
 hs.window.animationDuration = 0.000
+
 
 -- Set Grid
 hs.grid.setGrid('2x1')
