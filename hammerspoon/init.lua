@@ -10,28 +10,8 @@ local function bindHotkeys(mod, bindings, fn)
   end
 end
 
--- Applications
--- To disable the MacOSX's dictionary hotkey (cmd-ctrl-d),
--- make sure to run in terminal:
--- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
-do
-  local mod      = { "option", "ctrl" }
-  local bindings = {
-    [ "t" ] = "iTerm",
-    [ "h" ] = "Arc",
-    [ "v" ] = "Visual Studio Code",
-    [ "u" ] = "Obsidian",
-    [ "s" ] = "Slack",
-  }
-
-  bindHotkeys(mod, bindings, function(app)
-    hs.application.launchOrFocus(app)
-  end)
-end
-
 -- Window Animation Duration
 hs.window.animationDuration = 0.000
-
 
 -- Set Grid
 hs.grid.setGrid('2x1')
@@ -77,6 +57,34 @@ do
 
   bindHotkeys(mod, bindings, function(key)
     hs.eventtap.keyStroke({"shift"}, key, 1000)
+  end)
+end
+
+do
+  local mod      = { "ctrl", "option" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({"option"}, key, 1000)
+  end)
+end
+
+do
+  local mod      = { "ctrl", "option", "shift" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({"option", "shift"}, key, 1000)
   end)
 end
 
@@ -160,3 +168,102 @@ local keyMap = {
 }
 
 hs.hotkey.bind({'option'}, 'space', spoon.RecursiveBinder.recursiveBind(keyMap))
+
+-- Window Movement and Sizing (Fixed)
+-- do
+--   local Size     = require 'size'
+--   local mod      = { "option", "ctrl" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "c" ] = "full"
+--   }
+
+--   bindHotkeys(mod, bindings, function(direction)
+--     Size.moveLocation(direction)
+--   end)
+-- end
+
+-- Applications
+-- To disable the MacOSX's dictionary hotkey (cmd-ctrl-d),
+-- make sure to run in terminal:
+-- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
+-- do
+--   local mod      = { "option", "ctrl" }
+--   local bindings = {
+--     [ "t" ] = "iTerm",
+--     [ "h" ] = "Arc",
+--     [ "v" ] = "Visual Studio Code",
+--     [ "u" ] = "Obsidian",
+--     [ "s" ] = "Slack",
+--   }
+
+--   bindHotkeys(mod, bindings, function(app)
+--     hs.application.launchOrFocus(app)
+--   end)
+-- end
+
+myModifierMode = hs.hotkey.modal.new()
+local Size     = require 'size'
+
+myModifierMode:bind({}, 't',
+  function()
+    myModifierMode.triggered = true
+    hs.application.launchOrFocus("iTerm")
+  end
+)
+
+myModifierMode:bind({}, 'h',
+  function()
+    myModifierMode.triggered = true
+    hs.application.launchOrFocus("Arc")
+  end
+)
+
+myModifierMode:bind({}, 'v',
+  function()
+    myModifierMode.triggered = true
+    hs.application.launchOrFocus("Visual Studio Code")
+  end
+)
+
+myModifierMode:bind({}, 'd',
+  function()
+    myModifierMode.triggered = true
+    Size.moveLocation('left')
+  end
+)
+
+myModifierMode:bind({}, 'n',
+  function()
+    myModifierMode.triggered = true
+    Size.moveLocation('right')
+  end
+)
+
+myModifierMode:bind({}, 'c',
+  function()
+    logger.d(myModifierMode.triggered)
+    myModifierMode.triggered = true
+    Size.moveLocation('full')
+  end
+)
+
+myModifier = hs.hotkey.bind({}, "tab",
+  function()
+    myModifierMode:enter()
+    logger.d(myModifierMode.triggered)
+    myModifierMode.triggered = false
+  end,
+  function()
+
+    myModifierMode:exit()
+    logger.d(myModifierMode.triggered)
+    myModifierMode.triggered = false
+    if not myModifierMode.triggered then
+      myModifier:disable()
+      hs.eventtap.keyStroke({}, "tab")
+      hs.timer.doAfter(0.1, function() myModifier:enable() end)
+    end
+  end
+)
