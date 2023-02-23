@@ -2,6 +2,23 @@
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
 
+-- custom Console toolbar (adds Clear button)
+local toolbar = require("hs.webview.toolbar")
+local console = require("hs.console")
+local image = require("hs.image")
+console.defaultToolbar = toolbar.new("CustomToolbar", {
+    { id="prefs", label="Preferences", image=image.imageFromName("NSPreferencesGeneral"), tooltip="Open Preferences", fn=function() hs.openPreferences() end },
+    { id="reload", label="Reload config", image=image.imageFromName("NSSynchronize"), tooltip="Reload configuration", fn=function() hs.reload() end },
+    { id="openCfg", label="Open config", image=image.imageFromName("NSActionTemplate"), tooltip="Edit configuration", fn=function() openConfig() end },
+    { id="clearLog", label="Clear", image = hs.image.imageFromName("NSTrashEmpty"), tooltip="Clear Console", fn=function() console.clearConsole() end },
+    { id="help", label="Help", image=image.imageFromName("NSInfo"), tooltip="Open API docs browser", fn=function() hs.doc.hsdocs.help() end }
+  }):canCustomize(true):autosaves(true)
+console.toolbar(console.defaultToolbar)
+
+function openConfig()
+  hs.open(hs.configdir .. "/init.lua")
+end
+
 local logger = hs.logger.new("Global", "debug")
 
 local function bindHotkeys(mod, bindings, fn)
@@ -17,21 +34,6 @@ hs.window.animationDuration = 0.000
 hs.grid.setGrid('2x1')
 hs.grid.setMargins({0, 0})
 
--- Window Movement and Sizing (Fixed)
-do
-  local Size     = require 'size'
-  local mod      = { "option", "ctrl" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "c" ] = "full"
-  }
-
-  bindHotkeys(mod, bindings, function(direction)
-    Size.moveLocation(direction)
-  end)
-end
-
 do
   local mod      = { "ctrl" }
   local bindings = {
@@ -42,7 +44,7 @@ do
   }
 
   bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke(mods, key, 1000)
+    hs.eventtap.keyStroke(nil, key, 1000)
   end)
 end
 
@@ -203,67 +205,38 @@ hs.hotkey.bind({'option'}, 'space', spoon.RecursiveBinder.recursiveBind(keyMap))
 --   end)
 -- end
 
-myModifierMode = hs.hotkey.modal.new()
-local Size     = require 'size'
+modal = hs.hotkey.modal.new()
 
-myModifierMode:bind({}, 't',
-  function()
-    myModifierMode.triggered = true
-    hs.application.launchOrFocus("iTerm")
-  end
-)
+function binder(mods, key, fn, mm)
+	local function triggerAndCall()
+	    modal.triggered = true
+      fn()
+  	end
+	modal:bind({}, key, triggerAndCall, nil, triggerAndCall)
+end
 
-myModifierMode:bind({}, 'h',
+modifier = hs.hotkey.bind({}, "tab",
   function()
-    myModifierMode.triggered = true
-    hs.application.launchOrFocus("Arc")
-  end
-)
-
-myModifierMode:bind({}, 'v',
-  function()
-    myModifierMode.triggered = true
-    hs.application.launchOrFocus("Visual Studio Code")
-  end
-)
-
-myModifierMode:bind({}, 'd',
-  function()
-    myModifierMode.triggered = true
-    Size.moveLocation('left')
-  end
-)
-
-myModifierMode:bind({}, 'n',
-  function()
-    myModifierMode.triggered = true
-    Size.moveLocation('right')
-  end
-)
-
-myModifierMode:bind({}, 'c',
-  function()
-    logger.d(myModifierMode.triggered)
-    myModifierMode.triggered = true
-    Size.moveLocation('full')
-  end
-)
-
-myModifier = hs.hotkey.bind({}, "tab",
-  function()
-    myModifierMode:enter()
-    logger.d(myModifierMode.triggered)
-    myModifierMode.triggered = false
+    modal:enter()
+    modal.triggered = false
   end,
   function()
-
-    myModifierMode:exit()
-    logger.d(myModifierMode.triggered)
-    myModifierMode.triggered = false
-    if not myModifierMode.triggered then
-      myModifier:disable()
+    modal:exit()
+    if not modal.triggered then
+      modifier:disable()
       hs.eventtap.keyStroke({}, "tab")
-      hs.timer.doAfter(0.1, function() myModifier:enable() end)
+      hs.timer.doAfter(0.1, function() modifier:enable() end)
     end
   end
 )
+
+local Size = require 'size'
+
+local modal = hs.hotkey.modal.new()
+binder(nil, "t", function() hs.application.launchOrFocus("iTerm") end, modal)
+binder(nil, "h", function() hs.application.launchOrFocus("Arc") end, modal)
+binder(nil, "v", function() hs.application.launchOrFocus("Visual Studio Code") end, modal)
+binder(nil, "d", function() Size.moveLocation('left') end, modal)
+binder(nil, "n", function() Size.moveLocation('right') end, modal)
+binder(nil, "c", function() Size.moveLocation('full') end, modal)
+
