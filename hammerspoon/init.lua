@@ -63,6 +63,20 @@ do
 end
 
 do
+  local mod      = { "ctrl", "cmd" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({"cmd"}, key, 1000)
+  end)
+end
+
+do
   local mod      = { "ctrl", "option" }
   local bindings = {
     [ "d" ] = "left",
@@ -118,58 +132,69 @@ hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
   { { 'cmd' }, 't', { 'cmd' }, 'k' }
 })
-spoon.AppBindings:bind('Vivaldi', {
-  { { 'ctrl' }, 'h', { }, 'down' },
-  { { 'ctrl' }, 't', { }, 'up' },
-  -- Quick Commands
-  { { 'cmd' }, 't', { 'cmd' }, 'e' },
+spoon.AppBindings:bind('Arc', {
   -- History
-  { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, 'left' },
-
-  { { 'cmd', 'ctrl' }, 't', { 'cmd' }, 'right' },
+  { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, '[' },
+  { { 'cmd', 'ctrl' }, 't', { 'cmd' }, ']' },
   -- Tabs
   { { 'cmd', 'ctrl' }, 'd', { 'cmd', 'shift' }, '[' },
   { { 'cmd', 'ctrl' }, 'n', { 'cmd', 'shift' }, ']' },
+  -- Split
+  { { 'option', 'cmd'}, 's', { 'ctrl', 'shift' }, '=' },
+  { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
+  { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
 })
 
+spoon.AppBindings:bind('Code', {
+  -- History
+  { { 'cmd', 'ctrl' }, 'h', { 'ctrl' }, '-' },
+  { { 'cmd', 'ctrl' }, 't', { 'ctrl', 'shift' }, '-' },
+  -- Tabs
+  { { 'cmd', 'ctrl' }, 'd', { 'option', 'cmd' }, 'right' },
+  { { 'cmd', 'ctrl' }, 'n', { 'option', 'cmd' }, 'left' },
+  -- Split
+  { { 'option', 'cmd'}, 's', { 'ctrl' }, 's' },
+  { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
+  { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
+})
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
 -- local vimouse = require('vimouse')
 
 -- vimouse('cmd', 'm')
 
-hs.loadSpoon("RecursiveBinder")
+-- hs.loadSpoon("RecursiveBinder")
 
-spoon.RecursiveBinder.escapeKey = {{}, 'escape'}  -- Press escape to abort
+-- spoon.RecursiveBinder.escapeKey = {{}, 'escape'}  -- Press escape to abort
 
-local singleKey = spoon.RecursiveBinder.singleKey
+-- local singleKey = spoon.RecursiveBinder.singleKey
 
-local keyMap = {
-  [singleKey('w', 'window')] = {
-    [singleKey('s', 'split')] = function()
-      if hs.application.frontmostApplication():name() == "Arc" then
-        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '=', 200)
-      end
-    end,
-    [singleKey('x', 'close')] = function()
-      if hs.application.frontmostApplication():name() == "Arc" then
-        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '-', 200)
-      end
-    end,
-    [singleKey('d', 'last')] = function()
-      if hs.application.frontmostApplication():name() == "Arc" then
-        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '[', 200)
-      end
-    end,
-    [singleKey('n', 'next')] = function()
-      if hs.application.frontmostApplication():name() == "Arc" then
-        hs.eventtap.keyStroke({ 'ctrl', 'shift' }, ']', 200)
-      end
-    end
-  }
-}
+-- local keyMap = {
+--   [singleKey('w', 'window')] = {
+--     [singleKey('s', 'split')] = function()
+--       if hs.application.frontmostApplication():name() == "Arc" then
+--         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '=', 200)
+--       end
+--     end,
+--     [singleKey('q', 'close')] = function()
+--       if hs.application.frontmostApplication():name() == "Arc" then
+--         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '-', 200)
+--       end
+--     end,
+--     [singleKey('d', 'last')] = function()
+--       if hs.application.frontmostApplication():name() == "Arc" then
+--         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '[', 200)
+--       end
+--     end,
+--     [singleKey('n', 'next')] = function()
+--       if hs.application.frontmostApplication():name() == "Arc" then
+--         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, ']', 200)
+--       end
+--     end
+--   }
+-- }
 
-hs.hotkey.bind({'option'}, 'space', spoon.RecursiveBinder.recursiveBind(keyMap))
+-- hs.hotkey.bind({'cmd'}, 'e', spoon.RecursiveBinder.recursiveBind(keyMap))
 
 -- Window Movement and Sizing (Fixed)
 -- do
