@@ -132,18 +132,18 @@ hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
   { { 'cmd' }, 't', { 'cmd' }, 'k' }
 })
-spoon.AppBindings:bind('Arc', {
-  -- History
-  { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, '[' },
-  { { 'cmd', 'ctrl' }, 't', { 'cmd' }, ']' },
-  -- Tabs
-  { { 'cmd', 'ctrl' }, 'd', { 'cmd', 'shift' }, '[' },
-  { { 'cmd', 'ctrl' }, 'n', { 'cmd', 'shift' }, ']' },
-  -- Split
-  { { 'option', 'cmd'}, 's', { 'ctrl', 'shift' }, '=' },
-  { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
-  { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
-})
+-- spoon.AppBindings:bind('Arc', {
+--   -- History
+--   { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, '[' },
+--   { { 'cmd', 'ctrl' }, 't', { 'cmd' }, ']' },
+--   -- Tabs
+--   { { 'cmd', 'ctrl' }, 'd', { 'cmd', 'shift' }, '[' },
+--   { { 'cmd', 'ctrl' }, 'n', { 'cmd', 'shift' }, ']' },
+--   -- Split
+--   { { 'option', 'cmd'}, 's', { 'ctrl', 'shift' }, '=' },
+--   { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
+--   { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
+-- })
 
 spoon.AppBindings:bind('Code', {
   -- History
