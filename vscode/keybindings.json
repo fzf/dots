@@ -1,5 +1,25 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+    {
+        "key": "cmd+shift+s",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "cmd+shift+n",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "cmd+shift+d",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "cmd+alt+d",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "cmd+alt+n",
+        "command": "workbench.action.focusRightGroup"
+    },
     // Menu Movement
     {
         "key": "h",
@@ -70,10 +90,6 @@
         "key": "cmd+s",
         "command": "workbench.action.terminal.split",
         "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+s",
-        "command": "workbench.action.splitEditor"
     },
     {
       "key": "enter",

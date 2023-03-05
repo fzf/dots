@@ -145,18 +145,18 @@ spoon.AppBindings:bind('Telegram', {
 --   { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
 -- })
 
-spoon.AppBindings:bind('Code', {
-  -- History
-  { { 'cmd', 'ctrl' }, 'h', { 'ctrl' }, '-' },
-  { { 'cmd', 'ctrl' }, 't', { 'ctrl', 'shift' }, '-' },
-  -- Tabs
-  { { 'cmd', 'ctrl' }, 'd', { 'option', 'cmd' }, 'right' },
-  { { 'cmd', 'ctrl' }, 'n', { 'option', 'cmd' }, 'left' },
-  -- Split
-  { { 'option', 'cmd'}, 's', { 'ctrl' }, 's' },
-  { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
-  { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
-})
+-- spoon.AppBindings:bind('Code', {
+--   -- History
+--   { { 'cmd', 'ctrl' }, 'h', { 'ctrl' }, '-' },
+--   { { 'cmd', 'ctrl' }, 't', { 'ctrl', 'shift' }, '-' },
+--   -- Tabs
+--   { { 'cmd', 'ctrl' }, 'd', { 'option', 'cmd' }, 'right' },
+--   { { 'cmd', 'ctrl' }, 'n', { 'option', 'cmd' }, 'left' },
+--   -- Split
+--   { { 'option', 'cmd'}, 's', { 'ctrl' }, 's' },
+--   { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
+--   { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
+-- })
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
 -- local vimouse = require('vimouse')
