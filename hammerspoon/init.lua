@@ -125,8 +125,8 @@ end
 -- tap:start()
 
 -- Bind Command + Escape to Command + `
-hs.hotkey.bind({'cmd'},'escape', function() hs.eventtap.keyStroke({'cmd'}, '`', 1000) end)
-hs.hotkey.bind({'ctrl'},'delete', function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end)
+hs.hotkey.bind({'cmd'}, 'escape', function() hs.eventtap.keyStroke({'cmd'}, '`', 1000) end)
+hs.hotkey.bind({'ctrl'}, 'delete', function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end, nil, function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end)
 
 hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
