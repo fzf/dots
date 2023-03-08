@@ -13,12 +13,24 @@
         "command": "workbench.action.previousEditor"
     },
     {
-        "key": "cmd+alt+d",
+        "key": "cmd+shift+h",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+      "key": "cmd+shift+t",
+      "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "cmd+alt+h",
         "command": "workbench.action.focusLeftGroup"
     },
     {
-        "key": "cmd+alt+n",
+        "key": "cmd+alt+t",
         "command": "workbench.action.focusRightGroup"
+    },
+    {
+      "key": "cmd+alt+d",
+      "command": "workbench.action.toggleSidebarVisibility"
     },
     // Menu Movement
     {

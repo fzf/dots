@@ -130,20 +130,26 @@ hs.hotkey.bind({'ctrl'}, 'delete', function() hs.eventtap.keyStroke({}, 'forward
 
 hs.loadSpoon("AppBindings")
 spoon.AppBindings:bind('Telegram', {
-  { { 'cmd' }, 't', { 'cmd' }, 'k' }
+  { { 'cmd' }, 'p', { 'cmd' }, 'k' }
 })
--- spoon.AppBindings:bind('Arc', {
---   -- History
---   { { 'cmd', 'ctrl' }, 'h', { 'cmd' }, '[' },
---   { { 'cmd', 'ctrl' }, 't', { 'cmd' }, ']' },
---   -- Tabs
---   { { 'cmd', 'ctrl' }, 'd', { 'cmd', 'shift' }, '[' },
---   { { 'cmd', 'ctrl' }, 'n', { 'cmd', 'shift' }, ']' },
---   -- Split
---   { { 'option', 'cmd'}, 's', { 'ctrl', 'shift' }, '=' },
---   { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
---   { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
--- })
+spoon.AppBindings:bind('zoom.us', {
+  { { 'cmd', 'option' }, 'd', { 'cmd', 'shift' }, 'h' }
+})
+spoon.AppBindings:bind('Arc', {
+  { { 'cmd' }, 'p', { 'cmd' }, 't' },
+  -- History
+  { { 'cmd', 'shift' }, 'h', { 'cmd' }, '[' },
+  { { 'cmd', 'shift' }, 't', { 'cmd' }, ']' },
+  -- Tabs
+  { { 'cmd', 'shift' }, 'd', { 'cmd', 'shift' }, '[' },
+  { { 'cmd', 'shift' }, 'n', { 'cmd', 'shift' }, ']' },
+  -- Split
+  { { 'option', 'cmd'}, 's', { 'ctrl', 'shift' }, '=' },
+  { { 'option', 'cmd'}, 'h', { 'ctrl', 'shift' }, '[' },
+  { { 'option', 'cmd'}, 't', { 'ctrl', 'shift' }, ']' },
+  -- Sidebar
+  { { 'option', 'cmd'}, 'd', { 'cmd' }, 's' },
+})
 
 -- spoon.AppBindings:bind('Code', {
 --   -- History
