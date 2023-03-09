@@ -1,3 +1,9 @@
+require 'install'
+knu = hs.loadSpoon("Knu")
+
+-- Enable auto-restart when any of the *.lua files under ~/.hammerspoon/ is modified
+knu.runtime.autorestart(true)
+
 -- Automatically Reload Config
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
@@ -118,9 +124,11 @@ do
   end)
 end
 
+-- Logging keycodes
 -- tap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
 --   local keyCode = event:getKeyCode()
 --   print(event:rawFlags())
+--   print(keyCode)
 -- end)
 -- tap:start()
 
@@ -129,9 +137,9 @@ hs.hotkey.bind({'cmd'}, 'escape', function() hs.eventtap.keyStroke({'cmd'}, '`',
 hs.hotkey.bind({'ctrl'}, 'delete', function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end, nil, function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end)
 
 hs.loadSpoon("AppBindings")
-spoon.AppBindings:bind('Telegram', {
-  { { 'cmd' }, 'p', { 'cmd' }, 'k' }
-})
+-- spoon.AppBindings:bind('Telegram', {
+--   { { 'cmd' }, 'p', { 'cmd' }, 'k' }
+-- })
 spoon.AppBindings:bind('zoom.us', {
   { { 'cmd', 'option' }, 'd', { 'cmd', 'shift' }, 'h' }
 })
@@ -150,6 +158,16 @@ spoon.AppBindings:bind('Arc', {
   -- Sidebar
   { { 'option', 'cmd'}, 'd', { 'cmd' }, 's' },
 })
+
+-- Define some bindings for specific applications
+knu.keymap.register(
+  "ru.keepcoder.Telegram",
+  knu.keymap.new(
+    knu.photkey.bind({"cmd"}, "p", function ()
+      hs.eventtap.keyStroke({'cmd'}, 'k', 1000)
+    end)
+  )
+)
 
 -- spoon.AppBindings:bind('Code', {
 --   -- History
