@@ -1,12 +1,8 @@
-require 'install'
+require "install"
 knu = hs.loadSpoon("Knu")
 
 -- Enable auto-restart when any of the *.lua files under ~/.hammerspoon/ is modified
 knu.runtime.autorestart(true)
-
--- Automatically Reload Config
-hs.loadSpoon("ReloadConfiguration")
-spoon.ReloadConfiguration:start()
 
 -- custom Console toolbar (adds Clear button)
 local toolbar = require("hs.webview.toolbar")
@@ -37,7 +33,7 @@ end
 hs.window.animationDuration = 0.000
 
 -- Set Grid
-hs.grid.setGrid('2x1')
+hs.grid.setGrid("2x1")
 hs.grid.setMargins({0, 0})
 
 do
@@ -64,21 +60,7 @@ do
   }
 
   bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({"shift"}, key, 1000)
-  end)
-end
-
-do
-  local mod      = { "ctrl", "cmd" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
-
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({"cmd"}, key, 1000)
+    hs.eventtap.keyStroke({ "shift" }, key, 1000)
   end)
 end
 
@@ -92,12 +74,12 @@ do
   }
 
   bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({"option"}, key, 1000)
+    hs.eventtap.keyStroke({ "option" }, key, 1000)
   end)
 end
 
 do
-  local mod      = { "ctrl", "option", "shift" }
+  local mod      = { "ctrl", "cmd" }
   local bindings = {
     [ "d" ] = "left",
     [ "n" ] = "right",
@@ -106,12 +88,12 @@ do
   }
 
   bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({"option", "shift"}, key, 1000)
+    hs.eventtap.keyStroke({ "cmd" }, key, 1000)
   end)
 end
 
 do
-  local mod      = { "ctrl", "cmd", "shift" }
+  local mod      = { "ctrl", "shift", "option" }
   local bindings = {
     [ "d" ] = "left",
     [ "n" ] = "right",
@@ -120,7 +102,21 @@ do
   }
 
   bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({"shift", "cmd", "shift"}, key, 1000)
+    hs.eventtap.keyStroke({ "shift", "option" }, key, 1000)
+  end)
+end
+
+do
+  local mod      = { "ctrl", "shift", "cmd" }
+  local bindings = {
+    [ "d" ] = "left",
+    [ "n" ] = "right",
+    [ "h" ] = "down",
+    [ "t" ] = "up"
+  }
+
+  bindHotkeys(mod, bindings, function(key)
+    hs.eventtap.keyStroke({ "shift", "cmd" }, key, 1000)
   end)
 end
 
@@ -133,96 +129,108 @@ end
 -- tap:start()
 
 -- Bind Command + Escape to Command + `
-hs.hotkey.bind({'cmd'}, 'escape', function() hs.eventtap.keyStroke({'cmd'}, '`', 1000) end)
-hs.hotkey.bind({'ctrl'}, 'delete', function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end, nil, function() hs.eventtap.keyStroke({}, 'forwarddelete', 1000) end)
+hs.hotkey.bind({ "cmd" }, "escape", function() hs.eventtap.keyStroke({ "cmd" }, "`", 1000) end)
+hs.hotkey.bind({ "ctrl" }, "delete", function() hs.eventtap.keyStroke(nil, "forwarddelete", 1000) end, nil, function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end)
 
-hs.loadSpoon("AppBindings")
--- spoon.AppBindings:bind('Telegram', {
---   { { 'cmd' }, 'p', { 'cmd' }, 'k' }
--- })
-spoon.AppBindings:bind('zoom.us', {
-  { { 'cmd', 'option' }, 'd', { 'cmd', 'shift' }, 'h' }
-})
-spoon.AppBindings:bind('Arc', {
-  { { 'cmd' }, 'p', { 'cmd' }, 't' },
-  -- History
-  { { 'cmd', 'shift' }, 'h', { 'cmd' }, '[' },
-  { { 'cmd', 'shift' }, 't', { 'cmd' }, ']' },
-  -- Tabs
-  { { 'cmd', 'shift' }, 'd', { 'cmd', 'shift' }, '[' },
-  { { 'cmd', 'shift' }, 'n', { 'cmd', 'shift' }, ']' },
-  -- Split
-  { { 'option', 'cmd'}, 's', { 'ctrl', 'shift' }, '=' },
-  { { 'option', 'cmd'}, 'h', { 'ctrl', 'shift' }, '[' },
-  { { 'option', 'cmd'}, 't', { 'ctrl', 'shift' }, ']' },
-  -- Sidebar
-  { { 'option', 'cmd'}, 'd', { 'cmd' }, 's' },
-})
-
--- Define some bindings for specific applications
+-- osascript -e "id of app "Finder""
 knu.keymap.register(
-  "ru.keepcoder.Telegram",
+  "us.zoom.xos",
   knu.keymap.new(
-    knu.photkey.bind({"cmd"}, "p", function ()
-      hs.eventtap.keyStroke({'cmd'}, 'k', 1000)
+    knu.photkey.bind({ "cmd", "alt" }, "d", function ()
+      hs.eventtap.keyStroke({ "cmd", "shift" }, "h", 1000)
     end)
   )
 )
 
--- spoon.AppBindings:bind('Code', {
+knu.keymap.register(
+  "ru.keepcoder.Telegram",
+  knu.keymap.new(
+    knu.photkey.bind({ "cmd" }, "p", function ()
+      hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
+    end)
+  )
+)
+
+knu.keymap.register(
+  "company.thebrowser.Browser",
+  knu.keymap.new(
+    knu.photkey.bind({ "cmd" }, "p", function ()
+      hs.eventtap.keyStroke({ "cmd" }, "t", 1000)
+    end),
+    knu.photkey.bind({ "cmd", "shift" }, "h", function ()
+      hs.eventtap.keyStroke({ "cmd" }, "[", 1000)
+    end),
+    knu.photkey.bind({ "cmd", "shift" }, "t", function ()
+      hs.eventtap.keyStroke({ "cmd" }, "]", 1000)
+    end),
+    knu.photkey.bind({ "alt", "cmd" }, "s", function ()
+      hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
+    end),
+    knu.photkey.bind({ "alt", "cmd" }, "h", function ()
+      hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
+    end),
+    knu.photkey.bind({ "alt", "cmd" }, "t", function ()
+      hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
+    end),
+    knu.photkey.bind({ "alt", "cmd" }, "d", function ()
+      hs.eventtap.keyStroke({ "cmd" }, "s", 1000)
+    end)
+  )
+)
+-- spoon.AppBindings:bind("Code", {
 --   -- History
---   { { 'cmd', 'ctrl' }, 'h', { 'ctrl' }, '-' },
---   { { 'cmd', 'ctrl' }, 't', { 'ctrl', 'shift' }, '-' },
+--   { { "cmd", "ctrl" }, "h", { "ctrl" }, "-" },
+--   { { "cmd", "ctrl" }, "t", { "ctrl", "shift" }, "-" },
 --   -- Tabs
---   { { 'cmd', 'ctrl' }, 'd', { 'option', 'cmd' }, 'right' },
---   { { 'cmd', 'ctrl' }, 'n', { 'option', 'cmd' }, 'left' },
+--   { { "cmd", "ctrl" }, "d", { "option", "cmd" }, "right" },
+--   { { "cmd", "ctrl" }, "n", { "option", "cmd" }, "left" },
 --   -- Split
---   { { 'option', 'cmd'}, 's', { 'ctrl' }, 's' },
---   { { 'option', 'cmd'}, 'd', { 'ctrl', 'shift' }, '[' },
---   { { 'option', 'cmd'}, 'n', { 'ctrl', 'shift' }, ']' },
+--   { { "option", "cmd" }, "s", { "ctrl" }, "s" },
+--   { { "option", "cmd" }, "d", { "ctrl", "shift" }, "[" },
+--   { { "option", "cmd" }, "n", { "ctrl", "shift" }, "]" },
 -- })
-hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
+hs.loadSpoon("ControlEscape"):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
--- local vimouse = require('vimouse')
+-- local vimouse = require("vimouse")
 
--- vimouse('cmd', 'm')
+-- vimouse("cmd", "m")
 
 -- hs.loadSpoon("RecursiveBinder")
 
--- spoon.RecursiveBinder.escapeKey = {{}, 'escape'}  -- Press escape to abort
+-- spoon.RecursiveBinder.escapeKey = {{}, "escape" }  -- Press escape to abort
 
 -- local singleKey = spoon.RecursiveBinder.singleKey
 
 -- local keyMap = {
---   [singleKey('w', 'window')] = {
---     [singleKey('s', 'split')] = function()
+--   [singleKey("w", "window")] = {
+--     [singleKey("s", "split")] = function()
 --       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '=', 200)
+--         hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 200)
 --       end
 --     end,
---     [singleKey('q', 'close')] = function()
+--     [singleKey("q", "close")] = function()
 --       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '-', 200)
+--         hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 200)
 --       end
 --     end,
---     [singleKey('d', 'last')] = function()
+--     [singleKey("d", "last")] = function()
 --       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, '[', 200)
+--         hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 200)
 --       end
 --     end,
---     [singleKey('n', 'next')] = function()
+--     [singleKey("n", "next")] = function()
 --       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ 'ctrl', 'shift' }, ']', 200)
+--         hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 200)
 --       end
 --     end
 --   }
 -- }
 
--- hs.hotkey.bind({'cmd'}, 'e', spoon.RecursiveBinder.recursiveBind(keyMap))
+-- hs.hotkey.bind({ "cmd" }, "e", spoon.RecursiveBinder.recursiveBind(keyMap))
 
 -- Window Movement and Sizing (Fixed)
 -- do
---   local Size     = require 'size'
+--   local Size     = require "size"
 --   local mod      = { "option", "ctrl" }
 --   local bindings = {
 --     [ "d" ] = "left",
@@ -236,9 +244,9 @@ hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://gith
 -- end
 
 -- Applications
--- To disable the MacOSX's dictionary hotkey (cmd-ctrl-d),
+-- To disable the MacOSX"s dictionary hotkey (cmd-ctrl-d),
 -- make sure to run in terminal:
--- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
+-- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 "<dict><key>enabled</key><false/></dict>"
 -- do
 --   local mod      = { "option", "ctrl" }
 --   local bindings = {
@@ -279,13 +287,13 @@ modifier = hs.hotkey.bind({}, "tab",
   end
 )
 
-local Size = require 'size'
+local Size = require "size"
 
 local modal = hs.hotkey.modal.new()
 binder(nil, "t", function() hs.application.launchOrFocus("iTerm") end, modal)
 binder(nil, "h", function() hs.application.launchOrFocus("Arc") end, modal)
 binder(nil, "v", function() hs.application.launchOrFocus("Visual Studio Code") end, modal)
-binder(nil, "d", function() Size.moveLocation('left') end, modal)
-binder(nil, "n", function() Size.moveLocation('right') end, modal)
-binder(nil, "c", function() Size.moveLocation('full') end, modal)
+binder(nil, "d", function() Size.moveLocation("left") end, modal)
+binder(nil, "n", function() Size.moveLocation("right") end, modal)
+binder(nil, "c", function() Size.moveLocation("full") end, modal)
 
