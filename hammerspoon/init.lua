@@ -132,11 +132,11 @@ end
 hs.hotkey.bind({ "cmd" }, "escape", function() hs.eventtap.keyStroke({ "cmd" }, "`", 1000) end)
 hs.hotkey.bind({ "ctrl" }, "delete", function() hs.eventtap.keyStroke(nil, "forwarddelete", 1000) end, nil, function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end)
 
--- osascript -e "id of app "Finder""
+-- osascript -e 'id of app "Finder"'
 knu.keymap.register(
   "us.zoom.xos",
   knu.keymap.new(
-    knu.photkey.bind({ "cmd", "alt" }, "d", function ()
+    hs.hotkey.new({ "cmd", "alt" }, "d", function ()
       hs.eventtap.keyStroke({ "cmd", "shift" }, "h", 1000)
     end)
   )
@@ -144,39 +144,69 @@ knu.keymap.register(
 
 knu.keymap.register(
   "ru.keepcoder.Telegram",
-  knu.keymap.new(
-    knu.photkey.bind({ "cmd" }, "p", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
-    end)
-  )
+  hs.hotkey.new({ "cmd" }, "p", function ()
+    hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
+  end)
 )
 
 knu.keymap.register(
   "company.thebrowser.Browser",
   knu.keymap.new(
+    -- Quick Open
     knu.photkey.bind({ "cmd" }, "p", function ()
       hs.eventtap.keyStroke({ "cmd" }, "t", 1000)
     end),
-    knu.photkey.bind({ "cmd", "shift" }, "h", function ()
+    -- Back
+    hs.hotkey.new({ "cmd", "shift" }, "h", function ()
       hs.eventtap.keyStroke({ "cmd" }, "[", 1000)
     end),
-    knu.photkey.bind({ "cmd", "shift" }, "t", function ()
+    -- Forward
+    hs.hotkey.new({ "cmd", "shift" }, "t", function ()
       hs.eventtap.keyStroke({ "cmd" }, "]", 1000)
     end),
-    knu.photkey.bind({ "alt", "cmd" }, "s", function ()
+    -- Split
+    hs.hotkey.new({ "alt", "cmd" }, "s", function ()
       hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
     end),
-    knu.photkey.bind({ "alt", "cmd" }, "h", function ()
+    -- Left Split
+    hs.hotkey.new({ "alt", "cmd" }, "h", function ()
       hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
     end),
-    knu.photkey.bind({ "alt", "cmd" }, "t", function ()
+    -- Right Split
+    hs.hotkey.new({ "alt", "cmd" }, "t", function ()
       hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
     end),
-    knu.photkey.bind({ "alt", "cmd" }, "d", function ()
+    -- Close Left Drawer
+    hs.hotkey.new({ "alt", "cmd" }, "d", function ()
       hs.eventtap.keyStroke({ "cmd" }, "s", 1000)
     end)
   )
 )
+
+knu.keymap.register(
+  "com.microsoft.VSCode",
+  knu.keymap.new(
+    hs.hotkey.new({ "cmd", "shift" }, "h", function ()
+      hs.eventtap.keyStroke({ "cmd", "shift" }, "[", 1000)
+    end),
+    hs.hotkey.new({ "cmd", "shift" }, "t", function ()
+      hs.eventtap.keyStroke({ "cmd", "shift" }, "]", 1000)
+    end),
+    hs.hotkey.new({ "alt", "cmd" }, "s", function ()
+      hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
+    end),
+    hs.hotkey.new({ "alt", "cmd" }, "h", function ()
+      hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
+    end),
+    hs.hotkey.new({ "alt", "cmd" }, "t", function ()
+      hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
+    end),
+    hs.hotkey.new({ "alt", "cmd" }, "d", function ()
+      hs.eventtap.keyStroke({ "cmd" }, "s", 1000)
+    end)
+  )
+)
+
 -- spoon.AppBindings:bind("Code", {
 --   -- History
 --   { { "cmd", "ctrl" }, "h", { "ctrl" }, "-" },
