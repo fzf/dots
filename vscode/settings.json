@@ -1303,9 +1303,9 @@
     "gitlens.currentLine.pullRequests.enabled": false,
     "gitlens.codeLens.enabled": false,
     "editor.accessibilitySupport": "off",
-    "editor.minimap.enabled": false,
     "gitlens.hovers.enabled": false,
     "editor.codeActionsOnSave": {
 
     },
+    "editor.minimap.enabled": false,
 }

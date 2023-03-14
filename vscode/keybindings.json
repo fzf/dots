@@ -1,37 +1,37 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "cmd+shift+s",
-        "command": "workbench.action.splitEditor"
-    },
-    {
-        "key": "cmd+shift+n",
-        "command": "workbench.action.nextEditor"
-    },
-    {
-        "key": "cmd+shift+d",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "cmd+shift+h",
-        "command": "workbench.action.navigateBack"
-    },
-    {
-      "key": "cmd+shift+t",
-      "command": "workbench.action.navigateForward"
-    },
-    {
-        "key": "cmd+alt+h",
-        "command": "workbench.action.focusLeftGroup"
-    },
-    {
-        "key": "cmd+alt+t",
-        "command": "workbench.action.focusRightGroup"
-    },
-    {
-      "key": "cmd+alt+d",
-      "command": "workbench.action.toggleSidebarVisibility"
-    },
+    // {
+    //     "key": "cmd+shift+s",
+    //     "command": "workbench.action.splitEditor"
+    // },
+    // {
+    //     "key": "cmd+shift+n",
+    //     "command": "workbench.action.nextEditor"
+    // },
+    // {
+    //     "key": "cmd+shift+d",
+    //     "command": "workbench.action.previousEditor"
+    // },
+    // {
+    //     "key": "cmd+shift+h",
+    //     "command": "workbench.action.navigateBack"
+    // },
+    // {
+    //   "key": "cmd+shift+t",
+    //   "command": "workbench.action.navigateForward"
+    // },
+    // {
+    //     "key": "cmd+alt+h",
+    //     "command": "workbench.action.focusLeftGroup"
+    // },
+    // {
+    //     "key": "cmd+alt+t",
+    //     "command": "workbench.action.focusRightGroup"
+    // },
+    // {
+    //   "key": "cmd+alt+d",
+    //   "command": "workbench.action.toggleSidebarVisibility"
+    // },
     // Menu Movement
     {
         "key": "h",
@@ -94,10 +94,10 @@
         "when": "inQuickOpen"
     },
     // Search
-    {
-        "key": "cmd+t",
-        "command": "workbench.action.quickOpen"
-    },
+    // {
+    //     "key": "cmd+t",
+    //     "command": "workbench.action.quickOpen"
+    // },
     {
         "key": "cmd+s",
         "command": "workbench.action.terminal.split",
@@ -154,44 +154,48 @@
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-    {
-        "key": "cmd+p",
-        "command": "-workbench.action.quickOpen"
-    },
-    {
-        "key": "cmd+p",
-        "command": "workbench.action.showAllSymbols"
-    },
-    {
-        "key": "cmd+t",
-        "command": "-workbench.action.showAllSymbols"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.nextEditor"
-    },
-    {
-        "key": "shift+cmd+]",
-        "command": "-workbench.action.nextEditor"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "shift+cmd+[",
-        "command": "-workbench.action.previousEditor"
-    },
-    {
-        "key": "ctrl+shift+s",
-        "command": "workbench.action.closeEditorsAndGroup"
-    },
-    {
-      "key": "cmd+m d",
-      "command": "workbench.action.moveEditorToLeftGroup"
-    },
-    {
-      "key": "ctrl+m n",
-      "command": "workbench.action.moveEditorToRightGroup"
-    }
+    // {
+    //     "key": "cmd+p",
+    //     "command": "-workbench.action.quickOpen"
+    // },
+    // {
+    //     "key": "cmd+p",
+    //     "command": "workbench.action.showAllSymbols"
+    // },
+    // {
+    //     "key": "cmd+t",
+    //     "command": "-workbench.action.showAllSymbols"
+    // },
+    // {
+    //     "key": "ctrl+n",
+    //     "command": "workbench.action.nextEditor"
+    // },
+    // {
+    //     "key": "shift+cmd+]",
+    //     "command": "-workbench.action.nextEditor"
+    // },
+    // {
+    //     "key": "ctrl+d",
+    //     "command": "workbench.action.previousEditor"
+    // },
+    // {
+    //     "key": "shift+cmd+[",
+    //     "command": "-workbench.action.previousEditor"
+    // },
+    // {
+    //     "key": "ctrl+shift+s",
+    //     "command": "workbench.action.closeEditorsAndGroup"
+    // },
+    // {
+    //   "key": "cmd+m d",
+    //   "command": "workbench.action.moveEditorToLeftGroup"
+    // },
+    // {
+    //   "key": "ctrl+m n",
+    //   "command": "workbench.action.moveEditorToRightGroup"
+    // },
+    // {
+    //   "key": "cmd+p",
+    //   "command": "-workbench.action.quickOpen"
+    // }
 ]
