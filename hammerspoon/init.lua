@@ -154,19 +154,19 @@ knu.keymap.register(
   "company.thebrowser.Browser",
   knu.keymap.new(
     -- Forward
-    hs.hotkey.new({ "cmd" }, "t", function ()
+    hs.hotkey.new({ "cmd", "shift" }, "t", function ()
       hs.eventtap.keyStroke({ "cmd" }, "]", 1000)
     end),
     -- Back
-    hs.hotkey.new({ "cmd" }, "h", function ()
+    hs.hotkey.new({ "cmd", "shift" }, "h", function ()
       hs.eventtap.keyStroke({ "cmd" }, "[", 1000)
     end),
     -- Next Tab
-    hs.hotkey.new({ "cmd" }, "d", function ()
+    hs.hotkey.new({ "cmd", "shift" }, "d", function ()
       hs.eventtap.keyStroke({ "shift", "cmd" }, "[", 1000)
     end),
     -- Previous Tab
-    hs.hotkey.new({ "cmd" }, "n", function ()
+    hs.hotkey.new({ "cmd", "shift" }, "n", function ()
       hs.eventtap.keyStroke({ "shift", "cmd" }, "]", 1000)
     end),
     -- Split
@@ -174,11 +174,11 @@ knu.keymap.register(
       hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
     end),
     -- Left Split
-    hs.hotkey.new({ "alt", "cmd" }, "h", function ()
+    hs.hotkey.new({ "alt", "cmd" }, "d", function ()
       hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
     end),
     -- Right Split
-    hs.hotkey.new({ "alt", "cmd" }, "t", function ()
+    hs.hotkey.new({ "alt", "cmd" }, "n", function ()
       hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
     end),
     -- Close Left Drawer
@@ -328,10 +328,7 @@ modifier = hs.hotkey.bind({}, "tab",
 local Size = require "size"
 
 local modal = hs.hotkey.modal.new()
-binder(nil, "t", function()
-  hs.alert.show("iTerm")
-  hs.application.launchOrFocus("iTerm")
-end, modal)
+binder(nil, "t", function() hs.application.launchOrFocus("iTerm") end, modal)
 binder(nil, "h", function() hs.application.launchOrFocus("Arc") end, modal)
 binder(nil, "v", function() hs.application.launchOrFocus("Visual Studio Code") end, modal)
 binder(nil, "d", function() Size.moveLocation("left") end, modal)
