@@ -10,7 +10,7 @@ brew 'nvim'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'tmux'
-brew 'yqrashawn/goku/goku'
+brew 'goku', start_service: true
 brew 'z'
 brew 'zaquestion/tap/lab'
 brew 'zsh'
@@ -29,6 +29,7 @@ cask 'google-chrome'
 cask 'hammerspoon'
 cask 'istat-menus'
 cask 'iterm2'
+cask 'karabiner-elements'
 cask 'lunar'
 cask 'notion'
 cask 'qbserve'
@@ -48,5 +49,3 @@ mas 'Spark', id: 1176895641
 mas 'Telegram', id: 747648890
 mas 'Todoist', id: 585829637
 mas 'Xcode', id: 497799835
-
-after 'brew services start goku'
