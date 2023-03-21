@@ -1,0 +1,58 @@
+;; edn spec https://github.com/edn-format/edn
+{
+  :applications {
+    :arc ["company\\.thebrowser\\.Browser$"]
+  }
+
+  :modifiers {
+    :command_shift [:left_command :left_shift]
+    :control_shift [:left_control :left_shift]
+    :command_option [:left_command :left_option]
+    :command_option_control [:left_command :left_option :left_control]
+  }
+
+  :froms {
+    :open { :key :r :modi :left_command }
+    :left_drawer { :key :h :modi :command_option_control }
+    :history_back { :key :j :modi :command_shift }
+    :history_forward { :key :k :modi :command_shift }
+    :tab_back { :key :h :modi :command_shift }
+    :tab_forward { :key :l :modi :command_shift }
+    :split { :key :semicolon :modi :command_option }
+    :split_back { :key :h :modi :command_option }
+    :split_forward { :key :l :modi :command_option }
+  }
+
+  :tos {
+    :arc_open { :key :k :modi :left_command }
+    :arc_left_drawer { :key :semicolon :modi :left_command }
+    :arc_history_back { :key :hyphen :modi :left_command }
+    :arc_history_forward { :key :equal_sign :modi :left_command }
+    :arc_tab_back { :key :hyphen :modi :command_shift }
+    :arc_tab_forward { :key :equal_sign :modi :command_shift }
+    :arc_split { :key :close_bracket :modi :control_shift }
+    :arc_split_back { :key :open_bracket :modi :control_shift }
+    :arc_split_forward { :key :open_bracket :modi :control_shift }
+  }
+
+  :main
+  ;; [<from> <to>] or
+  ;; [<from> <to> <conditions>] or
+  ;; [<from> <to> <conditions> <other options>]
+  ;; <from> can be keywords defined in froms or keycodes without `{:not-from true}`
+  ;; <to> can be keywords defined in tos, keycodes without `{:not-to true}`, string (shell script)
+  ;; <conditions> can be keywords defined in layers, devices, applications
+  ;; <other options> {:other {:parameters {:to_delayed_action_delay_milliseconds 100 :basic.to_if_alone_timeout_milliseconds 500 :basic.to_if_held_down_threshold_milliseconds 250}} }
+  [
+    {:des "Arc open" :rules [[:open :arc_open :arc]]}
+    {:des "Arc left_drawer" :rules [[:left_drawer :arc_left_drawer :arc]]}
+    {:des "Arc history_back" :rules [[:history_back :arc_history_back :arc]]}
+    {:des "Arc history_forward" :rules [[:history_forward :arc_history_forward :arc]]}
+    {:des "Arc tab_back" :rules [[:tab_back :arc_tab_back :arc]]}
+    {:des "Arc tab_forward" :rules [[:tab_forward :arc_tab_forward :arc]]}
+    {:des "Arc split" :rules [[:split :arc_split :arc]]}
+    {:des "Arc split_back" :rules [[:split_back :arc_split_back :arc]]}
+    {:des "Arc split_forward" :rules [[:split_forward :arc_split_forward :arc]]}
+  ]
+}
+

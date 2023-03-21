@@ -10,6 +10,7 @@ brew 'nvim'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'tmux'
+brew 'yqrashawn/goku/goku'
 brew 'z'
 brew 'zaquestion/tap/lab'
 brew 'zsh'
@@ -48,3 +49,4 @@ mas 'Telegram', id: 747648890
 mas 'Todoist', id: 585829637
 mas 'Xcode', id: 497799835
 
+after 'brew services start goku'

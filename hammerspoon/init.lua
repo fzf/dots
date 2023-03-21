@@ -154,37 +154,37 @@ knu.keymap.register(
   "company.thebrowser.Browser",
   knu.keymap.new(
     -- Forward
-    hs.hotkey.new({ "cmd", "shift" }, "t", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "]", 1000)
-    end),
+    -- hs.hotkey.new({ "cmd", "shift" }, "t", function ()
+    --   hs.eventtap.keyStroke({ "cmd" }, "]", 1000)
+    -- end),
     -- Back
-    hs.hotkey.new({ "cmd", "shift" }, "h", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "[", 1000)
-    end),
+    -- hs.hotkey.new({ "cmd", "shift" }, "h", function ()
+    --   hs.eventtap.keyStroke({ "cmd" }, "[", 1000)
+    -- end),
     -- Next Tab
-    hs.hotkey.new({ "cmd", "shift" }, "d", function ()
-      hs.eventtap.keyStroke({ "shift", "cmd" }, "[", 1000)
-    end),
-    -- Previous Tab
-    hs.hotkey.new({ "cmd", "shift" }, "n", function ()
-      hs.eventtap.keyStroke({ "shift", "cmd" }, "]", 1000)
-    end),
+    -- hs.hotkey.new({ "cmd", "shift" }, "d", function ()
+    --   hs.eventtap.keyStroke({ "shift", "cmd" }, "[", 1000)
+    -- end),
+    -- -- Previous Tab
+    -- hs.hotkey.new({ "cmd", "shift" }, "n", function ()
+    --   hs.eventtap.keyStroke({ "shift", "cmd" }, "]", 1000)
+    -- end),
     -- Split
-    hs.hotkey.new({ "alt", "cmd" }, "s", function ()
-      hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
-    end),
+    -- hs.hotkey.new({ "alt", "cmd" }, "s", function ()
+    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
+    -- end),
     -- Left Split
-    hs.hotkey.new({ "alt", "cmd" }, "d", function ()
-      hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
-    end),
-    -- Right Split
-    hs.hotkey.new({ "alt", "cmd" }, "n", function ()
-      hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
-    end),
+    -- hs.hotkey.new({ "alt", "cmd" }, "d", function ()
+    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
+    -- end),
+    -- -- Right Split
+    -- hs.hotkey.new({ "alt", "cmd" }, "n", function ()
+    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
+    -- end),
     -- Close Left Drawer
-    hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "s", 1000)
-    end)
+    -- hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
+    --   hs.eventtap.keyStroke({ "cmd" }, "s", 1000)
+    -- end)
   )
 )
 
