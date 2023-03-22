@@ -132,89 +132,35 @@ end
 hs.hotkey.bind({ "cmd" }, "escape", function() hs.eventtap.keyStroke({ "cmd" }, "`", 1000) end)
 hs.hotkey.bind({ "ctrl" }, "delete", function() hs.eventtap.keyStroke(nil, "forwarddelete", 1000) end, nil, function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end)
 
--- osascript -e 'id of app "Finder"'
-knu.keymap.register(
-  "us.zoom.xos",
-  knu.keymap.new(
-    hs.hotkey.new({ "cmd", "alt" }, "d", function ()
-      hs.eventtap.keyStroke({ "cmd", "shift" }, "h", 1000)
-    end)
-  )
-)
-
-knu.keymap.register(
-  "ru.keepcoder.Telegram",
-  -- Quick Open
-  hs.hotkey.new({ "cmd" }, "p", function ()
-    hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
-  end)
-)
-
-knu.keymap.register(
-  "company.thebrowser.Browser",
-  knu.keymap.new(
-    -- Forward
-    -- hs.hotkey.new({ "cmd", "shift" }, "t", function ()
-    --   hs.eventtap.keyStroke({ "cmd" }, "]", 1000)
-    -- end),
-    -- Back
-    -- hs.hotkey.new({ "cmd", "shift" }, "h", function ()
-    --   hs.eventtap.keyStroke({ "cmd" }, "[", 1000)
-    -- end),
-    -- Next Tab
-    -- hs.hotkey.new({ "cmd", "shift" }, "d", function ()
-    --   hs.eventtap.keyStroke({ "shift", "cmd" }, "[", 1000)
-    -- end),
-    -- -- Previous Tab
-    -- hs.hotkey.new({ "cmd", "shift" }, "n", function ()
-    --   hs.eventtap.keyStroke({ "shift", "cmd" }, "]", 1000)
-    -- end),
-    -- Split
-    -- hs.hotkey.new({ "alt", "cmd" }, "s", function ()
-    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 1000)
-    -- end),
-    -- Left Split
-    -- hs.hotkey.new({ "alt", "cmd" }, "d", function ()
-    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 1000)
-    -- end),
-    -- -- Right Split
-    -- hs.hotkey.new({ "alt", "cmd" }, "n", function ()
-    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 1000)
-    -- end),
-    -- Close Left Drawer
-    -- hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
-    --   hs.eventtap.keyStroke({ "cmd" }, "s", 1000)
-    -- end)
-  )
-)
-
 knu.keymap.register(
   "com.microsoft.VSCode",
   knu.keymap.new(
     -- Forward
-    hs.hotkey.new({ "cmd", "shift" }, "t", function ()
-      hs.eventtap.keyStroke({ "ctrl" }, "-", 1000)
-    end),
-    -- Back
-    hs.hotkey.new({ "cmd", "shift" }, "h", function ()
-      hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 1000)
-    end),
-    -- Next Tab
-    hs.hotkey.new({ "cmd", "shift" }, "d", function ()
-      hs.eventtap.keyStroke({ "cmd", "shift" }, "[", 1000)
-    end),
-    -- Previous Tab
-    hs.hotkey.new({ "cmd", "shift" }, "n", function ()
-      hs.eventtap.keyStroke({ "cmd", "shift" }, "]", 1000)
-    end),
-    -- Split
-    hs.hotkey.new({ "alt", "cmd" }, "s", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "\\", 1000)
-    end),
+    -- hs.hotkey.new({ "cmd", "shift" }, "t", function ()
+    --   hs.eventtap.keyStroke({ "ctrl" }, "-", 1000)
+    -- end),
+    -- -- Back
+    -- hs.hotkey.new({ "cmd", "shift" }, "h", function ()
+    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 1000)
+    -- end),
+    -- -- Next Tab
+    -- hs.hotkey.new({ "cmd", "shift" }, "d", function ()
+    --   hs.eventtap.keyStroke({ "cmd", "shift" }, "[", 1000)
+    -- end),
+    -- -- Previous Tab
+    -- hs.hotkey.new({ "cmd", "shift" }, "n", function ()
+    --   hs.eventtap.keyStroke({ "cmd", "shift" }, "]", 1000)
+    -- end),
+    -- -- Split
+    -- hs.hotkey.new({ "alt", "cmd" }, "s", function ()
+    --   hs.eventtap.keyStroke({ "cmd" }, "\\", 1000)
+    -- end),
+    -- Left Split
     hs.hotkey.new({ "alt", "cmd" }, "d", function ()
       hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
       hs.eventtap.keyStroke({ "cmd" }, "left", 1000)
     end),
+    -- Right Split
     hs.hotkey.new({ "alt", "cmd" }, "n", function ()
       hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
       hs.eventtap.keyStroke({ "cmd" }, "right", 1000)
@@ -225,8 +171,12 @@ knu.keymap.register(
     hs.hotkey.new({ "alt", "cmd" }, "t", function ()
       hs.eventtap.keyStroke({ "cmd", "ctrl" }, "right", 1000)
     end),
-    hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "b", 1000)
+    -- hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
+    --   hs.eventtap.keyStroke({ "cmd" }, "b", 1000)
+    -- end),
+    hs.hotkey.new({ "cmd", "shift" }, "c", function ()
+      hs.eventtap.keyStroke({ "ctrl" }, "l", 1000)
+      hs.eventtap.keyStroke(nil, "c", 1000)
     end)
   )
 )
