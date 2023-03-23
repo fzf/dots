@@ -11,54 +11,51 @@
   }
 
   :modifiers {
-    :command_shift [:left_command :left_shift]
-    :control_shift [:left_control :left_shift]
     :command_option [:left_command :left_option]
     :command_option_control [:left_command :left_option :left_control]
+    :command_shift [:left_command :left_shift]
+    :control_shift [:left_control :left_shift]
   }
 
   :froms {
-    :open { :key :r :modi :left_command }
     :drawer_left { :key :h :modi :command_option_control }
     :history_back { :key :j :modi :left_command }
     :history_forward { :key :k :modi :left_command }
-    :tab_back { :key :j :modi :command_shift }
-    :tab_forward { :key :k :modi :command_shift }
+    :open { :key :r :modi :left_command }
+    :open_undo { :key :comma :modi :command_shift }
     :split { :key :semicolon :modi :command_shift }
     :split_back { :key :h :modi :command_shift }
     :split_forward { :key :l :modi :command_shift }
+    :tab_back { :key :j :modi :command_shift }
+    :tab_forward { :key :k :modi :command_shift }
   }
 
   :tos {
-    :arc_open { :key :k :modi :left_command }
     :arc_drawer_left { :key :semicolon :modi :left_command }
     :arc_history_back { :key :hyphen :modi :left_command }
     :arc_history_forward { :key :equal_sign :modi :left_command }
-    :arc_tab_back { :key :hyphen :modi :command_shift }
-    :arc_tab_forward { :key :equal_sign :modi :command_shift }
+    :arc_open { :key :k :modi :left_command }
+    :arc_open_undo { :key :k :modi :command_shift }
     :arc_split { :key :close_bracket :modi :control_shift }
     :arc_split_back { :key :open_bracket :modi :control_shift }
     :arc_split_forward { :key :open_bracket :modi :control_shift }
-
-    :notion_drawer_left { :key :backslash :modi :left_command }
-
+    :arc_tab_back { :key :hyphen :modi :command_shift }
+    :arc_tab_forward { :key :equal_sign :modi :command_shift }
     :messages_tab_back { :key :hyphen :modi :command_shift }
     :messages_tab_forward { :key :equal_sign :modi :command_shift }
-
-    :slack_open { :key :k :modi :left_command }
+    :notion_drawer_left { :key :backslash :modi :left_command }
     :slack_drawer_left { :key :h :modi :command_shift }
-
+    :slack_open { :key :k :modi :left_command }
     :telegram_open { :key :v :modi :left_command }
-
     :vscode_drawer_left { :key :n :modi :left_command }
     :vscode_history_back { :key :semicolon :modi :left_command }
     :vscode_history_forward { :key :semicolon :modi :control_shift }
-    :vscode_tab_back { :key :hyphen :modi :command_shift }
-    :vscode_tab_forward { :key :equal_sign :modi :command_shift }
+    :vscode_open_undo { :key :k :modi :command_shift }
     :vscode_split { :key :backslash :modi :left_command }
     :vscode_split_back { :key :open_bracket :modi :control_shift }
     :vscode_split_forward { :key :open_bracket :modi :control_shift }
-
+    :vscode_tab_back { :key :hyphen :modi :command_shift }
+    :vscode_tab_forward { :key :equal_sign :modi :command_shift }
     :zoom_drawer_left { :key :j :modi :command_shift }
   }
 
@@ -71,27 +68,28 @@
   ;; <conditions> can be keywords defined in layers, devices, applications
   ;; <other options> {:other {:parameters {:to_delayed_action_delay_milliseconds 100 :basic.to_if_alone_timeout_milliseconds 500 :basic.to_if_held_down_threshold_milliseconds 250}} }
   [
-    {:des "arc open" :rules [[:open :arc_open :arc]]}
     {:des "arc drawer_left" :rules [[:drawer_left :arc_drawer_left :arc]]}
     {:des "arc history_back" :rules [[:history_back :arc_history_back :arc]]}
     {:des "arc history_forward" :rules [[:history_forward :arc_history_forward :arc]]}
-    {:des "arc tab_back" :rules [[:tab_back :arc_tab_back :arc]]}
-    {:des "arc tab_forward" :rules [[:tab_forward :arc_tab_forward :arc]]}
+    {:des "arc open" :rules [[:open :arc_open :arc]]}
+    {:des "arc open_undo" :rules [[:open_undo :arc_open_undo :arc]]}
+    {:des "arc split" :rules [[:split :arc_split :arc]]}
     {:des "arc split" :rules [[:split :arc_split :arc]]}
     {:des "arc split_back" :rules [[:split_back :arc_split_back :arc]]}
     {:des "arc split_forward" :rules [[:split_forward :arc_split_forward :arc]]}
+    {:des "arc tab_back" :rules [[:tab_back :arc_tab_back :arc]]}
+    {:des "arc tab_forward" :rules [[:tab_forward :arc_tab_forward :arc]]}
     {:des "messages tab_back" :rules [[:tab_back :messages_tab_back :messages]]}
     {:des "messages tab_forward" :rules [[:tab_forward :messages_tab_forward :messages]]}
     {:des "notion drawer_left" :rules [[:drawer_left :arc_drawer_left :notion]]}
-    {:des "slack open" :rules [[:open :slack_open :slack]]}
     {:des "slack drawer_left" :rules [[:drawer_left :slack_drawer_left :slack]]}
+    {:des "slack open" :rules [[:open :slack_open :slack]]}
     {:des "telegram open" :rules [[:open :telegram_open :telegram]]}
     {:des "vscode drawer_left" :rules [[:drawer_left :vscode_drawer_left :vscode]]}
     {:des "vscode history_back" :rules [[:history_back :vscode_history_back :vscode]]}
     {:des "vscode history_forward" :rules [[:history_forward :vscode_history_forward :vscode]]}
     {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
     {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
-    {:des "arc split" :rules [[:split :arc_split :arc]]}
     {:des "zoom drawer_left" :rules [[:drawer_left :zoom_drawer_left :zoom]]}
     ;; {:des "vscode left_split" :rules [[:split_back [[:key :t :modi :left_command][:key :right :modi :left_command]] :vscode]]}
   ]
