@@ -57,7 +57,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_shift" ]
+              "mandatory" : [ "left_command" ]
             },
             "key_code" : "j"
           },
@@ -76,7 +76,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_shift" ]
+              "mandatory" : [ "left_command" ]
             },
             "key_code" : "k"
           },
@@ -97,7 +97,7 @@
             "modifiers" : {
               "mandatory" : [ "left_command", "left_shift" ]
             },
-            "key_code" : "h"
+            "key_code" : "j"
           },
           "to" : [ {
             "modifiers" : [ "left_command", "left_shift" ],
@@ -116,7 +116,7 @@
             "modifiers" : {
               "mandatory" : [ "left_command", "left_shift" ]
             },
-            "key_code" : "l"
+            "key_code" : "k"
           },
           "to" : [ {
             "modifiers" : [ "left_command", "left_shift" ],
@@ -133,7 +133,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_option" ]
+              "mandatory" : [ "left_command", "left_shift" ]
             },
             "key_code" : "semicolon"
           },
@@ -149,7 +149,7 @@
         }, {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_option" ]
+              "mandatory" : [ "left_command", "left_shift" ]
             },
             "key_code" : "semicolon"
           },
@@ -168,7 +168,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_option" ]
+              "mandatory" : [ "left_command", "left_shift" ]
             },
             "key_code" : "h"
           },
@@ -187,7 +187,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_option" ]
+              "mandatory" : [ "left_command", "left_shift" ]
             },
             "key_code" : "l"
           },
@@ -198,6 +198,44 @@
           "conditions" : [ {
             "type" : "frontmost_application_if",
             "bundle_identifiers" : [ "company\\.thebrowser\\.Browser$" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "messages tab_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "hyphen"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.apple\\.MobileSMS" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "messages tab_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "equal_sign"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.apple\\.MobileSMS" ]
           } ],
           "type" : "basic"
         } ]
@@ -301,7 +339,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_shift" ]
+              "mandatory" : [ "left_command" ]
             },
             "key_code" : "j"
           },
@@ -320,7 +358,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_command", "left_shift" ]
+              "mandatory" : [ "left_command" ]
             },
             "key_code" : "k"
           },
@@ -341,7 +379,7 @@
             "modifiers" : {
               "mandatory" : [ "left_command", "left_shift" ]
             },
-            "key_code" : "h"
+            "key_code" : "j"
           },
           "to" : [ {
             "modifiers" : [ "left_command", "left_shift" ],
@@ -360,7 +398,7 @@
             "modifiers" : {
               "mandatory" : [ "left_command", "left_shift" ]
             },
-            "key_code" : "l"
+            "key_code" : "k"
           },
           "to" : [ {
             "modifiers" : [ "left_command", "left_shift" ],
@@ -508,6 +546,45 @@
       },
       "ignore" : true,
       "manipulate_caps_lock_led" : false,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false
+    }, {
+      "disable_built_in_keyboard_if_exists" : false,
+      "fn_function_keys" : [ ],
+      "identifiers" : {
+        "is_keyboard" : true,
+        "is_pointing_device" : false,
+        "product_id" : 24868,
+        "vendor_id" : 7504
+      },
+      "ignore" : false,
+      "manipulate_caps_lock_led" : true,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false
+    }, {
+      "disable_built_in_keyboard_if_exists" : false,
+      "fn_function_keys" : [ ],
+      "identifiers" : {
+        "is_keyboard" : false,
+        "is_pointing_device" : true,
+        "product_id" : 24868,
+        "vendor_id" : 7504
+      },
+      "ignore" : true,
+      "manipulate_caps_lock_led" : false,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false
+    }, {
+      "disable_built_in_keyboard_if_exists" : true,
+      "fn_function_keys" : [ ],
+      "identifiers" : {
+        "is_keyboard" : true,
+        "is_pointing_device" : false,
+        "product_id" : 611,
+        "vendor_id" : 13364
+      },
+      "ignore" : false,
+      "manipulate_caps_lock_led" : true,
       "simple_modifications" : [ ],
       "treat_as_built_in_keyboard" : false
     } ],

@@ -2,6 +2,7 @@
 {
   :applications {
     :arc ["company\\.thebrowser\\.Browser$"]
+    :messages ["com\\.apple\\.MobileSMS"]
     :notion ["notion\\.id"]
     :slack ["com\\.tinyspeck\\.slackmacgap"]
     :telegram ["ru\\.keepcoder\\.Telegram"]
@@ -19,13 +20,13 @@
   :froms {
     :open { :key :r :modi :left_command }
     :drawer_left { :key :h :modi :command_option_control }
-    :history_back { :key :j :modi :command_shift }
-    :history_forward { :key :k :modi :command_shift }
-    :tab_back { :key :h :modi :command_shift }
-    :tab_forward { :key :l :modi :command_shift }
-    :split { :key :semicolon :modi :command_option }
-    :split_back { :key :h :modi :command_option }
-    :split_forward { :key :l :modi :command_option }
+    :history_back { :key :j :modi :left_command }
+    :history_forward { :key :k :modi :left_command }
+    :tab_back { :key :j :modi :command_shift }
+    :tab_forward { :key :k :modi :command_shift }
+    :split { :key :semicolon :modi :command_shift }
+    :split_back { :key :h :modi :command_shift }
+    :split_forward { :key :l :modi :command_shift }
   }
 
   :tos {
@@ -40,6 +41,9 @@
     :arc_split_forward { :key :open_bracket :modi :control_shift }
 
     :notion_drawer_left { :key :backslash :modi :left_command }
+
+    :messages_tab_back { :key :hyphen :modi :command_shift }
+    :messages_tab_forward { :key :equal_sign :modi :command_shift }
 
     :slack_open { :key :k :modi :left_command }
     :slack_drawer_left { :key :h :modi :command_shift }
@@ -76,6 +80,8 @@
     {:des "arc split" :rules [[:split :arc_split :arc]]}
     {:des "arc split_back" :rules [[:split_back :arc_split_back :arc]]}
     {:des "arc split_forward" :rules [[:split_forward :arc_split_forward :arc]]}
+    {:des "messages tab_back" :rules [[:tab_back :messages_tab_back :messages]]}
+    {:des "messages tab_forward" :rules [[:tab_forward :messages_tab_forward :messages]]}
     {:des "notion drawer_left" :rules [[:drawer_left :arc_drawer_left :notion]]}
     {:des "slack open" :rules [[:open :slack_open :slack]]}
     {:des "slack drawer_left" :rules [[:drawer_left :slack_drawer_left :slack]]}
