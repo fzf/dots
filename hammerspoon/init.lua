@@ -36,89 +36,89 @@ hs.window.animationDuration = 0.000
 hs.grid.setGrid("2x1")
 hs.grid.setMargins({0, 0})
 
-do
-  local mod      = { "ctrl" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
+-- do
+--   local mod      = { "ctrl" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "h" ] = "down",
+--     [ "t" ] = "up"
+--   }
 
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke(nil, key, 1000)
-  end)
-end
+--   bindHotkeys(mod, bindings, function(key)
+--     hs.eventtap.keyStroke(nil, key, 1000)
+--   end)
+-- end
 
-do
-  local mod      = { "ctrl", "shift" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
+-- do
+--   local mod      = { "ctrl", "shift" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "h" ] = "down",
+--     [ "t" ] = "up"
+--   }
 
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({ "shift" }, key, 1000)
-  end)
-end
+--   bindHotkeys(mod, bindings, function(key)
+--     hs.eventtap.keyStroke({ "shift" }, key, 1000)
+--   end)
+-- end
 
-do
-  local mod      = { "ctrl", "option" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
+-- do
+--   local mod      = { "ctrl", "option" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "h" ] = "down",
+--     [ "t" ] = "up"
+--   }
 
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({ "option" }, key, 1000)
-  end)
-end
+--   bindHotkeys(mod, bindings, function(key)
+--     hs.eventtap.keyStroke({ "option" }, key, 1000)
+--   end)
+-- end
 
-do
-  local mod      = { "ctrl", "cmd" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
+-- do
+--   local mod      = { "ctrl", "cmd" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "h" ] = "down",
+--     [ "t" ] = "up"
+--   }
 
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({ "cmd" }, key, 1000)
-  end)
-end
+--   bindHotkeys(mod, bindings, function(key)
+--     hs.eventtap.keyStroke({ "cmd" }, key, 1000)
+--   end)
+-- end
 
-do
-  local mod      = { "ctrl", "shift", "option" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
+-- do
+--   local mod      = { "ctrl", "shift", "option" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "h" ] = "down",
+--     [ "t" ] = "up"
+--   }
 
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({ "shift", "option" }, key, 1000)
-  end)
-end
+--   bindHotkeys(mod, bindings, function(key)
+--     hs.eventtap.keyStroke({ "shift", "option" }, key, 1000)
+--   end)
+-- end
 
-do
-  local mod      = { "ctrl", "shift", "cmd" }
-  local bindings = {
-    [ "d" ] = "left",
-    [ "n" ] = "right",
-    [ "h" ] = "down",
-    [ "t" ] = "up"
-  }
+-- do
+--   local mod      = { "ctrl", "shift", "cmd" }
+--   local bindings = {
+--     [ "d" ] = "left",
+--     [ "n" ] = "right",
+--     [ "h" ] = "down",
+--     [ "t" ] = "up"
+--   }
 
-  bindHotkeys(mod, bindings, function(key)
-    hs.eventtap.keyStroke({ "shift", "cmd" }, key, 1000)
-  end)
-end
+--   bindHotkeys(mod, bindings, function(key)
+--     hs.eventtap.keyStroke({ "shift", "cmd" }, key, 1000)
+--   end)
+-- end
 
 -- Logging keycodes
 -- tap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
