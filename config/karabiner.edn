@@ -1,5 +1,15 @@
 ;; edn spec https://github.com/edn-format/edn
 {
+  :profiles {
+    :Default {
+      :default true
+      :sim 500
+      :delay 500
+      :alone 1000
+      :held 500
+    }
+  }
+
   :applications {
     :arc ["company\\.thebrowser\\.Browser$"]
     :messages ["com\\.apple\\.MobileSMS"]
@@ -73,7 +83,11 @@
   ;; <conditions> can be keywords defined in layers, devices, applications
   ;; <other options> {:other {:parameters {:to_delayed_action_delay_milliseconds 100 :basic.to_if_alone_timeout_milliseconds 500 :basic.to_if_held_down_threshold_milliseconds 250}} }
   [
-    {:des "caps to ctrl/esc" :rules [[{:key :caps_lock :modi { :optional :any }} :left_control nil { :alone :escape }]]}
+    {:des "caps to ctrl/esc" :rules [[{:key :caps_lock :modi { :optional :any }} { :key :left_control :lazy true } nil { :alone { :key :escape }}]]}
+    {:des "movement left" :rules [[:left :left_arrow]]}
+    {:des "movement down" :rules [[:down :down_arrow]]}
+    {:des "movement up" :rules [[:up :up_arrow]]}
+    {:des "movement right" :rules [[:right :right_arrow]]}
     {:des "arc open" :rules [[:open :arc_open :arc]]}
     {:des "arc drawer_left" :rules [[:drawer_left :arc_drawer_left :arc]]}
     {:des "arc history_back" :rules [[:history_back :arc_history_back :arc]]}
@@ -98,9 +112,5 @@
     {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
     {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
     {:des "zoom drawer_left" :rules [[:drawer_left :zoom_drawer_left :zoom]]}
-    {:des "movement left" :rules [[:left :left_arrow]]}
-    {:des "movement down" :rules [[:down :down_arrow]]}
-    {:des "movement up" :rules [[:up :up_arrow]]}
-    {:des "movement right" :rules [[:right :right_arrow]]}
   ]
 }
