@@ -9,21 +9,16 @@ iTerm > Profile > Text > Font > Hack Nerd Font
 ### Hammerspoon
 
 #### Window Tiling
-Modifier: `CMD-CTRL`
+Modifier: `TAB`
 
  - `d` - Left
  - `n` - Right
  - `c` - Full
 
 #### Applications
- - `h` - Firefox
+ - `h` - Arc
  - `t` - iTerm
-
-#### Window Movement
-Modifier: `CMD-CTRL-SHIFT`
-
- - `d` - Left
- - `n` - Right
+ - `v` - VS Code
 
 ### TMUX
 Prefix: `ESC`

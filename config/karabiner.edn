@@ -28,21 +28,21 @@
   }
 
   :froms {
-    :left { :key :h :modi { :mandatory :left_control :optional :any } }
-    :down { :key :j :modi { :mandatory :left_control :optional :any } }
-    :up { :key :k :modi { :mandatory :left_control :optional :any } }
-    :right { :key :l :modi { :mandatory :left_control :optional :any } }
-
-    :open { :key :r :modi :left_command }
     :drawer_left { :key :h :modi :command_option_control }
     :history_back { :key :j :modi :left_command }
     :history_forward { :key :k :modi :left_command }
+    :open { :key :r :modi :left_command }
     :open_undo { :key :comma :modi :command_shift }
     :split { :key :semicolon :modi :command_shift }
     :split_back { :key :h :modi :command_shift }
     :split_forward { :key :l :modi :command_shift }
     :tab_back { :key :j :modi :command_shift }
     :tab_forward { :key :k :modi :command_shift }
+
+    :left { :key :h :modi { :mandatory :left_control :optional :any } }
+    :down { :key :j :modi { :mandatory :left_control :optional :any } }
+    :up { :key :k :modi { :mandatory :left_control :optional :any } }
+    :right { :key :l :modi { :mandatory :left_control :optional :any } }
   }
 
   :tos {
@@ -84,10 +84,6 @@
   ;; <other options> {:other {:parameters {:to_delayed_action_delay_milliseconds 100 :basic.to_if_alone_timeout_milliseconds 500 :basic.to_if_held_down_threshold_milliseconds 250}} }
   [
     {:des "caps to ctrl/esc" :rules [[{:key :caps_lock :modi { :optional :any }} { :key :left_control :lazy true } nil { :alone { :key :escape }}]]}
-    {:des "movement left" :rules [[:left :left_arrow]]}
-    {:des "movement down" :rules [[:down :down_arrow]]}
-    {:des "movement up" :rules [[:up :up_arrow]]}
-    {:des "movement right" :rules [[:right :right_arrow]]}
     {:des "arc open" :rules [[:open :arc_open :arc]]}
     {:des "arc drawer_left" :rules [[:drawer_left :arc_drawer_left :arc]]}
     {:des "arc history_back" :rules [[:history_back :arc_history_back :arc]]}
@@ -112,5 +108,10 @@
     {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
     {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
     {:des "zoom drawer_left" :rules [[:drawer_left :zoom_drawer_left :zoom]]}
+
+    {:des "movement left" :rules [[:left :left_arrow]]}
+    {:des "movement down" :rules [[:down :down_arrow]]}
+    {:des "movement up" :rules [[:up :up_arrow]]}
+    {:des "movement right" :rules [[:right :right_arrow]]}
   ]
 }
