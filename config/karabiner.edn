@@ -32,10 +32,11 @@
     :history_back { :key :j :modi :left_command }
     :history_forward { :key :k :modi :left_command }
     :open { :key :r :modi :left_command }
-    :open_undo { :key :comma :modi :command_shift }
+    :open_undo { :key :f :modi :command_shift }
     :split { :key :semicolon :modi :command_shift }
     :split_back { :key :h :modi :command_shift }
     :split_forward { :key :l :modi :command_shift }
+    :split_close { :key :comma :modi :command_shift }
     :tab_back { :key :j :modi :command_shift }
     :tab_forward { :key :k :modi :command_shift }
 
@@ -54,6 +55,7 @@
     :arc_split { :key :close_bracket :modi :control_shift }
     :arc_split_back { :key :open_bracket :modi :control_shift }
     :arc_split_forward { :key :open_bracket :modi :control_shift }
+    :arc_split_close { :key :w :modi :left_command }
     :arc_tab_back { :key :hyphen :modi :command_shift }
     :arc_tab_forward { :key :equal_sign :modi :command_shift }
     :messages_tab_back { :key :hyphen :modi :command_shift }
@@ -69,6 +71,7 @@
     :vscode_split { :key :backslash :modi :left_command }
     :vscode_split_back { :key :open_bracket :modi :control_shift }
     :vscode_split_forward { :key :open_bracket :modi :control_shift }
+    :vscode_split_close { :key :comma :modi :command_option_control }
     :vscode_tab_back { :key :hyphen :modi :command_shift }
     :vscode_tab_forward { :key :equal_sign :modi :command_shift }
     :zoom_drawer_left { :key :j :modi :command_shift }
@@ -91,9 +94,9 @@
     {:des "arc open" :rules [[:open :arc_open :arc]]}
     {:des "arc open_undo" :rules [[:open_undo :arc_open_undo :arc]]}
     {:des "arc split" :rules [[:split :arc_split :arc]]}
-    {:des "arc split" :rules [[:split :arc_split :arc]]}
     {:des "arc split_back" :rules [[:split_back :arc_split_back :arc]]}
     {:des "arc split_forward" :rules [[:split_forward :arc_split_forward :arc]]}
+    {:des "arc split_close" :rules [[:split_close :arc_split_close :arc]]}
     {:des "arc tab_back" :rules [[:tab_back :arc_tab_back :arc]]}
     {:des "arc tab_forward" :rules [[:tab_forward :arc_tab_forward :arc]]}
     {:des "messages tab_back" :rules [[:tab_back :messages_tab_back :messages]]}
@@ -105,6 +108,11 @@
     {:des "vscode drawer_left" :rules [[:drawer_left :vscode_drawer_left :vscode]]}
     {:des "vscode history_back" :rules [[:history_back :vscode_history_back :vscode]]}
     {:des "vscode history_forward" :rules [[:history_forward :vscode_history_forward :vscode]]}
+    {:des "vscode open_undo" :rules [[:open_undo :vscode_open_undo :vscode]]}
+    {:des "vscode split" :rules [[:split :vscode_split :vscode]]}
+    {:des "vscode split_back" :rules [[:split_back :vscode_split_back :vscode]]}
+    {:des "vscode split_forward" :rules [[:split_forward :vscode_split_forward :vscode]]}
+    {:des "vscode split_close" :rules [[:split_close :vscode_split_close :vscode]]}
     {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
     {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
     {:des "zoom drawer_left" :rules [[:drawer_left :zoom_drawer_left :zoom]]}
