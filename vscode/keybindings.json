@@ -154,6 +154,14 @@
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
+    {
+      "key": "shift+cmd+r",
+      "command": "-solargraph.search"
+    },
+    {
+      "key": "ctrl+alt+cmd+w",
+      "command": "workbench.action.closeEditorsAndGroup"
+    },
     // {
     //     "key": "cmd+p",
     //     "command": "-workbench.action.quickOpen"
