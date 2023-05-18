@@ -63,6 +63,10 @@
     :notion_drawer_left { :key :backslash :modi :left_command }
     :slack_drawer_left { :key :h :modi :command_shift }
     :slack_open { :key :k :modi :left_command }
+    :slack_history_back { :key :hyphen :modi :left_command }
+    :slack_history_forward { :key :equal_sign :modi :left_command }
+    :slack_tab_back { :key :hyphen :modi :command_shift }
+    :slack_tab_forward { :key :equal_sign :modi :command_shift }
     :telegram_open { :key :v :modi :left_command }
     :vscode_drawer_left { :key :n :modi :left_command }
     :vscode_history_back { :key :semicolon :modi :left_command }
@@ -104,6 +108,10 @@
     {:des "notion drawer_left" :rules [[:drawer_left :arc_drawer_left :notion]]}
     {:des "slack drawer_left" :rules [[:drawer_left :slack_drawer_left :slack]]}
     {:des "slack open" :rules [[:open :slack_open :slack]]}
+    {:des "slack history_back" :rules [[:history_back :slack_history_back :slack]]}
+    {:des "slack history_forward" :rules [[:history_forward :slack_history_forward :slack]]}
+    {:des "slack tab_back" :rules [[:tab_back :slack_tab_back :slack]]}
+    {:des "slack tab_forward" :rules [[:tab_forward :slack_tab_forward :slack]]}
     {:des "telegram open" :rules [[:open :telegram_open :telegram]]}
     {:des "vscode drawer_left" :rules [[:drawer_left :vscode_drawer_left :vscode]]}
     {:des "vscode history_back" :rules [[:history_back :vscode_history_back :vscode]]}
