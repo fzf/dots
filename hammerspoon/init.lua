@@ -132,56 +132,56 @@ hs.grid.setMargins({0, 0})
 hs.hotkey.bind({ "cmd" }, "escape", function() hs.eventtap.keyStroke({ "cmd" }, "`", 1000) end)
 hs.hotkey.bind({ "ctrl" }, "delete", function() hs.eventtap.keyStroke(nil, "forwarddelete", 1000) end, nil, function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end)
 
-knu.keymap.register(
-  "com.microsoft.VSCode",
-  knu.keymap.new(
-    -- Forward
-    -- hs.hotkey.new({ "cmd", "shift" }, "t", function ()
-    --   hs.eventtap.keyStroke({ "ctrl" }, "-", 1000)
-    -- end),
-    -- -- Back
-    -- hs.hotkey.new({ "cmd", "shift" }, "h", function ()
-    --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 1000)
-    -- end),
-    -- -- Next Tab
-    -- hs.hotkey.new({ "cmd", "shift" }, "d", function ()
-    --   hs.eventtap.keyStroke({ "cmd", "shift" }, "[", 1000)
-    -- end),
-    -- -- Previous Tab
-    -- hs.hotkey.new({ "cmd", "shift" }, "n", function ()
-    --   hs.eventtap.keyStroke({ "cmd", "shift" }, "]", 1000)
-    -- end),
-    -- -- Split
-    -- hs.hotkey.new({ "alt", "cmd" }, "s", function ()
-    --   hs.eventtap.keyStroke({ "cmd" }, "\\", 1000)
-    -- end),
-    -- Left Split
-    hs.hotkey.new({ "alt", "cmd" }, "d", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
-      hs.eventtap.keyStroke({ "cmd" }, "left", 1000)
-    end),
-    -- Right Split
-    hs.hotkey.new({ "alt", "cmd" }, "n", function ()
-      hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
-      hs.eventtap.keyStroke({ "cmd" }, "right", 1000)
-    end),
-    hs.hotkey.new({ "alt", "cmd" }, "h", function ()
-      hs.eventtap.keyStroke({ "cmd", "ctrl" }, "left", 1000)
-    end),
-    hs.hotkey.new({ "alt", "cmd" }, "t", function ()
-      hs.eventtap.keyStroke({ "cmd", "ctrl" }, "right", 1000)
-    end),
-    -- hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
-    --   hs.eventtap.keyStroke({ "cmd" }, "b", 1000)
-    -- end),
-    hs.hotkey.new({ "cmd", "shift" }, "c", function ()
-      hs.eventtap.keyStroke({ "ctrl" }, "l", 1000)
-      hs.eventtap.keyStroke(nil, "c", 1000)
-    end)
-  )
-)
+-- knu.keymap.register(
+--   "com.microsoft.VSCode",
+--   knu.keymap.new(
+--     -- Forward
+--     -- hs.hotkey.new({ "cmd", "shift" }, "t", function ()
+--     --   hs.eventtap.keyStroke({ "ctrl" }, "-", 1000)
+--     -- end),
+--     -- -- Back
+--     -- hs.hotkey.new({ "cmd", "shift" }, "h", function ()
+--     --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 1000)
+--     -- end),
+--     -- -- Next Tab
+--     -- hs.hotkey.new({ "cmd", "shift" }, "d", function ()
+--     --   hs.eventtap.keyStroke({ "cmd", "shift" }, "[", 1000)
+--     -- end),
+--     -- -- Previous Tab
+--     -- hs.hotkey.new({ "cmd", "shift" }, "n", function ()
+--     --   hs.eventtap.keyStroke({ "cmd", "shift" }, "]", 1000)
+--     -- end),
+--     -- -- Split
+--     -- hs.hotkey.new({ "alt", "cmd" }, "s", function ()
+--     --   hs.eventtap.keyStroke({ "cmd" }, "\\", 1000)
+--     -- end),
+--     -- Left Split
+--     hs.hotkey.new({ "alt", "cmd" }, "d", function ()
+--       hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
+--       hs.eventtap.keyStroke({ "cmd" }, "left", 1000)
+--     end),
+--     -- Right Split
+--     hs.hotkey.new({ "alt", "cmd" }, "n", function ()
+--       hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
+--       hs.eventtap.keyStroke({ "cmd" }, "right", 1000)
+--     end),
+--     hs.hotkey.new({ "alt", "cmd" }, "h", function ()
+--       hs.eventtap.keyStroke({ "cmd", "ctrl" }, "left", 1000)
+--     end),
+--     hs.hotkey.new({ "alt", "cmd" }, "t", function ()
+--       hs.eventtap.keyStroke({ "cmd", "ctrl" }, "right", 1000)
+--     end),
+--     -- hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
+--     --   hs.eventtap.keyStroke({ "cmd" }, "b", 1000)
+--     -- end),
+--     hs.hotkey.new({ "cmd", "shift" }, "c", function ()
+--       hs.eventtap.keyStroke({ "ctrl" }, "l", 1000)
+--       hs.eventtap.keyStroke(nil, "c", 1000)
+--     end)
+--   )
+-- )
 
-hs.loadSpoon("ControlEscape"):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
+-- hs.loadSpoon("ControlEscape"):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 
 -- hs.loadSpoon("RecursiveBinder")
 
@@ -279,7 +279,7 @@ local Size = require "size"
 
 local modal = hs.hotkey.modal.new()
 binder(nil, "t", function() hs.application.launchOrFocus("iTerm") end, modal)
-binder(nil, "h", function() hs.application.launchOrFocus("Arc") end, modal)
+binder(nil, "h", function() hs.application.launchOrFocus("Vivaldi") end, modal)
 binder(nil, "v", function() hs.application.launchOrFocus("Visual Studio Code") end, modal)
 binder(nil, "d", function() Size.moveLocation("left") end, modal)
 binder(nil, "n", function() Size.moveLocation("right") end, modal)

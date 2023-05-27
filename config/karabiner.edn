@@ -10,12 +10,15 @@
     }
   }
 
+  ;; osascript -e 'id of app "Application Name"'
   :applications {
     :arc ["company\\.thebrowser\\.Browser$"]
     :messages ["com\\.apple\\.MobileSMS"]
     :notion ["notion\\.id"]
+    :sigmaos ["com\\.sigmaos\\.sigmaos\\.macos"]
     :slack ["com\\.tinyspeck\\.slackmacgap"]
     :telegram ["ru\\.keepcoder\\.Telegram"]
+    :vivaldi ["com\\.vivaldi\\.Vivaldi"]
     :vscode ["com\\.microsoft\\.VSCode"]
     :zoom ["us\\.zoom\\.xos"]
   }
@@ -28,17 +31,30 @@
   }
 
   :froms {
+    ;; command + option + control + d
     :drawer_left { :key :h :modi :command_option_control }
+    ;; command + h
     :history_back { :key :j :modi :left_command }
+    ;; command + t
     :history_forward { :key :k :modi :left_command }
+    ;; command + p
     :open { :key :r :modi :left_command }
+    ;; command + shift + u
     :open_undo { :key :f :modi :command_shift }
+    ;; command + shift + s
     :split { :key :semicolon :modi :command_shift }
+    ;; command + shift + d
     :split_back { :key :h :modi :command_shift }
+    ;; command + shift + n
     :split_forward { :key :l :modi :command_shift }
+    ;; command + shift + w
     :split_close { :key :comma :modi :command_shift }
+    ;; command + shift + h
     :tab_back { :key :j :modi :command_shift }
+    ;; command + shift + t
     :tab_forward { :key :k :modi :command_shift }
+    ;; command + shift + l
+    :password { :key :p :modi :command_option }
 
     :left { :key :h :modi { :mandatory :left_control :optional :any } }
     :down { :key :j :modi { :mandatory :left_control :optional :any } }
@@ -58,16 +74,34 @@
     :arc_split_close { :key :w :modi :left_command }
     :arc_tab_back { :key :hyphen :modi :command_shift }
     :arc_tab_forward { :key :equal_sign :modi :command_shift }
+
     :messages_tab_back { :key :hyphen :modi :command_shift }
     :messages_tab_forward { :key :equal_sign :modi :command_shift }
+
     :notion_drawer_left { :key :backslash :modi :left_command }
+
     :slack_drawer_left { :key :h :modi :command_shift }
     :slack_open { :key :k :modi :left_command }
     :slack_history_back { :key :hyphen :modi :left_command }
     :slack_history_forward { :key :equal_sign :modi :left_command }
     :slack_tab_back { :key :hyphen :modi :command_shift }
     :slack_tab_forward { :key :equal_sign :modi :command_shift }
+
     :telegram_open { :key :v :modi :left_command }
+
+    :vivaldi_drawer_left { :key :semicolon :modi :left_command }
+    :vivaldi_history_back { :key :left_arrow :modi :left_command }
+    :vivaldi_history_forward { :key :right_arrow :modi :left_command }
+    :vivaldi_open { :key :d :modi :left_command }
+    :vivaldi_open_undo { :key :k :modi :command_shift }
+    :vivaldi_split { :key :f9 :modi :left_command }
+    :vivaldi_split_back { :key :open_bracket :modi :control_shift }
+    :vivaldi_split_forward { :key :open_bracket :modi :control_shift }
+    :vivaldi_split_close { :key :w :modi :left_command }
+    :vivaldi_tab_back { :key :hyphen :modi :command_shift }
+    :vivaldi_tab_forward { :key :equal_sign :modi :command_shift }
+    :vivaldi_password { :key :a :modi :command_shift }
+
     :vscode_drawer_left { :key :n :modi :left_command }
     :vscode_history_back { :key :semicolon :modi :left_command }
     :vscode_history_forward { :key :semicolon :modi :control_shift }
@@ -78,6 +112,7 @@
     :vscode_split_close { :key :comma :modi :command_option_control }
     :vscode_tab_back { :key :hyphen :modi :command_shift }
     :vscode_tab_forward { :key :equal_sign :modi :command_shift }
+
     :zoom_drawer_left { :key :j :modi :command_shift }
   }
 
@@ -113,14 +148,27 @@
     {:des "slack tab_back" :rules [[:tab_back :slack_tab_back :slack]]}
     {:des "slack tab_forward" :rules [[:tab_forward :slack_tab_forward :slack]]}
     {:des "telegram open" :rules [[:open :telegram_open :telegram]]}
+    {:des "vivaldi open" :rules [[:open :vivaldi_open :vivaldi]]}
+    {:des "vivaldi drawer_left" :rules [[:drawer_left :vivaldi_drawer_left :vivaldi]]}
+    {:des "vivaldi history_back" :rules [[:history_back :vivaldi_history_back :vivaldi]]}
+    {:des "vivaldi history_forward" :rules [[:history_forward :vivaldi_history_forward :vivaldi]]}
+    {:des "vivaldi open" :rules [[:open :vivaldi_open :vivaldi]]}
+    {:des "vivaldi open_undo" :rules [[:open_undo :vivaldi_open_undo :vivaldi]]}
+    {:des "vivaldi split" :rules [[:split :vivaldi_split :vivaldi]]}
+    {:des "vivaldi split_back" :rules [[:split_back :vivaldi_split_back :vivaldi]]}
+    {:des "vivaldi split_forward" :rules [[:split_forward :vivaldi_split_forward :vivaldi]]}
+    {:des "vivaldi split_close" :rules [[:split_close :vivaldi_split_close :vivaldi]]}
+    {:des "vivaldi tab_back" :rules [[:tab_back :vivaldi_tab_back :vivaldi]]}
+    {:des "vivaldi tab_forward" :rules [[:tab_forward :vivaldi_tab_forward :vivaldi]]}
+    {:des "vivaldi password" :rules [[:password :vivaldi_password :vivaldi]]}
     {:des "vscode drawer_left" :rules [[:drawer_left :vscode_drawer_left :vscode]]}
     {:des "vscode history_back" :rules [[:history_back :vscode_history_back :vscode]]}
     {:des "vscode history_forward" :rules [[:history_forward :vscode_history_forward :vscode]]}
     {:des "vscode open_undo" :rules [[:open_undo :vscode_open_undo :vscode]]}
     {:des "vscode split" :rules [[:split :vscode_split :vscode]]}
-    {:des "vscode split_back" :rules [[:split_back :vscode_split_back :vscode]]}
-    {:des "vscode split_forward" :rules [[:split_forward :vscode_split_forward :vscode]]}
-    {:des "vscode split_close" :rules [[:split_close :vscode_split_close :vscode]]}
+    ;; {:des "vscode split_back" :rules [[:split_back :vscode_split_back :vscode]]}
+    ;; {:des "vscode split_forward" :rules [[:split_forward :vscode_split_forward :vscode]]}
+    ;; {:des "vscode split_close" :rules [[:split_close :vscode_split_close :vscode]]}
     {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
     {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
     {:des "zoom drawer_left" :rules [[:drawer_left :zoom_drawer_left :zoom]]}
