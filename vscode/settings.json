@@ -1308,4 +1308,5 @@
 
     },
     "editor.minimap.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
 }
