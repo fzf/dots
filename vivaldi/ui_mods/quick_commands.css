@@ -1,0 +1,6 @@
+/* quick commands */
+.quick-command-container { min-height:600px!important; min-width: 55vw; }
+.quick-command-container .quick-commands { max-height: 1000px; }
+.quick-command-container .quick-commands > div { min-width: 55vw; height: 600px !important; }
+.quick-command-container .quick-commands > div > div { max-width: 55vw !important; }
+.quick-commands > .ReactVirtualized__Grid ReactVirtualized__List{min-height: 600px !important; height: 600px !important; }
