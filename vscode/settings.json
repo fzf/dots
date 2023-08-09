@@ -1279,7 +1279,7 @@
     "ruby.rubocop.executePath": "/Users/fzf/.asdf/shims/",
     "oneDarkPro.editorTheme": "Solarized",
     "workbench.preferredHighContrastColorTheme": "Default High Contrast Light",
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 3,
     "markdown.preview.scrollPreviewWithEditor": false,
     "markdown.preview.scrollEditorWithPreview": false,
     "markdown.preview.openMarkdownLinks": "inEditor",
@@ -1310,4 +1310,5 @@
     "editor.minimap.enabled": false,
     "git.openRepositoryInParentFolders": "never",
     "explorer.confirmDragAndDrop": false,
+    "circleci.hostUrl": "",
 }
