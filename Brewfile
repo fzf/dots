@@ -1,24 +1,27 @@
+tap 'homebrew/cask-fonts'
+tap 'jakehilborn/jakehilborn'
+
 brew 'asdf'
-brew 'hub'
+brew 'displayplacer'
 brew 'fd'
-brew 'git'
 brew 'gh'
+brew 'git'
 brew 'gnupg'
+brew 'hub'
 brew 'less'
 brew 'make'
 brew 'nvim'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
+brew 'romkatv/powerlevel10k/powerlevel10k'
 brew 'tmux'
-brew 'goku', start_service: true
+brew 'yqrashawn/goku/goku', start_service: true
 brew 'z'
 brew 'zaquestion/tap/lab'
 brew 'zsh'
 
 brew 'gpg'
 brew 'pinentry-mac'
-
-tap 'homebrew/cask-fonts'
 
 cask 'alfred'
 cask 'bartender'
@@ -35,13 +38,12 @@ cask 'qbserve'
 cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
-cask 'synergy'
+cask 'synergy-core'
 cask 'visual-studio-code'
 cask 'vivaldi'
 cask 'witch'
 
-mas '1Password 7 - Password Manager', id: 1333542190
-mas 'Amphetamine', id: 937984704
+
 mas 'Bitwarden', id: 1352778147
 mas 'Jira', id: 1475897096
 mas 'Spark', id: 1176895641
