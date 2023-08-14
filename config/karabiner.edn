@@ -80,6 +80,10 @@
     :messages_tab_forward { :key :equal_sign :modi :command_shift }
 
     :notion_drawer_left { :key :backslash :modi :left_command }
+    :notion_history_back { :key :hyphen :modi :left_command }
+    :notion_history_forward { :key :equal_sign :modi :left_command }
+    :notion_tab_back { :key :hyphen :modi :command_shift }
+    :notion_tab_forward { :key :equal_sign :modi :command_shift }
 
     :slack_drawer_left { :key :h :modi :command_shift }
     :slack_open { :key :k :modi :left_command }
@@ -142,6 +146,10 @@
     {:des "messages tab_back" :rules [[:tab_back :messages_tab_back :messages]]}
     {:des "messages tab_forward" :rules [[:tab_forward :messages_tab_forward :messages]]}
     {:des "notion drawer_left" :rules [[:drawer_left :arc_drawer_left :notion]]}
+    {:des "notion history_back" :rules [[:history_back :notion_history_back :notion]]}
+    {:des "notion history_forward" :rules [[:history_forward :notion_history_forward :notion]]}
+    {:des "notion tab_back" :rules [[:tab_back :notion_tab_back :notion]]}
+    {:des "notion tab_forward" :rules [[:tab_forward :notion_tab_forward :notion]]}
     {:des "slack drawer_left" :rules [[:drawer_left :slack_drawer_left :slack]]}
     {:des "slack open" :rules [[:open :slack_open :slack]]}
     {:des "slack history_back" :rules [[:history_back :slack_history_back :slack]]}

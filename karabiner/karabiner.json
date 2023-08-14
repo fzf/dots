@@ -315,6 +315,82 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "notion history_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "hyphen"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "notion\\.id" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "notion history_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "equal_sign"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "notion\\.id" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "notion tab_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "hyphen"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "notion\\.id" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "notion tab_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "equal_sign"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "notion\\.id" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "slack drawer_left",
         "manipulators" : [ {
           "from" : {
