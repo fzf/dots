@@ -64,5 +64,3 @@
 # 	insteadOf = https://github.com/
 [gpg]
 	format = ssh
-[branch]
-	autoSetupMerge = always
