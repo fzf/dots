@@ -22,11 +22,9 @@ brew 'zaquestion/tap/lab'
 brew 'zsh'
 
 brew 'gpg'
-brew 'pinentry-mac'
 
 cask 'alfred'
 cask 'bartender'
-cask 'duet'
 cask 'firefox'
 cask 'font-hack-nerd-font'
 cask 'google-chrome'
@@ -35,14 +33,10 @@ cask 'istat-menus'
 cask 'iterm2'
 cask 'karabiner-elements'
 cask 'notion'
-cask 'qbserve'
-cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
 cask 'visual-studio-code'
 cask 'vivaldi'
-cask 'witch'
-
 
 mas 'Bitwarden', id: 1352778147
 mas 'Jira', id: 1475897096
