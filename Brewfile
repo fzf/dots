@@ -4,10 +4,8 @@ tap 'jakehilborn/jakehilborn'
 brew 'asdf'
 brew 'difftastic'
 brew 'displayplacer'
-brew 'fd'
 brew 'gh'
 brew 'git'
-brew 'gnupg'
 brew 'hub'
 brew 'less'
 brew 'make'
@@ -39,7 +37,6 @@ cask 'visual-studio-code'
 cask 'vivaldi'
 
 mas 'Bitwarden', id: 1352778147
-mas 'Jira', id: 1475897096
 mas 'Spark', id: 1176895641
 mas 'Telegram', id: 747648890
 mas 'Todoist', id: 585829637
