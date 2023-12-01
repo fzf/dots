@@ -20,3 +20,5 @@ bash $HOME/.dots/install/karabiner.sh
 bash $HOME/.dots/install/ohmyzsh.sh
 bash $HOME/.dots/install/vim.sh
 bash $HOME/.dots/install/vscode.sh
+
+defaults write -g ApplePressAndHoldEnabled -bool false
