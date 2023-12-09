@@ -1,5 +1,5 @@
 {
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
     "editor.quickSuggestionsDelay": 100,
     "editor.renderWhitespace": "all",
     "editor.selectionHighlight": false,
@@ -1251,7 +1251,7 @@
         "editor.insertSpaces": false,
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+          "source.organizeImports": "explicit"
         }
     },
     "go.toolsManagement.autoUpdate": true,
@@ -1310,4 +1310,5 @@
     "git.openRepositoryInParentFolders": "never",
     "explorer.confirmDragAndDrop": false,
     "circleci.hostUrl": "",
+    "window.zoomLevel": 1,
 }

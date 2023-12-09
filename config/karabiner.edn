@@ -170,16 +170,16 @@
     {:des "vivaldi tab_back" :rules [[:tab_back :vivaldi_tab_back :vivaldi]]}
     {:des "vivaldi tab_forward" :rules [[:tab_forward :vivaldi_tab_forward :vivaldi]]}
     {:des "vivaldi password" :rules [[:password :vivaldi_password :vivaldi]]}
-    {:des "vscode drawer_left" :rules [[:drawer_left :vscode_drawer_left :vscode]]}
-    {:des "vscode history_back" :rules [[:history_back :vscode_history_back :vscode]]}
-    {:des "vscode history_forward" :rules [[:history_forward :vscode_history_forward :vscode]]}
-    {:des "vscode open_undo" :rules [[:open_undo :vscode_open_undo :vscode]]}
-    {:des "vscode split" :rules [[:split :vscode_split :vscode]]}
-    {:des "vscode split_back" :rules [[:split_back :vscode_split_back :vscode]]}
-    {:des "vscode split_forward" :rules [[:split_forward :vscode_split_forward :vscode]]}
-    {:des "vscode split_close" :rules [[:split_close :vscode_split_close :vscode]]}
-    {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
-    {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
+    ;; {:des "vscode drawer_left" :rules [[:drawer_left :vscode_drawer_left :vscode]]}
+    ;; {:des "vscode history_back" :rules [[:history_back :vscode_history_back :vscode]]}
+    ;; {:des "vscode history_forward" :rules [[:history_forward :vscode_history_forward :vscode]]}
+    ;; {:des "vscode open_undo" :rules [[:open_undo :vscode_open_undo :vscode]]}
+    ;; {:des "vscode split" :rules [[:split :vscode_split :vscode]]}
+    ;; {:des "vscode split_back" :rules [[:split_back :vscode_split_back :vscode]]}
+    ;; {:des "vscode split_forward" :rules [[:split_forward :vscode_split_forward :vscode]]}
+    ;; {:des "vscode split_close" :rules [[:split_close :vscode_split_close :vscode]]}
+    ;; {:des "vscode tab_back" :rules [[:tab_back :vscode_tab_back :vscode]]}
+    ;; {:des "vscode tab_forward" :rules [[:tab_forward :vscode_tab_forward :vscode]]}
     {:des "zoom drawer_left" :rules [[:drawer_left :zoom_drawer_left :zoom]]}
 
     {:des "movement left" :rules [[:left :left_arrow]]}
