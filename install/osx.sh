@@ -11,7 +11,6 @@ git clone https://gitlab.com/fzf/dots.git $HOME/.dots --quiet
 
 bash $HOME/.dots/install/homebrew.sh
 
-bash $HOME/.dots/install/asdf.sh
 bash $HOME/.dots/install/config.sh
 bash $HOME/.dots/install/fzf.sh
 bash $HOME/.dots/install/home.sh
