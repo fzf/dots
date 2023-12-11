@@ -1,1 +1,2 @@
-~/.fzf/install
+$(brew --prefix)/opt/fzf/install
+
