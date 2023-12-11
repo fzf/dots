@@ -1,5 +1,8 @@
 tap 'homebrew/cask-fonts'
 tap 'jakehilborn/jakehilborn'
+tap 'romkatv/powerlevel10k'
+tap 'yqrashawn/goku'
+tap 'zaquestion/tap'
 
 brew 'asdf'
 brew 'difftastic'
