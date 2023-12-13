@@ -27,7 +27,7 @@
             "key_code" : "caps_lock"
           },
           "to" : [ {
-            "key_code" : "left_control",
+            "key_code" : "right_control",
             "lazy" : true
           } ],
           "type" : "basic"
@@ -791,7 +791,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_control" ],
+              "mandatory" : [ "right_control" ],
               "optional" : [ "any" ]
             },
             "key_code" : "h"
@@ -806,7 +806,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_control" ],
+              "mandatory" : [ "right_control" ],
               "optional" : [ "any" ]
             },
             "key_code" : "j"
@@ -821,7 +821,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_control" ],
+              "mandatory" : [ "right_control" ],
               "optional" : [ "any" ]
             },
             "key_code" : "k"
@@ -836,7 +836,7 @@
         "manipulators" : [ {
           "from" : {
             "modifiers" : {
-              "mandatory" : [ "left_control" ],
+              "mandatory" : [ "right_control" ],
               "optional" : [ "any" ]
             },
             "key_code" : "l"

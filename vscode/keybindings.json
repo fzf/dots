@@ -5,7 +5,7 @@
       "command": "workbench.action.splitEditor"
   },
   {
-    "key": "ctrl+alt+cmd+w",
+    "key": "shift+cmd+w",
     "command": "workbench.action.editorLayoutSingle"
   },
   {
@@ -172,5 +172,9 @@
   {
     "key": "shift+cmd+r",
     "command": "-solargraph.search"
+  },
+  {
+    "key": "shift+cmd+w",
+    "command": "-workbench.action.closeWindow"
   }
 ]

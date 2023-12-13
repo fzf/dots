@@ -250,7 +250,7 @@ hs.hotkey.bind({ "ctrl" }, "delete", function() hs.eventtap.keyStroke(nil, "forw
 --   end)
 -- end
 
-modal = hs.hotkey.modal.new()
+local modal = hs.hotkey.modal.new()
 
 function binder(mods, key, fn, mm)
 	local function triggerAndCall()
@@ -260,7 +260,7 @@ function binder(mods, key, fn, mm)
 	modal:bind({}, key, triggerAndCall, nil, triggerAndCall)
 end
 
-modifier = hs.hotkey.bind({}, "tab",
+local modifier = hs.hotkey.bind({}, "tab",
   function()
     modal:enter()
     modal.triggered = false
