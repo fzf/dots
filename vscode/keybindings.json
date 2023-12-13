@@ -39,7 +39,7 @@
       "command": "workbench.action.focusRightGroup"
   },
   {
-    "key": "cmd+alt+d",
+    "key": "ctrl+alt+cmd+d",
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
