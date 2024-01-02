@@ -1310,6 +1310,6 @@
     "git.openRepositoryInParentFolders": "never",
     "explorer.confirmDragAndDrop": false,
     "circleci.hostUrl": "",
-    "window.zoomLevel": 1,
     "keyboard.layout": "com.apple.keylayout.Dvorak",
+    "window.zoomLevel": 1,
 }
