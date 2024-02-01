@@ -1267,7 +1267,7 @@
         "markdown": false
     },
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "bracketPairColorizer.depreciation-notice": false,
     "editor.tabSize": 2,
