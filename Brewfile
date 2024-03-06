@@ -20,6 +20,7 @@ brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'romkatv/powerlevel10k/powerlevel10k'
 brew 'tmux'
+brew 'watch'
 brew 'yqrashawn/goku/goku', start_service: true
 brew 'z'
 brew 'zaquestion/tap/lab'
