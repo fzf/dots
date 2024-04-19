@@ -157,19 +157,6 @@
     {:des "arc split_close" :rules [[:split_close :arc_split_close :arc]]}
     {:des "arc tab_back" :rules [[:tab_back :arc_tab_back :arc]]}
     {:des "arc tab_forward" :rules [[:tab_forward :arc_tab_forward :arc]]}
-    {:des "chrome open" :rules [[:open :chrome_open :chrome]]}
-    {:des "chrome drawer_left" :rules [[:drawer_left :chrome_drawer_left :chrome]]}
-    {:des "chrome history_back" :rules [[:history_back :chrome_history_back :chrome]]}
-    {:des "chrome history_forward" :rules [[:history_forward :chrome_history_forward :chrome]]}
-    {:des "chrome open" :rules [[:open :chrome_open :chrome]]}
-    {:des "chrome open_undo" :rules [[:open_undo :chrome_open_undo :chrome]]}
-    {:des "chrome split" :rules [[:split :chrome_split :chrome]]}
-    {:des "chrome split_back" :rules [[:split_back :chrome_split_back :chrome]]}
-    {:des "chrome split_forward" :rules [[:split_forward :chrome_split_forward :chrome]]}
-    {:des "chrome split_close" :rules [[:split_close :chrome_split_close :chrome]]}
-    {:des "chrome tab_back" :rules [[:tab_back :chrome_tab_back :chrome]]}
-    {:des "chrome tab_forward" :rules [[:tab_forward :chrome_tab_forward :chrome]]}
-    {:des "chrome password" :rules [[:password :chrome_password :chrome]]}
     {:des "messages tab_back" :rules [[:tab_back :messages_tab_back :messages]]}
     {:des "messages tab_forward" :rules [[:tab_forward :messages_tab_forward :messages]]}
     {:des "notion drawer_left" :rules [[:drawer_left :arc_drawer_left :notion]]}

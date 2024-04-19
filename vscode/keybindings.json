@@ -184,5 +184,5 @@
   {
     "key": "shift+cmd+t",
     "command": "-workbench.action.reopenClosedEditor"
-  }
+  },
 ]

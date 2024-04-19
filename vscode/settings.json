@@ -1306,10 +1306,18 @@
     "editor.codeActionsOnSave": {
 
     },
-    "editor.minimap.enabled": false,
     "git.openRepositoryInParentFolders": "never",
     "explorer.confirmDragAndDrop": false,
     "circleci.hostUrl": "",
     "keyboard.layout": "com.apple.keylayout.Dvorak",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 3,
+    "editor.minimap.enabled": false,
+    "cSpell.userWords": [
+      "finplat",
+      "interprocessor"
+    ],
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.env.osx": {
+
+    },
 }

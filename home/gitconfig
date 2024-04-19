@@ -64,3 +64,5 @@
 # 	insteadOf = https://github.com/
 [gpg]
 	format = ssh
+[hub]
+	protocol = https
