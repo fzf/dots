@@ -1,4 +1,5 @@
 ;; edn spec https://github.com/edn-format/edn
+;; https://github.com/yqrashawn/GokuRakuJoudo
 ;; https://github.com/JoshuaManuel/Karabiner-Elements-Key-List
 {
   :profiles {
@@ -33,6 +34,7 @@
   }
 
   :froms {
+    :switch { :key :tab :modi :left_command }
     ;; command + option + control + d
     :drawer_left { :key :h :modi :command_option_control }
     ;; command + h
@@ -65,6 +67,7 @@
   }
 
   :tos {
+    :switch { :key :tab :modi :left_control }
     :arc_drawer_left { :key :semicolon :modi :left_command }
     :arc_history_back { :key :hyphen :modi :left_command }
     :arc_history_forward { :key :equal_sign :modi :left_command }
@@ -144,6 +147,7 @@
   ;; <conditions> can be keywords defined in layers, devices, applications
   ;; <other options> {:other {:parameters {:to_delayed_action_delay_milliseconds 100 :basic.to_if_alone_timeout_milliseconds 500 :basic.to_if_held_down_threshold_milliseconds 250}} }
   [
+    {:des "switch" :rules [[:switch :switch]]}
     {:des "caps to ctrl/esc" :rules [[{:key :caps_lock :modi { :optional :any }} { :key :right_control :lazy true } nil { :alone { :key :escape }}]]}
     {:des "arc open" :rules [[:open :arc_open :arc]]}
     {:des "arc drawer_left" :rules [[:drawer_left :arc_drawer_left :arc]]}
