@@ -1320,4 +1320,6 @@
     "terminal.integrated.env.osx": {
 
     },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "autoimport.autoComplete": false,
 }
