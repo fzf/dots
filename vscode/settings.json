@@ -1323,5 +1323,6 @@
     "github.copilot.editor.enableAutoCompletions": true,
     "autoimport.autoComplete": false,
     "window.autoDetectColorScheme": true,
-    "workbench.preferredDarkColorTheme": "One Dark Pro Flat"
+    "workbench.preferredDarkColorTheme": "One Dark Pro Flat",
+    "snowflake.connectionsConfigFile": "/Users/fletcher.fowler/.snowflake/connections.toml"
 }
