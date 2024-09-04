@@ -1261,10 +1261,11 @@
     "react-native-tools.showUserTips": false,
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
-        "*": true,
-        "yaml": true,
-        "plaintext": false,
-        "markdown": false
+      "*": true,
+      "plaintext": false,
+      "markdown": false,
+      "scminput": false,
+      "yaml": true
     },
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
@@ -1277,7 +1278,6 @@
     ],
     "javascript.updateImportsOnFileMove.enabled": "always",
     "ruby.rubocop.executePath": "/Users/fzf/.asdf/shims/",
-    "oneDarkPro.editorTheme": "Solarized",
     "workbench.preferredHighContrastColorTheme": "Default High Contrast Light",
     "markdown.preview.scrollPreviewWithEditor": false,
     "markdown.preview.scrollEditorWithPreview": false,
@@ -1322,4 +1322,6 @@
     },
     "github.copilot.editor.enableAutoCompletions": true,
     "autoimport.autoComplete": false,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "One Dark Pro Flat"
 }
