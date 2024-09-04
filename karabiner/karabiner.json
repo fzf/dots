@@ -273,6 +273,136 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "chrome open",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "r"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "d"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "r"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "d"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "chrome history_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "left_arrow"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "chrome history_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "right_arrow"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "chrome open_undo",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "f"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "k"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "chrome tab_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "hyphen"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "chrome tab_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "equal_sign"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "com\\.google\\.Chrome" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "messages tab_back",
         "manipulators" : [ {
           "from" : {
