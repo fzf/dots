@@ -83,7 +83,7 @@
     :chrome_drawer_left { :key :semicolon :modi :left_command }
     :chrome_history_back { :key :left_arrow :modi :left_command }
     :chrome_history_forward { :key :right_arrow :modi :left_command }
-    :chrome_open { :key :d :modi :left_command }
+    :chrome_open { :key :k :modi :left_command }
     :chrome_open_undo { :key :k :modi :command_shift }
     :chrome_split { :key :f9 :modi :left_command }
     :chrome_split_back { :key :open_bracket :modi :control_shift }
@@ -161,7 +161,6 @@
     {:des "arc split_close" :rules [[:split_close :arc_split_close :arc]]}
     {:des "arc tab_back" :rules [[:tab_back :arc_tab_back :arc]]}
     {:des "arc tab_forward" :rules [[:tab_forward :arc_tab_forward :arc]]}
-    {:des "chrome open" :rules [[:open :chrome_open :chrome]]}
     {:des "chrome history_back" :rules [[:history_back :chrome_history_back :chrome]]}
     {:des "chrome history_forward" :rules [[:history_forward :chrome_history_forward :chrome]]}
     {:des "chrome open" :rules [[:open :chrome_open :chrome]]}

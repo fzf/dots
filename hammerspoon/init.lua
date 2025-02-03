@@ -289,7 +289,7 @@ end
 local modal = hs.hotkey.modal.new()
 binder(nil, "t", function() hs.application.launchOrFocus("iTerm") end, modal)
 binder(nil, "h", function() launchBrowser() end, modal)
-binder(nil, "v", function() hs.application.launchOrFocus("Visual Studio Code") end, modal)
+binder(nil, "v", function() hs.application.launchOrFocus("Cursor") end, modal)
 binder(nil, "d", function() Size.moveLocation("left") end, modal)
 binder(nil, "n", function() Size.moveLocation("right") end, modal)
 binder(nil, "c", function() Size.moveLocation("full") end, modal)
