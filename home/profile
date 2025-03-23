@@ -6,4 +6,5 @@ alias m='make'
 alias t='tmux'
 alias tf='terraform'
 alias v='nvim'
-
+alias c='cursor'
+alias code='cursor'
