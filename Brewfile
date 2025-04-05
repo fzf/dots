@@ -49,3 +49,4 @@ mas 'Spark', id: 1176895641
 mas 'Telegram', id: 747648890
 mas 'Todoist', id: 585829637
 mas 'Xcode', id: 497799835
+mas 'WireGuard', id: 1451685025
