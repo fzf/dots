@@ -383,6 +383,215 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "island drawer_left",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_option", "left_control" ]
+            },
+            "key_code" : "h"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "semicolon"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island history_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "left_arrow"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island history_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "right_arrow"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island open",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "key_code" : "r"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "k"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island open_undo",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "f"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "k"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island split",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "semicolon"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "f9"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island split_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "h"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_control", "left_shift" ],
+            "key_code" : "open_bracket"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island split_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "l"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_control", "left_shift" ],
+            "key_code" : "open_bracket"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island split_close",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "comma"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command" ],
+            "key_code" : "w"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island tab_back",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "hyphen"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "island tab_forward",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            },
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_command", "left_shift" ],
+            "key_code" : "equal_sign"
+          } ],
+          "conditions" : [ {
+            "type" : "frontmost_application_if",
+            "bundle_identifiers" : [ "io\\.island\\.Island" ]
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "messages tab_back",
         "manipulators" : [ {
           "from" : {

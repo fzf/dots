@@ -16,6 +16,7 @@
   :applications {
     :arc ["company\\.thebrowser\\.Browser$"]
     :chrome ["com\\.google\\.Chrome"]
+    :island ["io\\.island\\.Island"]
     :messages ["com\\.apple\\.MobileSMS"]
     :notion ["notion\\.id"]
     :sigmaos ["com\\.sigmaos\\.sigmaos\\.macos"]
@@ -93,6 +94,19 @@
     :chrome_tab_forward { :key :equal_sign :modi :command_shift }
     :chrome_password { :key :a :modi :command_shift }
 
+    :island_drawer_left { :key :semicolon :modi :left_command }
+    :island_history_back { :key :left_arrow :modi :left_command }
+    :island_history_forward { :key :right_arrow :modi :left_command }
+    :island_open { :key :k :modi :left_command }
+    :island_open_undo { :key :k :modi :command_shift }
+    :island_split { :key :f9 :modi :left_command }
+    :island_split_back { :key :open_bracket :modi :control_shift }
+    :island_split_forward { :key :open_bracket :modi :control_shift }
+    :island_split_close { :key :w :modi :left_command }
+    :island_tab_back { :key :hyphen :modi :command_shift }
+    :island_tab_forward { :key :equal_sign :modi :command_shift }
+    :island_password { :key :a :modi :command_shift }
+
     :messages_tab_back { :key :hyphen :modi :command_shift }
     :messages_tab_forward { :key :equal_sign :modi :command_shift }
 
@@ -167,6 +181,17 @@
     {:des "chrome open_undo" :rules [[:open_undo :chrome_open_undo :chrome]]}
     {:des "chrome tab_back" :rules [[:tab_back :chrome_tab_back :chrome]]}
     {:des "chrome tab_forward" :rules [[:tab_forward :chrome_tab_forward :chrome]]}
+    {:des "island drawer_left" :rules [[:drawer_left :island_drawer_left :island]]}
+    {:des "island history_back" :rules [[:history_back :island_history_back :island]]}
+    {:des "island history_forward" :rules [[:history_forward :island_history_forward :island]]}
+    {:des "island open" :rules [[:open :island_open :island]]}
+    {:des "island open_undo" :rules [[:open_undo :island_open_undo :island]]}
+    {:des "island split" :rules [[:split :island_split :island]]}
+    {:des "island split_back" :rules [[:split_back :island_split_back :island]]}
+    {:des "island split_forward" :rules [[:split_forward :island_split_forward :island]]}
+    {:des "island split_close" :rules [[:split_close :island_split_close :island]]}
+    {:des "island tab_back" :rules [[:tab_back :island_tab_back :island]]}
+    {:des "island tab_forward" :rules [[:tab_forward :island_tab_forward :island]]}
     {:des "messages tab_back" :rules [[:tab_back :messages_tab_back :messages]]}
     {:des "messages tab_forward" :rules [[:tab_forward :messages_tab_forward :messages]]}
     {:des "notion drawer_left" :rules [[:drawer_left :arc_drawer_left :notion]]}

@@ -1324,5 +1324,10 @@
     "autoimport.autoComplete": false,
     "window.autoDetectColorScheme": true,
     "workbench.preferredDarkColorTheme": "One Dark Pro Flat",
-    "snowflake.connectionsConfigFile": "/Users/fletcher.fowler/.snowflake/connections.toml"
+    "snowflake.connectionsConfigFile": "/Users/fletcher.fowler/.snowflake/connections.toml",
+    "docker.extension.enableComposeLanguageServer": false,
+    "yaml.schemas": {
+      "file:///Users/fzf/.vscode/extensions/atlassian.atlascode-3.8.11/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "atlascode.jira.enabled": true
 }

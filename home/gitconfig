@@ -35,6 +35,7 @@
 [user]
   name = Fletcher Fowler
   email = fletch@fzf.me
+	signingkey = 5543B1764D4BCC9EBE14DBD7BBFFFD04F23B0A03
 
 [github]
   user = fzf
@@ -63,8 +64,8 @@
 # [url "ssh://git@github.com/"]
 # 	insteadOf = https://github.com/
 [gpg]
-  format = ssh
-  program = gpg
+	format = openpgp
+	program = gpg
 [hub]
 	protocol = https
 [credential "https://github.com"]

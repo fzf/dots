@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux dotenv asdf)
+plugins=(git tmux dotenv asdf z)
 
 ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
@@ -106,3 +106,4 @@ export PATH=$PATH:/Users/fletcher.fowler/Projects/chime/better_dependabot/bin
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 source /opt/homebrew/opt/spaceship/spaceship.zsh
+source ~/.env
