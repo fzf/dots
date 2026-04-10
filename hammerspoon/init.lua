@@ -36,228 +36,106 @@ hs.window.animationDuration = 0.000
 hs.grid.setGrid("2x1")
 hs.grid.setMargins({0, 0})
 
--- do
---   local mod      = { "ctrl" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "h" ] = "down",
---     [ "t" ] = "up"
---   }
+-- ── Caps Lock → Ctrl/Esc + Ctrl+HJKL movement ────────────────────────────
+-- NOTE: CapsLock must also be remapped to Control at the OS level:
+-- System Settings → Keyboard → Keyboard Shortcuts → Modifier Keys → Caps Lock: ^ Control
+--
+-- This combined handler replaces both Karabiner rules:
+--   "caps to ctrl/esc" — tap Ctrl (CapsLock) alone → sends Escape
+--   "movement *"       — Ctrl+H/J/K/L → Left/Down/Up/Right arrows
+--
+-- Using a single eventtap avoids ordering conflicts between ControlEscape.spoon
+-- and hs.hotkey (which consumes key events before eventtaps see them).
+local ctrlEscAndMove = (function()
+  local sendEscape = false
+  local lastCtrl = false
+  local CANCEL_DELAY = 0.150
 
---   bindHotkeys(mod, bindings, function(key)
---     hs.eventtap.keyStroke(nil, key, 1000)
---   end)
--- end
+  local timer = hs.timer.delayed.new(CANCEL_DELAY, function()
+    sendEscape = false
+  end)
 
--- do
---   local mod      = { "ctrl", "shift" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "h" ] = "down",
---     [ "t" ] = "up"
---   }
+  local arrowMap = {
+    [hs.keycodes.map["h"]] = "left",
+    [hs.keycodes.map["j"]] = "down",
+    [hs.keycodes.map["k"]] = "up",
+    [hs.keycodes.map["l"]] = "right",
+  }
 
---   bindHotkeys(mod, bindings, function(key)
---     hs.eventtap.keyStroke({ "shift" }, key, 1000)
---   end)
--- end
+  -- Watch for Ctrl press/release to decide whether to send Escape on release
+  local modTap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(event)
+    local mods = event:getFlags()
+    local ctrlNow = mods.ctrl or false
 
--- do
---   local mod      = { "ctrl", "option" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "h" ] = "down",
---     [ "t" ] = "up"
---   }
+    if ctrlNow == lastCtrl then return false end
 
---   bindHotkeys(mod, bindings, function(key)
---     hs.eventtap.keyStroke({ "option" }, key, 1000)
---   end)
--- end
+    if ctrlNow then
+      lastCtrl = true
+      sendEscape = true
+      timer:start()
+    else
+      lastCtrl = false
+      timer:stop()
+      if sendEscape then
+        hs.eventtap.keyStroke({}, "escape", 0)
+      end
+      sendEscape = false
+    end
+    return false
+  end)
 
--- do
---   local mod      = { "ctrl", "cmd" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "h" ] = "down",
---     [ "t" ] = "up"
---   }
+  -- Any key press cancels escape; Ctrl+HJKL gets remapped to arrows
+  local keyTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+    local flags = event:getFlags()
+    sendEscape = false  -- any key press cancels the pending escape
 
---   bindHotkeys(mod, bindings, function(key)
---     hs.eventtap.keyStroke({ "cmd" }, key, 1000)
---   end)
--- end
+    if flags.ctrl then
+      local arrow = arrowMap[event:getKeyCode()]
+      if arrow then
+        -- Pass through shift/alt/cmd but drop ctrl, send the arrow key instead
+        local passMods = {}
+        if flags.shift then table.insert(passMods, "shift") end
+        if flags.alt   then table.insert(passMods, "alt")   end
+        if flags.cmd   then table.insert(passMods, "cmd")   end
+        hs.eventtap.keyStroke(passMods, arrow, 0)
+        return true  -- consume the original ctrl+hjkl event
+      end
+    end
+    return false
+  end)
 
--- do
---   local mod      = { "ctrl", "shift", "option" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "h" ] = "down",
---     [ "t" ] = "up"
---   }
+  modTap:start()
+  keyTap:start()
+end)()
 
---   bindHotkeys(mod, bindings, function(key)
---     hs.eventtap.keyStroke({ "shift", "option" }, key, 1000)
---   end)
--- end
+-- ── Global remaps ─────────────────────────────────────────────────────────
 
--- do
---   local mod      = { "ctrl", "shift", "cmd" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "h" ] = "down",
---     [ "t" ] = "up"
---   }
+-- Cmd+Tab → Ctrl+Tab (replaces Karabiner "switch" rule)
+hs.hotkey.bind({"cmd"}, "tab", function()
+  hs.eventtap.keyStroke({"ctrl"}, "tab", 1000)
+end)
 
---   bindHotkeys(mod, bindings, function(key)
---     hs.eventtap.keyStroke({ "shift", "cmd" }, key, 1000)
---   end)
--- end
+-- Cmd+Escape → Cmd+` (cycle windows of same app)
+hs.hotkey.bind({"cmd"}, "escape", function()
+  hs.eventtap.keyStroke({"cmd"}, "`", 1000)
+end)
 
--- Logging keycodes
--- tap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
---   local keyCode = event:getKeyCode()
---   print(event:rawFlags())
---   print(keyCode)
--- end)
--- tap:start()
+-- Ctrl+Delete → Forward Delete (with repeat)
+hs.hotkey.bind({"ctrl"}, "delete",
+  function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end,
+  nil,
+  function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end)
 
--- Bind Command + Escape to Command + `
-hs.hotkey.bind({ "cmd" }, "escape", function() hs.eventtap.keyStroke({ "cmd" }, "`", 1000) end)
-hs.hotkey.bind({ "ctrl" }, "delete", function() hs.eventtap.keyStroke(nil, "forwarddelete", 1000) end, nil, function() hs.eventtap.keyStroke({}, "forwarddelete", 1000) end)
-
--- knu.keymap.register(
---   "com.microsoft.VSCode",
---   knu.keymap.new(
---     -- Forward
---     -- hs.hotkey.new({ "cmd", "shift" }, "t", function ()
---     --   hs.eventtap.keyStroke({ "ctrl" }, "-", 1000)
---     -- end),
---     -- -- Back
---     -- hs.hotkey.new({ "cmd", "shift" }, "h", function ()
---     --   hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 1000)
---     -- end),
---     -- -- Next Tab
---     -- hs.hotkey.new({ "cmd", "shift" }, "d", function ()
---     --   hs.eventtap.keyStroke({ "cmd", "shift" }, "[", 1000)
---     -- end),
---     -- -- Previous Tab
---     -- hs.hotkey.new({ "cmd", "shift" }, "n", function ()
---     --   hs.eventtap.keyStroke({ "cmd", "shift" }, "]", 1000)
---     -- end),
---     -- -- Split
---     -- hs.hotkey.new({ "alt", "cmd" }, "s", function ()
---     --   hs.eventtap.keyStroke({ "cmd" }, "\\", 1000)
---     -- end),
---     -- Left Split
---     hs.hotkey.new({ "alt", "cmd" }, "d", function ()
---       hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
---       hs.eventtap.keyStroke({ "cmd" }, "left", 1000)
---     end),
---     -- Right Split
---     hs.hotkey.new({ "alt", "cmd" }, "n", function ()
---       hs.eventtap.keyStroke({ "cmd" }, "k", 1000)
---       hs.eventtap.keyStroke({ "cmd" }, "right", 1000)
---     end),
---     hs.hotkey.new({ "alt", "cmd" }, "h", function ()
---       hs.eventtap.keyStroke({ "cmd", "ctrl" }, "left", 1000)
---     end),
---     hs.hotkey.new({ "alt", "cmd" }, "t", function ()
---       hs.eventtap.keyStroke({ "cmd", "ctrl" }, "right", 1000)
---     end),
---     -- hs.hotkey.new({ "ctrl", "alt", "cmd" }, "d", function ()
---     --   hs.eventtap.keyStroke({ "cmd" }, "b", 1000)
---     -- end),
---     hs.hotkey.new({ "cmd", "shift" }, "c", function ()
---       hs.eventtap.keyStroke({ "ctrl" }, "l", 1000)
---       hs.eventtap.keyStroke(nil, "c", 1000)
---     end)
---   )
--- )
-
--- hs.loadSpoon("ControlEscape"):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
-
--- hs.loadSpoon("RecursiveBinder")
-
--- spoon.RecursiveBinder.escapeKey = {{}, "escape" }  -- Press escape to abort
-
--- local singleKey = spoon.RecursiveBinder.singleKey
-
--- local keyMap = {
---   [singleKey("w", "window")] = {
---     [singleKey("s", "split")] = function()
---       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ "ctrl", "shift" }, "=", 200)
---       end
---     end,
---     [singleKey("q", "close")] = function()
---       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ "ctrl", "shift" }, "-", 200)
---       end
---     end,
---     [singleKey("d", "last")] = function()
---       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ "ctrl", "shift" }, "[", 200)
---       end
---     end,
---     [singleKey("n", "next")] = function()
---       if hs.application.frontmostApplication():name() == "Arc" then
---         hs.eventtap.keyStroke({ "ctrl", "shift" }, "]", 200)
---       end
---     end
---   }
--- }
-
--- hs.hotkey.bind({ "cmd" }, "e", spoon.RecursiveBinder.recursiveBind(keyMap))
-
--- Window Movement and Sizing (Fixed)
--- do
---   local Size     = require "size"
---   local mod      = { "option", "ctrl" }
---   local bindings = {
---     [ "d" ] = "left",
---     [ "n" ] = "right",
---     [ "c" ] = "full"
---   }
-
---   bindHotkeys(mod, bindings, function(direction)
---     Size.moveLocation(direction)
---   end)
--- end
-
--- Applications
--- To disable the MacOSX"s dictionary hotkey (cmd-ctrl-d),
--- make sure to run in terminal:
--- defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 "<dict><key>enabled</key><false/></dict>"
--- do
---   local mod      = { "option", "ctrl" }
---   local bindings = {
---     [ "t" ] = "iTerm",
---     [ "h" ] = "Arc",
---     [ "v" ] = "Visual Studio Code",
---     [ "u" ] = "Obsidian",
---     [ "s" ] = "Slack",
---   }
-
---   bindHotkeys(mod, bindings, function(app)
---     hs.application.launchOrFocus(app)
---   end)
--- end
+-- ── Tab-held modal (app launcher + window management) ─────────────────────
 
 modal = hs.hotkey.modal.new()
 
 function binder(mods, key, fn, mm)
-	local function triggerAndCall()
-	    modal.triggered = true
-      fn()
-  	end
-	modal:bind({}, key, triggerAndCall, nil, triggerAndCall)
+  local function triggerAndCall()
+    modal.triggered = true
+    fn()
+  end
+  modal:bind({}, key, triggerAndCall, nil, triggerAndCall)
 end
 
 modifier = hs.hotkey.bind({}, "tab",
@@ -294,3 +172,99 @@ binder(nil, "d", function() Size.moveLocation("left") end, modal)
 binder(nil, "n", function() Size.moveLocation("right") end, modal)
 binder(nil, "c", function() Size.moveLocation("full") end, modal)
 
+-- ── Per-app remaps (replaces all Karabiner complex_modifications app rules) ──
+-- Format: { fromMods, fromKey, toMods, toKey }
+-- AppBindings.spoon enables/disables hotkeys based on frontmost app window.
+local AppBindings = hs.loadSpoon("AppBindings")
+AppBindings:init()
+
+-- Arc
+AppBindings:bind("Arc", {
+  {{"cmd"},              "r",  {"cmd"},          "k"},   -- open/search bar (Cmd+R → Cmd+K)
+  {{"cmd","ctrl","alt"}, "h",  {"cmd"},          ";"},   -- sidebar / drawer left
+  {{"cmd"},              "j",  {"cmd"},          "-"},   -- history back
+  {{"cmd"},              "k",  {"cmd"},          "="},   -- history forward
+  {{"cmd","shift"},      "f",  {"cmd","shift"},  "k"},   -- reopen closed tab
+  {{"cmd","shift"},      ";",  {"ctrl","shift"}, "]"},   -- split forward
+  {{"cmd","shift"},      "h",  {"ctrl","shift"}, "["},   -- split back
+  {{"cmd","shift"},      "l",  {"ctrl","shift"}, "["},   -- split forward (mirror of split back)
+  {{"cmd","shift"},      ",",  {"cmd"},          "w"},   -- close split
+  {{"cmd","shift"},      "j",  {"cmd","shift"},  "-"},   -- previous tab
+  {{"cmd","shift"},      "k",  {"cmd","shift"},  "="},   -- next tab
+})
+
+-- Google Chrome
+AppBindings:bind("Google Chrome", {
+  {{"cmd"},         "r",  {"cmd"},         "k"},      -- open/search bar
+  {{"cmd"},         "j",  {"cmd"},         "left"},   -- history back
+  {{"cmd"},         "k",  {"cmd"},         "right"},  -- history forward
+  {{"cmd","shift"}, "f",  {"cmd","shift"}, "k"},      -- reopen closed tab
+  {{"cmd","shift"}, "j",  {"cmd","shift"}, "-"},      -- previous tab
+  {{"cmd","shift"}, "k",  {"cmd","shift"}, "="},      -- next tab
+})
+
+-- Island
+AppBindings:bind("Island", {
+  {{"cmd","ctrl","alt"}, "h",  {"cmd"},          ";"},    -- sidebar / drawer left
+  {{"cmd"},              "r",  {"cmd"},          "k"},    -- open/search bar
+  {{"cmd"},              "j",  {"cmd"},          "left"}, -- history back
+  {{"cmd"},              "k",  {"cmd"},          "right"},-- history forward
+  {{"cmd","shift"},      "f",  {"cmd","shift"},  "k"},    -- reopen closed tab
+  {{"cmd","shift"},      ";",  {"cmd"},          "f9"},   -- split tab
+  {{"cmd","shift"},      "h",  {"ctrl","shift"}, "["},    -- split back
+  {{"cmd","shift"},      "l",  {"ctrl","shift"}, "["},    -- split forward
+  {{"cmd","shift"},      ",",  {"cmd"},          "w"},    -- close split
+  {{"cmd","shift"},      "j",  {"cmd","shift"},  "-"},    -- previous tab
+  {{"cmd","shift"},      "k",  {"cmd","shift"},  "="},    -- next tab
+})
+
+-- Messages
+AppBindings:bind("Messages", {
+  {{"cmd","shift"}, "j", {"cmd","shift"}, "-"},  -- previous conversation
+  {{"cmd","shift"}, "k", {"cmd","shift"}, "="},  -- next conversation
+})
+
+-- Notion
+AppBindings:bind("Notion", {
+  {{"cmd","ctrl","alt"}, "h",  {"cmd"},          ";"},   -- sidebar
+  {{"cmd"},              "j",  {"cmd"},          "-"},   -- history back
+  {{"cmd"},              "k",  {"cmd"},          "="},   -- history forward
+  {{"cmd","shift"},      "j",  {"cmd","shift"},  "-"},   -- previous tab
+  {{"cmd","shift"},      "k",  {"cmd","shift"},  "="},   -- next tab
+})
+
+-- Slack
+AppBindings:bind("Slack", {
+  {{"cmd","ctrl","alt"}, "h",  {"cmd","shift"}, "h"},   -- sidebar toggle
+  {{"cmd"},              "r",  {"cmd"},         "k"},   -- jump to conversation
+  {{"cmd"},              "j",  {"cmd"},         "-"},   -- history back
+  {{"cmd"},              "k",  {"cmd"},         "="},   -- history forward
+  {{"cmd","shift"},      "j",  {"cmd","shift"}, "-"},   -- previous unread
+  {{"cmd","shift"},      "k",  {"cmd","shift"}, "="},   -- next unread
+})
+
+-- Telegram
+AppBindings:bind("Telegram", {
+  {{"cmd"}, "r", {"cmd"}, "v"},  -- search/jump
+})
+
+-- Vivaldi
+AppBindings:bind("Vivaldi", {
+  {{"cmd"},              "r",  {"cmd"},          "d"},    -- open/search bar (address bar)
+  {{"cmd","ctrl","alt"}, "h",  {"cmd"},          ";"},    -- panel toggle
+  {{"cmd"},              "j",  {"cmd"},          "left"}, -- history back
+  {{"cmd"},              "k",  {"cmd"},          "right"},-- history forward
+  {{"cmd","shift"},      "f",  {"cmd","shift"},  "k"},    -- reopen closed tab
+  {{"cmd","shift"},      ";",  {"cmd"},          "f9"},   -- tile tab
+  {{"cmd","shift"},      "h",  {"ctrl","shift"}, "["},    -- tile back
+  {{"cmd","shift"},      "l",  {"ctrl","shift"}, "["},    -- tile forward
+  {{"cmd","shift"},      ",",  {"cmd"},          "w"},    -- close tile
+  {{"cmd","shift"},      "j",  {"cmd","shift"},  "-"},    -- previous tab
+  {{"cmd","shift"},      "k",  {"cmd","shift"},  "="},    -- next tab
+  {{"cmd","alt"},        "p",  {"cmd","shift"},  "a"},    -- password manager
+})
+
+-- Zoom
+AppBindings:bind("zoom.us", {
+  {{"cmd","ctrl","alt"}, "h", {"cmd","shift"}, "j"},  -- participants panel
+})
