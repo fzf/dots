@@ -18,7 +18,7 @@ console.defaultToolbar = toolbar.new("CustomToolbar", {
 console.toolbar(console.defaultToolbar)
 
 function openConfig()
-  hs.open(hs.configdir .. "/init.lua")
+  hs.open(hs.configdir .. "/keymaps.lua")  -- open the config, not the engine
 end
 
 local logger = hs.logger.new("Global", "debug")
@@ -35,6 +35,42 @@ hs.window.animationDuration = 0.000
 -- Set Grid
 hs.grid.setGrid("2x1")
 hs.grid.setMargins({0, 0})
+
+-- ── Load keymap config ────────────────────────────────────────────────────
+local km = require("keymaps")
+
+-- ── Engine: Ctrl+HJKL → arrow keys ─────────────────────────────────────────
+-- Intercepts Ctrl+HJKL and remaps to arrow keys, passing through other modifiers
+local function startMovementKeys()
+  -- Build keycode → arrow direction lookup from km.movement
+  local arrowMap = {}
+  for _, entry in ipairs(km.movement or {}) do
+    local code = hs.keycodes.map[entry.from]
+    if code then arrowMap[code] = entry.to end
+  end
+
+  local keyTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+    local flags = event:getFlags()
+
+    if flags.ctrl then
+      local arrow = arrowMap[event:getKeyCode()]
+      if arrow then
+        -- Build modifier list, excluding ctrl
+        local pass = {}
+        if flags.shift then table.insert(pass, "shift") end
+        if flags.alt   then table.insert(pass, "alt")   end
+        if flags.cmd   then table.insert(pass, "cmd")   end
+        hs.eventtap.keyStroke(pass, arrow, 0)
+        return true   -- consume ctrl+hjkl; emit arrow instead
+      end
+    end
+    return false
+  end)
+
+  keyTap:start()
+end
+
+startMovementKeys()
 
 -- do
 --   local mod      = { "ctrl" }
