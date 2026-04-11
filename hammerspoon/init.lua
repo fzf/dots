@@ -39,9 +39,23 @@ hs.grid.setMargins({0, 0})
 -- ── Load keymap config ────────────────────────────────────────────────────
 local km = require("keymaps")
 
--- ── Engine: Ctrl+HJKL → arrow keys ─────────────────────────────────────────
--- Intercepts Ctrl+HJKL and remaps to arrow keys, passing through other modifiers
-local function startMovementKeys()
+-- ── Engine: Caps Lock → Ctrl/Esc + movement keys ──────────────────────────
+-- NOTE: CapsLock must be remapped to Control via System Settings:
+--   Keyboard → Keyboard Shortcuts → Modifier Keys → Caps Lock: ^ Control
+--
+-- A single pair of eventtaps handles both behaviours from km.capslock / km.movement,
+-- sharing state to ensure any keypress cancels the pending escape.
+local function startCtrlEscAndMove()
+  local cfg     = km.capslock or {}
+  local timeout = (cfg.tap_timeout_ms or 150) / 1000
+
+  local sendEscape = false
+  local lastCtrl   = false
+
+  local timer = hs.timer.delayed.new(timeout, function()
+    sendEscape = false
+  end)
+
   -- Build keycode → arrow direction lookup from km.movement
   local arrowMap = {}
   for _, entry in ipairs(km.movement or {}) do
@@ -49,8 +63,28 @@ local function startMovementKeys()
     if code then arrowMap[code] = entry.to end
   end
 
+  local modTap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(event)
+    local mods    = event:getFlags()
+    local ctrlNow = mods.ctrl or false
+
+    if ctrlNow == lastCtrl then return false end
+
+    if ctrlNow then
+      lastCtrl   = true
+      sendEscape = true
+      timer:start()
+    else
+      lastCtrl = false
+      timer:stop()
+      if sendEscape then hs.eventtap.keyStroke({}, "escape", 0) end
+      sendEscape = false
+    end
+    return false
+  end)
+
   local keyTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
     local flags = event:getFlags()
+    sendEscape = false   -- any keypress cancels pending escape
 
     if flags.ctrl then
       local arrow = arrowMap[event:getKeyCode()]
@@ -67,10 +101,11 @@ local function startMovementKeys()
     return false
   end)
 
+  modTap:start()
   keyTap:start()
 end
 
-startMovementKeys()
+startCtrlEscAndMove()
 
 -- do
 --   local mod      = { "ctrl" }
