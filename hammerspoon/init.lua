@@ -45,6 +45,8 @@ local km = require("keymaps")
 --
 -- A single pair of eventtaps handles both behaviours from km.capslock / km.movement,
 -- sharing state to ensure any keypress cancels the pending escape.
+local sendingProgrammatically = false  -- Global flag to prevent canceling escape
+
 local function startCtrlEscAndMove()
   local cfg     = km.capslock or {}
   local timeout = (cfg.tap_timeout_ms or 150) / 1000
@@ -76,7 +78,11 @@ local function startCtrlEscAndMove()
     else
       lastCtrl = false
       timer:stop()
-      if sendEscape then hs.eventtap.keyStroke({}, "escape", 0) end
+      if sendEscape then
+        sendingProgrammatically = true
+        hs.eventtap.keyStroke({}, "escape", 0)
+        sendingProgrammatically = false
+      end
       sendEscape = false
     end
     return false
@@ -84,7 +90,10 @@ local function startCtrlEscAndMove()
 
   local keyTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
     local flags = event:getFlags()
-    sendEscape = false   -- any keypress cancels pending escape
+    -- Only cancel escape for real keypresses, not programmatic ones
+    if not sendingProgrammatically then
+      sendEscape = false
+    end
 
     if flags.ctrl then
       local arrow = arrowMap[event:getKeyCode()]
@@ -94,7 +103,9 @@ local function startCtrlEscAndMove()
         if flags.shift then table.insert(pass, "shift") end
         if flags.alt   then table.insert(pass, "alt")   end
         if flags.cmd   then table.insert(pass, "cmd")   end
+        sendingProgrammatically = true
         hs.eventtap.keyStroke(pass, arrow, 0)
+        sendingProgrammatically = false
         return true   -- consume ctrl+hjkl; emit arrow instead
       end
     end
@@ -127,7 +138,9 @@ local function startAppRemaps()
         end
 
         -- Send the keystroke
+        sendingProgrammatically = true
         hs.eventtap.keyStroke(toMods, toKey, 0)
+        sendingProgrammatically = false
 
         -- Re-enable hotkeys after a brief delay
         hs.timer.doAfter(0.01, function()
