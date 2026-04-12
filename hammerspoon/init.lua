@@ -18,7 +18,7 @@ console.defaultToolbar = toolbar.new("CustomToolbar", {
 console.toolbar(console.defaultToolbar)
 
 function openConfig()
-  hs.open(hs.configdir .. "/init.lua")
+  hs.open(hs.configdir .. "/keymaps.lua")  -- open the config, not the engine
 end
 
 local logger = hs.logger.new("Global", "debug")
@@ -35,6 +35,156 @@ hs.window.animationDuration = 0.000
 -- Set Grid
 hs.grid.setGrid("2x1")
 hs.grid.setMargins({0, 0})
+
+-- ── Load keymap config ────────────────────────────────────────────────────
+local km = require("keymaps")
+
+-- ── Engine: Caps Lock → Ctrl/Esc + movement keys ──────────────────────────
+-- NOTE: CapsLock must be remapped to Control via System Settings:
+--   Keyboard → Keyboard Shortcuts → Modifier Keys → Caps Lock: ^ Control
+--
+-- A single pair of eventtaps handles both behaviours from km.capslock / km.movement,
+-- sharing state to ensure any keypress cancels the pending escape.
+local sendingProgrammatically = false  -- Global flag to prevent canceling escape
+
+local function startCtrlEscAndMove()
+  local cfg     = km.capslock or {}
+  local timeout = (cfg.tap_timeout_ms or 150) / 1000
+
+  local sendEscape = false
+  local lastCtrl   = false
+
+  local timer = hs.timer.delayed.new(timeout, function()
+    sendEscape = false
+  end)
+
+  -- Build keycode → arrow direction lookup from km.movement
+  local arrowMap = {}
+  for _, entry in ipairs(km.movement or {}) do
+    local code = hs.keycodes.map[entry.from]
+    if code then arrowMap[code] = entry.to end
+  end
+
+  local modTap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(event)
+    local mods    = event:getFlags()
+    local ctrlNow = mods.ctrl or false
+
+    if ctrlNow == lastCtrl then return false end
+
+    if ctrlNow then
+      lastCtrl   = true
+      sendEscape = true
+      timer:start()
+    else
+      lastCtrl = false
+      timer:stop()
+      if sendEscape then
+        sendingProgrammatically = true
+        hs.eventtap.keyStroke({}, "escape", 0)
+        sendingProgrammatically = false
+      end
+      sendEscape = false
+    end
+    return false
+  end)
+
+  local keyTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+    local flags = event:getFlags()
+    -- Only cancel escape for real keypresses, not programmatic ones
+    if not sendingProgrammatically then
+      sendEscape = false
+    end
+
+    if flags.ctrl then
+      local arrow = arrowMap[event:getKeyCode()]
+      if arrow then
+        -- Build modifier list, excluding ctrl
+        local pass = {}
+        if flags.shift then table.insert(pass, "shift") end
+        if flags.alt   then table.insert(pass, "alt")   end
+        if flags.cmd   then table.insert(pass, "cmd")   end
+        sendingProgrammatically = true
+        hs.eventtap.keyStroke(pass, arrow, 0)
+        sendingProgrammatically = false
+        return true   -- consume ctrl+hjkl; emit arrow instead
+      end
+    end
+    return false
+  end)
+
+  modTap:start()
+  keyTap:start()
+end
+
+startCtrlEscAndMove()
+
+-- ── Engine: per-app remaps ────────────────────────────────────────────────
+-- Enables/disables app-specific hotkeys based on frontmost application
+local function startAppRemaps()
+  local appHotkeys = {}  -- { appName = { [hotkey objects] } }
+  local currentAppHotkeys = {}  -- Currently active hotkeys
+
+  -- Build hotkeys for each app
+  for _, appEntry in ipairs(km.apps or {}) do
+    local hotkeys = {}
+    for _, binding in ipairs(appEntry.bindings) do
+      local fromMods, fromKey = binding.from[1], binding.from[2]
+      local toMods, toKey = binding.to[1], binding.to[2]
+
+      local hotkey = hs.hotkey.new(fromMods, fromKey, function()
+        -- Temporarily disable all hotkeys to prevent catching our own output
+        for _, hk in ipairs(currentAppHotkeys) do
+          hk:disable()
+        end
+
+        -- Send the keystroke
+        sendingProgrammatically = true
+        hs.eventtap.keyStroke(toMods, toKey, 0)
+        sendingProgrammatically = false
+
+        -- Re-enable hotkeys after a brief delay
+        hs.timer.doAfter(0.01, function()
+          for _, hk in ipairs(currentAppHotkeys) do
+            hk:enable()
+          end
+        end)
+      end)
+      table.insert(hotkeys, hotkey)
+    end
+    appHotkeys[appEntry.app] = hotkeys
+  end
+
+  -- Enable hotkeys for current app, disable others
+  local function updateHotkeys(appName)
+    currentAppHotkeys = {}
+    for app, hotkeys in pairs(appHotkeys) do
+      for _, hotkey in ipairs(hotkeys) do
+        if app == appName then
+          hotkey:enable()
+          table.insert(currentAppHotkeys, hotkey)
+        else
+          hotkey:disable()
+        end
+      end
+    end
+  end
+
+  -- Watch for app changes
+  local appWatcher = hs.application.watcher.new(function(appName, eventType, appObject)
+    if eventType == hs.application.watcher.activated then
+      updateHotkeys(appName)
+    end
+  end)
+  appWatcher:start()
+
+  -- Set up initial state
+  local frontApp = hs.application.frontmostApplication()
+  if frontApp then
+    updateHotkeys(frontApp:name())
+  end
+end
+
+startAppRemaps()
 
 -- do
 --   local mod      = { "ctrl" }
