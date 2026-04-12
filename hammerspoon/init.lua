@@ -107,6 +107,72 @@ end
 
 startCtrlEscAndMove()
 
+-- ── Engine: per-app remaps ────────────────────────────────────────────────
+-- Enables/disables app-specific hotkeys based on frontmost application
+local function startAppRemaps()
+  local appHotkeys = {}  -- { appName = { [hotkey objects] } }
+  local currentAppHotkeys = {}  -- Currently active hotkeys
+
+  -- Build hotkeys for each app
+  for _, appEntry in ipairs(km.apps or {}) do
+    local hotkeys = {}
+    for _, binding in ipairs(appEntry.bindings) do
+      local fromMods, fromKey = binding.from[1], binding.from[2]
+      local toMods, toKey = binding.to[1], binding.to[2]
+
+      local hotkey = hs.hotkey.new(fromMods, fromKey, function()
+        -- Temporarily disable all hotkeys to prevent catching our own output
+        for _, hk in ipairs(currentAppHotkeys) do
+          hk:disable()
+        end
+
+        -- Send the keystroke
+        hs.eventtap.keyStroke(toMods, toKey, 0)
+
+        -- Re-enable hotkeys after a brief delay
+        hs.timer.doAfter(0.01, function()
+          for _, hk in ipairs(currentAppHotkeys) do
+            hk:enable()
+          end
+        end)
+      end)
+      table.insert(hotkeys, hotkey)
+    end
+    appHotkeys[appEntry.app] = hotkeys
+  end
+
+  -- Enable hotkeys for current app, disable others
+  local function updateHotkeys(appName)
+    currentAppHotkeys = {}
+    for app, hotkeys in pairs(appHotkeys) do
+      for _, hotkey in ipairs(hotkeys) do
+        if app == appName then
+          hotkey:enable()
+          table.insert(currentAppHotkeys, hotkey)
+        else
+          hotkey:disable()
+        end
+      end
+    end
+  end
+
+  -- Watch for app changes
+  local appWatcher = hs.application.watcher.new(function(appName, eventType, appObject)
+    if eventType == hs.application.watcher.activated then
+      updateHotkeys(appName)
+    end
+  end)
+  appWatcher:start()
+
+  -- Set up initial state
+  local frontApp = hs.application.frontmostApplication()
+  if frontApp then
+    updateHotkeys(frontApp:name())
+  end
+end
+
+startAppRemaps()
+
 -- do
 --   local mod      = { "ctrl" }
 --   local bindings = {
