@@ -89,11 +89,13 @@ local function startCtrlEscAndMove()
   end)
 
   local keyTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
-    local flags = event:getFlags()
-    -- Only cancel escape for real keypresses, not programmatic ones
-    if not sendingProgrammatically then
-      sendEscape = false
+    -- Ignore programmatically-sent keystrokes entirely
+    if sendingProgrammatically then
+      return false
     end
+
+    local flags = event:getFlags()
+    sendEscape = false   -- any real keypress cancels pending escape
 
     if flags.ctrl then
       local arrow = arrowMap[event:getKeyCode()]
