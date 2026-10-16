@@ -1,0 +1,77 @@
+# herdr configuration — mirrors ~/.tmux.conf (Dvorak d/h/t/n layout)
+# Printable cheat sheet: ~/.config/herdr/KEYBINDINGS.md
+# Validate: herdr config check   Apply: herdr server reload-config
+onboarding = false
+
+[keys]
+# tmux uses Escape as prefix. Not used here: herdr would swallow the Esc that
+# Claude Code needs to interrupt, and the outer tmux already eats a single Esc.
+# ctrl+space is unbound in tmux.conf, so it passes straight through to herdr.
+prefix = "ctrl+space"
+
+# --- splits (tmux: prefix s = side by side, prefix w = stacked) ---
+split_vertical   = "prefix+s"
+split_horizontal = "prefix+w"
+
+# --- pane focus (tmux: prefix d/h/t/n and bare C-d/C-h/C-t/C-n) ---
+# Bare ctrl+d/h/t/n are consumed by the outer tmux, so the direct chords use ctrl+alt.
+focus_pane_left  = ["prefix+d", "ctrl+alt+d"]
+focus_pane_down  = ["prefix+h", "ctrl+alt+h"]
+focus_pane_up    = ["prefix+t", "ctrl+alt+t"]
+focus_pane_right = ["prefix+n", "ctrl+alt+n"]
+# tmux: C-\ = last pane
+last_pane        = ["prefix+ctrl+\\", "ctrl+alt+\\"]
+cycle_pane_next     = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# --- pane resize (tmux: prefix D/H/T/N) ---
+resize_pane_left  = "prefix+shift+d"
+resize_pane_down  = "prefix+shift+h"
+resize_pane_up    = "prefix+shift+t"
+resize_pane_right = "prefix+shift+n"
+resize_mode       = "prefix+r"      # herdr-only: repeatable resizing, like tmux -r
+
+# --- pane swap (no tmux equivalent; defaults collided with resize keys) ---
+swap_pane_left  = "prefix+alt+d"
+swap_pane_down  = "prefix+alt+h"
+swap_pane_up    = "prefix+alt+t"
+swap_pane_right = "prefix+alt+n"
+
+# --- panes, misc ---
+zoom       = "prefix+z"            # tmux default
+close_pane = "prefix+x"            # tmux: prefix x kill-pane
+copy_mode  = ["prefix+v", "prefix+["]   # tmux: prefix v copy-mode (and the tmux default [)
+clear_pane = "prefix+ctrl+k"       # tmux: prefix C-k clear + clear-history
+rename_pane     = "prefix+shift+p"
+edit_scrollback = "prefix+e"
+
+# --- tabs (= tmux windows) ---
+new_tab      = "prefix+c"          # tmux: prefix c new-window
+previous_tab = "prefix+p"          # tmux default
+next_tab     = "prefix+ctrl+a"     # tmux: prefix C-a last-window (closest herdr equivalent)
+switch_tab   = "prefix+1..9"       # tmux: prefix 1..9 (base-index 1)
+rename_tab   = "prefix+comma"      # tmux default: prefix ,
+close_tab    = ["prefix+shift+x", "prefix+ampersand"]   # tmux default: prefix &
+
+# --- workspaces (= tmux sessions) ---
+workspace_picker = "prefix+ctrl+s" # tmux: prefix C-s choose-session
+goto             = "prefix+g"
+new_workspace    = "prefix+shift+c"
+rename_workspace = "prefix+shift+w"
+close_workspace  = "prefix+shift+q"
+toggle_sidebar   = "prefix+b"
+
+# --- session / app ---
+detach        = "prefix+q"
+help          = "prefix+?"
+settings      = "prefix+shift+s"   # moved off prefix+s (split)
+reload_config = "prefix+shift+r"
+
+# --- navigate mode (prefix+g): Dvorak home row ---
+navigate_pane_left  = "d"
+navigate_pane_down  = "h"
+navigate_pane_up    = "t"
+navigate_pane_right = "n"
+
+[ui]
+tab_bar_position = "top"           # tmux: status-position top
