@@ -20,6 +20,11 @@ Modifier: `TAB`
  - `t` - iTerm
  - `v` - VS Code
 
+### Herdr
+Prefix: `CTRL+SPACE`
+
+Keys mirror the tmux config on the Dvorak home row (`d`/`h`/`t`/`n`). Full tmux-matched cheat sheet: `config/herdr/KEYBINDINGS.md`. After editing `config/herdr/config.toml`, run `herdr config check` then `herdr server reload-config`.
+
 ### TMUX
 Prefix: `ESC`
 
