@@ -25,7 +25,7 @@ Chain in use: iTerm -> tmux (laptop) -> ssh fzf-mini -> herdr -> agents
 | Swap pane           | prefix alt+d/h/t/n    | -                  |                                      |
 | Zoom pane           | prefix z              | prefix z           |                                      |
 | Close pane          | prefix x              | prefix x           |                                      |
-| Copy mode           | prefix v  (or [)      | prefix v           | inside: h/j/k/l move, v select, y copy |
+| Copy mode           | prefix v  (or [)      | prefix v           | inside: d/h/t/n move, v select, y copy |
 | Clear screen+history| prefix C-k            | prefix C-k         |                                      |
 | Rename pane         | prefix P              | -                  |                                      |
 | Scrollback in $EDITOR | prefix e            | -                  |                                      |
@@ -67,7 +67,7 @@ d / h / t / n move left / down / up / right. Up/Down change workspace. Enter jum
 
 ## Not mappable
 
-- Copy-mode cursor keys are fixed to h/j/k/l (tmux conf uses d/h/t/n there).
+- Copy-mode d/h/t/n needs the fzf/herdr fork build (brew tap fzf/herdr); upstream herdr keeps h/j/k/l there.
 - herdr has no "last window"; prefix C-a is bound to next tab instead.
 - Pane focus with bare ctrl+d/h/t/n never reaches herdr: the outer tmux handles those itself.
 

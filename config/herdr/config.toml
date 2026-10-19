@@ -73,5 +73,11 @@ navigate_pane_down  = "h"
 navigate_pane_up    = "t"
 navigate_pane_right = "n"
 
+# --- copy mode cursor: Dvorak home row (fzf/herdr fork; upstream ignores these) ---
+copy_mode_left  = "d"
+copy_mode_down  = "h"
+copy_mode_up    = "t"
+copy_mode_right = "n"
+
 [ui]
 tab_bar_position = "top"           # tmux: status-position top
