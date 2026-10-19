@@ -1,3 +1,4 @@
+tap 'fzf/herdr', 'https://github.com/fzf/herdr.git'
 tap 'homebrew/cask-fonts'
 tap 'jakehilborn/jakehilborn'
 tap 'romkatv/powerlevel10k'
@@ -9,7 +10,7 @@ brew 'difftastic'
 brew 'displayplacer'
 brew 'fzf'
 brew 'gh'
-brew 'herdr'
+brew 'fzf/herdr/herdr', args: ['HEAD'] # fork: configurable copy-mode keys, synced with upstream daily
 brew 'git'
 brew 'hub'
 brew 'less'
