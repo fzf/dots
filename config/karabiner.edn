@@ -86,7 +86,7 @@
     :chrome_history_forward { :key :right_arrow :modi :left_command }
     :chrome_open { :key :k :modi :left_command }
     :chrome_open_undo { :key :k :modi :command_shift }
-    :chrome_split { :key :f9 :modi :left_command }
+    :chrome_split { :key :close_bracket :modi :control_shift }
     :chrome_split_back { :key :open_bracket :modi :control_shift }
     :chrome_split_forward { :key :open_bracket :modi :control_shift }
     :chrome_split_close { :key :w :modi :left_command }
@@ -179,6 +179,10 @@
     {:des "chrome history_forward" :rules [[:history_forward :chrome_history_forward :chrome]]}
     {:des "chrome open" :rules [[:open :chrome_open :chrome]]}
     {:des "chrome open_undo" :rules [[:open_undo :chrome_open_undo :chrome]]}
+    {:des "chrome split" :rules [[:split :chrome_split :chrome]]}
+    {:des "chrome split_back" :rules [[:split_back :chrome_split_back :chrome]]}
+    {:des "chrome split_forward" :rules [[:split_forward :chrome_split_forward :chrome]]}
+    {:des "chrome split_close" :rules [[:split_close :chrome_split_close :chrome]]}
     {:des "chrome tab_back" :rules [[:tab_back :chrome_tab_back :chrome]]}
     {:des "chrome tab_forward" :rules [[:tab_forward :chrome_tab_forward :chrome]]}
     {:des "island drawer_left" :rules [[:drawer_left :island_drawer_left :island]]}

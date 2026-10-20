@@ -106,4 +106,14 @@ export PATH=$PATH:/Users/fletcher.fowler/Projects/chime/better_dependabot/bin
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 source /opt/homebrew/opt/spaceship/spaceship.zsh
+
+spaceship_worktree() {
+  local git_dir
+  git_dir=$(git rev-parse --git-dir 2>/dev/null) || return
+  [[ "$git_dir" == *"/worktrees/"* ]] || return
+  local name="${git_dir##*/worktrees/}"
+  spaceship::section --color yellow "wt:$name "
+}
+SPACESHIP_RPROMPT_ORDER=(worktree)
+
 source ~/.env
