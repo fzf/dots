@@ -1,9 +1,6 @@
 tap 'fzf/herdr', 'https://github.com/fzf/herdr.git'
-tap 'homebrew/cask-fonts'
 tap 'jakehilborn/jakehilborn'
-tap 'romkatv/powerlevel10k'
 tap 'yqrashawn/goku'
-tap 'zaquestion/tap'
 
 brew 'asdf'
 brew 'difftastic'
@@ -20,12 +17,11 @@ brew 'postgresql@14'
 brew 'powerlevel10k'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
-brew 'romkatv/powerlevel10k/powerlevel10k'
 brew 'tmux'
 brew 'watch'
 brew 'yqrashawn/goku/goku', start_service: true
 brew 'z'
-brew 'zaquestion/tap/lab'
+brew 'lab'
 brew 'zsh'
 
 brew 'gpg'
